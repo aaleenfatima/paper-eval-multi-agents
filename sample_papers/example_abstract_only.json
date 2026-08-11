@@ -1,0 +1,4 @@
+{
+  "title": "Building Autonomous AI Agents for Multi-Step Reasoning Tasks",
+  "abstract": "This paper explores the design of autonomous AI agents capable of planning, tool calling, and memory management for multi-step reasoning tasks. We propose a framework combining large language models with external memory and retrieval mechanisms, and evaluate it on a suite of reasoning benchmarks. Our results show improvements over single-shot prompting baselines."
+}

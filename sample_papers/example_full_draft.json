@@ -1,0 +1,5 @@
+{
+  "title": "GazeGuard: Detecting Interview Anxiety via Multimodal Gaze and Audio Features",
+  "abstract": "We present GazeGuard, a system for detecting signs of interview anxiety using an ensemble of gaze, audio, and video features. We evaluate our approach on a dataset of simulated interview sessions.",
+  "draft_text": "1. Introduction: Interview anxiety affects candidate performance significantly. Prior work has looked at facial expression analysis but not combined gaze steadiness with audio prosody in an ensemble anomaly detection framework.\n\n2. Related Work: Several papers have studied affect detection in interviews using video alone.\n\n3. Method: We extract gaze steadiness scores, audio pitch variance, and use an ensemble anomaly detection model to flag anxious moments. Features are combined and fed into the model.\n\n4. Results: The system successfully flags anxious moments in our test recordings.\n\n5. Conclusion: GazeGuard shows promise for interview coaching applications."
+}
