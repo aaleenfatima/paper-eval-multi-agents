@@ -1,0 +1,112 @@
+{
+  "paper_id": "iclr2017train_319",
+  "title": "Paying More Attention to Attention: Improving the Performance of Convolutional Neural Networks via Attention Transfer",
+  "processed_at": "2026-08-12T10:12:58.724075+00:00",
+  "elapsed_seconds": 823.3,
+  "human_review_text": "Important task (attention models), interesting distillation application, well-written paper. The authors have been responsive in updating the paper, adding new experiments, and being balanced in presenting their findings. I support accepting this paper.\n\n---\n\nWe would like to thank the reviewers for their comments and for providing us with valuable feedback. We already updated the paper with new results on ImageNet, and are also going to further update the paper based on the reviewer comments as explained in our responses below.\nWe also plan to release the code for our experiments next week.\n\n---\n\nThe paper proposes a new way of transferring knowledge.\nI like the idea of transferring attention maps instead of activations.\nHowever, the experiments don\u2019t show a big improvement compared with knowledge distillation alone and I think more experiments are required in IMAGENET section.\nI would consider updating the score if the authors extend the last section 4.2.2.\n\n---\n\nThe paper presented a modified knowledge distillation framework that minimizes the difference of the sum of statistics across the a feature map between the teacher and the student network. The authors empirically demonstrated the proposed methods outperform the fitnet style distillation baseline. \n\nPros:\n+ The author evaluated the proposed methods on various computer vision dataset \n+ The paper is in general well-written\n\nCons:  \n- The method seems to be limited to the convolutional architecture\n- The attention terminology is misleading in the paper. The proposed method really just try to distill the summed squared(or other statistics e.g. summed lp norm) of  activations in a hidden feature map.\n- The gradient-based attention transfer seems out-of-place. The proposed gradient-based methods are never compared directly to nor are used jointly with the \"attention-based\" transfer. It seems like a parallel idea added to the paper that does not seem to add much value.\n- It is also not clear how the induced 2-norms in eq.(2) is computed. Q is a matrix \\in \\mathbb{R}^{H \\times W}  whose induced 2-norm is its largest singular value. It seems computationally expensive to compute such cost function. Is it possible the authors really mean the Frobenius norm?\n\nOverall, the proposed distillation method works well in practice but the paper has some organization issues and unclear notation.\n\n---\n\nThis paper proposes to investigate attention transfers between a teacher and a student network. \n\nAttention transfer is performed by minimising the l2 distance between the teacher/student attention maps at different layers, in addition to minimising the classification loss and optionally a knowledge distillation term.\nAuthors define several activation based attentions (sum of absolute feature values raise at the power p or max of values raised at the power p). They also propose a gradient based attention (derivative of the Loss w.r.t. inputs). \n\nThey evaluate their approaches on several datasets (CIFAR, Cub/Scene, Imagenet) showing that attention transfers  does help improving the student network test performance.  However, the student networks performs worst than the teacher, even with attention.\n\nFew remarks/questions:\n- in section 3 authors  claim that networks with higher accuracy have a higher spatial correlation between the object and the attention map. While Figure 4 is compelling, it would be nice to have quantitative results showing that as well.\n- how did you choose the hyperparameter values, it would be nice to see what is the impact of $\\beta$.\n- it would be nice to report teacher train and validation loss in Figure 7 b)\n- from the experiments, it is not clear what at the pros/cons of the different attention maps\n- AT does not lead to better result than the teacher. However, the student networks have less parameters. It would be interesting to characterise the corresponding speed-up. If you keep the same architecture between the student and the teacher, is there any benefit to the attention transfer?\n\nIn summary:\nPros:\n- Clearly written and well motivated.\n- Consistent improvement of the student with attention compared to the student alone.\nCons:\n- Students have worst performances than the teacher models.\n- It is not clear which attention to use in which case?\n- Somewhat incremental novelty relatively to Fitnet\n\n---\n\nHi, Sergey.\n\nI am confused about the definition of activation tensor in section 3.1.\n\nIs it obtained before or after ReLU activation function?\n\nIf it's got after ReLu, there is no need adding absolute function.\n\nThanks!\n\n---\n\nImportant task (attention models), interesting distillation application, well-written paper. The authors have been responsive in updating the paper, adding new experiments, and being balanced in presenting their findings. I support accepting this paper.\n\n---\n\nWe would like to thank the reviewers for their comments and for providing us with valuable feedback. We already updated the paper with new results on ImageNet, and are also going to further update the paper based on the reviewer comments as explained in our responses below.\nWe also plan to release the code for our experiments next week.\n\n---\n\nThe paper proposes a new way of transferring knowledge.\nI like the idea of transferring attention maps instead of activations.\nHowever, the experiments don\u2019t show a big improvement compared with knowledge distillation alone and I think more experiments are required in IMAGENET section.\nI would consider updating the score if the authors extend the last section 4.2.2.\n\n---\n\nThe paper presented a modified knowledge distillation framework that minimizes the difference of the sum of statistics across the a feature map between the teacher and the student network. The authors empirically demonstrated the proposed methods outperform the fitnet style distillation baseline. \n\nPros:\n+ The author evaluated the proposed methods on various computer vision dataset \n+ The paper is in general well-written\n\nCons:  \n- The method seems to be limited to the convolutional architecture\n- The attention terminology is misleading in the paper. The proposed method really just try to distill the summed squared(or other statistics e.g. summed lp norm) of  activations in a hidden feature map.\n- The gradient-based attention transfer seems out-of-place. The proposed gradient-based methods are never compared directly to nor are used jointly with the \"attention-based\" transfer. It seems like a parallel idea added to the paper that does not seem to add much value.\n- It is also not clear how the induced 2-norms in eq.(2) is computed. Q is a matrix \\in \\mathbb{R}^{H \\times W}  whose induced 2-norm is its largest singular value. It seems computationally expensive to compute such cost function. Is it possible the authors really mean the Frobenius norm?\n\nOverall, the proposed distillation method works well in practice but the paper has some organization issues and unclear notation.\n\n---\n\nThis paper proposes to investigate attention transfers between a teacher and a student network. \n\nAttention transfer is performed by minimising the l2 distance between the teacher/student attention maps at different layers, in addition to minimising the classification loss and optionally a knowledge distillation term.\nAuthors define several activation based attentions (sum of absolute feature values raise at the power p or max of values raised at the power p). They also propose a gradient based attention (derivative of the Loss w.r.t. inputs). \n\nThey evaluate their approaches on several datasets (CIFAR, Cub/Scene, Imagenet) showing that attention transfers  does help improving the student network test performance.  However, the student networks performs worst than the teacher, even with attention.\n\nFew remarks/questions:\n- in section 3 authors  claim that networks with higher accuracy have a higher spatial correlation between the object and the attention map. While Figure 4 is compelling, it would be nice to have quantitative results showing that as well.\n- how did you choose the hyperparameter values, it would be nice to see what is the impact of $\\beta$.\n- it would be nice to report teacher train and validation loss in Figure 7 b)\n- from the experiments, it is not clear what at the pros/cons of the different attention maps\n- AT does not lead to better result than the teacher. However, the student networks have less parameters. It would be interesting to characterise the corresponding speed-up. If you keep the same architecture between the student and the teacher, is there any benefit to the attention transfer?\n\nIn summary:\nPros:\n- Clearly written and well motivated.\n- Consistent improvement of the student with attention compared to the student alone.\nCons:\n- Students have worst performances than the teacher models.\n- It is not clear which attention to use in which case?\n- Somewhat incremental novelty relatively to Fitnet\n\n---\n\nHi, Sergey.\n\nI am confused about the definition of activation tensor in section 3.1.\n\nIs it obtained before or after ReLU activation function?\n\nIf it's got after ReLu, there is no need adding absolute function.\n\nThanks!",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper proposes using attention mechanisms in convolutional neural networks (CNNs) to improve their performance, particularly through transferring attention information from a teacher CNN to a student CNN.",
+      "strengths": [
+        "Clear introduction and motivation for the use of attention in CNNs.",
+        "Well-structured sections with logical flow from related work to proposed methods to results."
+      ],
+      "weaknesses": [
+        "The abstract could be more specific about the contributions, currently it is a bit vague.",
+        "Some parts of the introduction are repetitive and could be streamlined for clarity."
+      ],
+      "confidence": 0.9,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper proposes a method to transfer attention from a teacher CNN to a student CNN to improve performance. It defines two types of spatial attention maps and explores their use in various architectures and datasets, but lacks specific details on the evaluation setup.",
+      "strengths": [
+        "Proposes a novel approach for transferring attention between networks",
+        "Explores different types of attention maps (activation-based and gradient-based)"
+      ],
+      "weaknesses": [
+        "No information provided about baseline models or datasets used for evaluation",
+        "Lacks specific details on the experimental setup, such as sample size and train/test split"
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "What datasets and tasks are used for evaluating the proposed methods? What are the baseline models compared against?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper proposes a novel approach to transfer attention from a teacher network to a student network, which is not directly addressed in the provided related works. However, there are no specific cited papers to compare against, making it difficult to fully assess its novelty. The citation coverage is weak as the paper does not discuss how attention maps were generated or validated independently of the transfer process, which could impact result interpretation.",
+      "strengths": [
+        "Proposes a novel method for transferring attention between networks",
+        "Consistent improvement across various datasets and architectures"
+      ],
+      "weaknesses": [
+        "Lack of specific related papers to compare against for novelty assessment",
+        "Weak citation coverage due to insufficient discussion on how attention maps were generated or validated independently"
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper proposes a method to transfer attention from a teacher CNN to a student CNN to improve performance. It defines two types of spatial attention maps and explores their use in various architectures and datasets, but lacks specific details on the evaluation setup.",
+          "strengths": [
+            "Proposes a novel approach for transferring attention between networks",
+            "Explores different types of attention maps (activation-based and gradient-based)"
+          ],
+          "weaknesses": [
+            "No information provided about baseline models or datasets used for evaluation",
+            "Lacks specific details on the experimental setup, such as sample size and train/test split"
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "What datasets and tasks are used for evaluating the proposed methods? What are the baseline models compared against?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.6
+        },
+        "challenger_critique": "The original review accurately points out that the paper lacks specific details on the evaluation setup, such as datasets, tasks, baseline models, sample size, and train/test split. The author clarifications do not provide this information, so the weaknesses noted by the reviewer hold up.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper proposes attention transfer methods to improve CNN performance, which is novel compared to existing works on attention mechanisms in NLP and computer vision. However, the lack of related papers makes it difficult to assess the novelty accurately.",
+          "strengths": [
+            "Proposes a new approach for transferring attention from teacher networks to student networks.",
+            "Experimental results show significant improvements across various datasets and architectures."
+          ],
+          "weaknesses": [
+            "No related work provided to compare against existing methods, making it challenging to evaluate the novelty of the proposed approach.",
+            "Citation coverage is weak due to the absence of relevant papers in the literature search."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": false,
+          "pre_debate_confidence": null
+        },
+        "challenger_critique": "The review misses a specific gap in the paper's experimental setup, which is that there are no details on how the attention maps were generated or validated independently of the transfer process. This could impact the robustness of the results and their interpretation.",
+        "resolution_summary": "The paper proposes a novel approach to transfer attention from a teacher network to a student network, which is not directly addressed in the provided related works. However, there are no specific cited papers to compare against, making it difficult to fully assess its novelty. The citation coverage is weak as the paper does not discuss how attention maps were generated or validated independently of the transfer process, which could impact result interpretation.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What datasets and tasks are used for evaluating the proposed methods? What are the baseline models compared against?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to transfer attention from a teacher CNN to a student CNN, aiming to improve the performance of the latter. The methodology is well-structured and introduces two types of spatial attention maps (activation-based and gradient-based). However, there are significant gaps in the clarity of the abstract, missing details on the experimental setup, and weak citation coverage that hinder a full assessment of its novelty.\n\n### Key Strengths\n\n1. **Clear Introduction and Motivation**: The introduction provides a clear motivation for using attention mechanisms in CNNs.\n2. **Well-Structured Sections**: The paper follows a logical flow from related work to proposed methods and results.\n3. **Novel Methodology**: Proposes a novel method for transferring attention between networks, leading to consistent improvements across various datasets and architectures.\n\n### Key Weaknesses (Prioritized)\n\n1. **Weak Abstract**: The abstract is vague and could be more specific about the contributions.\n2. **Lack of Baseline Models and Datasets**: No information provided on baseline models or datasets used for evaluation, making it difficult to assess the methodology's effectiveness.\n3. **Insufficient Experimental Details**: Specific details such as sample size, train/test split, and experimental setup are missing.\n4. **Weak Citation Coverage**: The paper lacks specific related works to compare against, impacting the assessment of its novelty.\n\n### Missing Sections / Information\n\n1. **Baseline Models and Datasets**: Clear identification and description of baseline models and datasets used for evaluation.\n2. **Experimental Setup Details**: Specific details on sample size, train/test split, and experimental conditions.\n3. **Attention Map Generation and Validation**: Independent validation or generation process for the attention maps to ensure their reliability.\n\n### Significance Assessment\n\nThe contribution is promising but lacks significant depth in terms of its impact on the field. The proposed method shows consistent improvements across various datasets and architectures, which is a positive sign. However, without detailed experimental setup information, it is challenging to assess the robustness and generalizability of these findings. Additionally, the weak citation coverage makes it difficult to place this work within the broader context of existing research.\n\n### Recommendation\n\nThis paper shows potential but requires significant revisions before submission. The author should address the weaknesses in clarity, methodology, and novelty by providing more specific details on baseline models, datasets, experimental setup, and attention map generation/validation processes. Improving the abstract to clearly outline the contributions will also enhance the overall quality of the manuscript. Given these issues, I recommend a major revision before resubmission.\n\n**Actionable Feedback for Authors:**\n\n1. **Abstract**: Revise the abstract to be more specific about the contributions.\n2. **Experimental Setup**: Provide detailed information on baseline models, datasets, sample size, train/test split, and experimental conditions.\n3. **Attention Map Validation**: Include a discussion or validation process for how attention maps are generated and used in the experiments.\n4. **Citation Coverage**: Ensure thorough citation coverage by reviewing related works that discuss attention mechanisms and their applications in CNNs.\n\nBy addressing these issues, the paper can significantly improve its clarity, robustness, and significance to the field.",
+    "overall_confidence": 0.57
+  }
+}

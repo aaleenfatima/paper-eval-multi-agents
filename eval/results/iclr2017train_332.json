@@ -1,0 +1,114 @@
+{
+  "paper_id": "iclr2017train_332",
+  "title": "Transfer of View-manifold Learning to Similarity Perception of Novel Objects",
+  "processed_at": "2026-08-12T11:37:36.257819+00:00",
+  "elapsed_seconds": 657.3,
+  "human_review_text": "The paper proposes a model for multi-view learning that uses a triplet loss to encourage different views of the same object to be closer together then the views of two different objects. The technical novelty of the model is somewhat limited, and the reviewers are concerned that experimental evaluations are done exclusively on synthetic data. The connections to human perception appear interesting. Earlier issues with missing references to prior work and comparisons with baseline models appear to have been substantially addressed in revisions of the paper. We strongly encourage the authors to further revise their paper to address the remaining outstanding issues mentioned above.\n\n---\n\nWe thank all the official and unofficial reviewers for their extremely useful suggestions and are encouraged by the positive feedbacks. \n\nFollowing these suggestions, we have made a number of revisions and uploaded a new version of our manuscript, including adding important references, baselines and an experiment showing performance of features from different layers in Appendix B. We have colored the modifications red in order to provide an easier way to track the changes from the original submission.\n\n---\n\nThis paper proposes a model to learn across different views of objects.  The key insight is to use a triplet loss that encourages two different views of the same object to be closer than an image of a different object.  The approach is evaluated on object instance and category retrieval and compared against baseline CNNs (untrained AlexNet and AlexNet fine-tuned for category classification) using fc7 features with cosine distance.  Furthermore, a comparison against human perception on the \"Tenenbaum objects\u201d is shown.\n\nPositives: Leveraging a triplet loss for this problem may have some novelty (although it may be somewhat limited given some concurrent work; see below).  The paper is reasonably written.\n\nNegatives: The paper is missing relevant references of related work in this space and should compare against an existing approach.\n\nMore details:\n\nThe \u201cimage purification\u201d paper is very related to this work:\n\n[A] Joint Embeddings of Shapes and Images via CNN Image Purification. Hao Su*, Yangyan Li*, Charles Qi, Noa Fish, Daniel Cohen-Or, Leonidas Guibas. SIGGRAPH Asia 2015.\n\nThere they learn to map CNN features to (hand-designed) light field descriptors of 3D shapes for view-invariant object retrieval.  If possible, it would be good to compare directly against this approach (e.g., the cross-view retrieval experiment in Table 1 of [A]).  It appears that code and data is available online (\n\n---\n\nI think learning a deep feature representation that is supervised to group dissimilar views of the same object is interesting. The paper isn't technically especially novel but that doesn't bother me at all. It does a good job exploring a new form of supervision with a new dataset. I'm also not bothered that the dataset is synthetic, but it would be good to have more experiments with real data, as well. \n\nI think the paper goes too far in linking itself to human vision. I would prefer the intro not have as much cognitive science or neuroscience. The second to fourth paragraphs of the intro in particular feels like it over-stating the contribution of this paper as somehow revealing some truth about human vision. Really, the narrative is much simpler -- \"we often want deep feature representations that are viewpoint invariant. We supervise a deep network accordingly. Humans also have some capability to be viewpoint invariant which has been widely studied [citations]\". I am skeptical of any claimed connections bigger than that.\n\nI think 3.1 should not be based on tree-to-tree distance comparisons but instead based on the entire matrix of instance-to-instance similarity assessments. Why do the lossy conversion to trees first? I don't think \"Remarkably\" is justified in the statement \"Remarkably, we found that OPnets similarity judgement matches a set of data on human similarity judgement, significantly better than AlexNet\"\n\nI'm not an expert on human vision, but from browsing online and from what I've learned before it seems that \"object persistence\" frequently relates to the concept of occlusion. Occlusion is never mentioned in this paper. I feel like the use of human vision terms might be misleading or overclaiming.\n\n---\n\nOn one hand this paper is fairly standard in that it uses deep metric learning with a Siamese architecture. On the other, the connections to human perception involving persistence is quite interesting. I'm not an expert in human vision, but the comparison in general and the induced hierarchical groupings in particular seem like something that should interest people in this community. The experimental suite is ok but I was disappointed that it is 100% synthetic. The authors could have used a minimally viable real dataset such as ALOI\n\n---\n\nThe paper proposes a model for multi-view learning that uses a triplet loss to encourage different views of the same object to be closer together then the views of two different objects. The technical novelty of the model is somewhat limited, and the reviewers are concerned that experimental evaluations are done exclusively on synthetic data. The connections to human perception appear interesting. Earlier issues with missing references to prior work and comparisons with baseline models appear to have been substantially addressed in revisions of the paper. We strongly encourage the authors to further revise their paper to address the remaining outstanding issues mentioned above.\n\n---\n\nWe thank all the official and unofficial reviewers for their extremely useful suggestions and are encouraged by the positive feedbacks. \n\nFollowing these suggestions, we have made a number of revisions and uploaded a new version of our manuscript, including adding important references, baselines and an experiment showing performance of features from different layers in Appendix B. We have colored the modifications red in order to provide an easier way to track the changes from the original submission.\n\n---\n\nThis paper proposes a model to learn across different views of objects.  The key insight is to use a triplet loss that encourages two different views of the same object to be closer than an image of a different object.  The approach is evaluated on object instance and category retrieval and compared against baseline CNNs (untrained AlexNet and AlexNet fine-tuned for category classification) using fc7 features with cosine distance.  Furthermore, a comparison against human perception on the \"Tenenbaum objects\u201d is shown.\n\nPositives: Leveraging a triplet loss for this problem may have some novelty (although it may be somewhat limited given some concurrent work; see below).  The paper is reasonably written.\n\nNegatives: The paper is missing relevant references of related work in this space and should compare against an existing approach.\n\nMore details:\n\nThe \u201cimage purification\u201d paper is very related to this work:\n\n[A] Joint Embeddings of Shapes and Images via CNN Image Purification. Hao Su*, Yangyan Li*, Charles Qi, Noa Fish, Daniel Cohen-Or, Leonidas Guibas. SIGGRAPH Asia 2015.\n\nThere they learn to map CNN features to (hand-designed) light field descriptors of 3D shapes for view-invariant object retrieval.  If possible, it would be good to compare directly against this approach (e.g., the cross-view retrieval experiment in Table 1 of [A]).  It appears that code and data is available online (\n\n---\n\nI think learning a deep feature representation that is supervised to group dissimilar views of the same object is interesting. The paper isn't technically especially novel but that doesn't bother me at all. It does a good job exploring a new form of supervision with a new dataset. I'm also not bothered that the dataset is synthetic, but it would be good to have more experiments with real data, as well. \n\nI think the paper goes too far in linking itself to human vision. I would prefer the intro not have as much cognitive science or neuroscience. The second to fourth paragraphs of the intro in particular feels like it over-stating the contribution of this paper as somehow revealing some truth about human vision. Really, the narrative is much simpler -- \"we often want deep feature representations that are viewpoint invariant. We supervise a deep network accordingly. Humans also have some capability to be viewpoint invariant which has been widely studied [citations]\". I am skeptical of any claimed connections bigger than that.\n\nI think 3.1 should not be based on tree-to-tree distance comparisons but instead based on the entire matrix of instance-to-instance similarity assessments. Why do the lossy conversion to trees first? I don't think \"Remarkably\" is justified in the statement \"Remarkably, we found that OPnets similarity judgement matches a set of data on human similarity judgement, significantly better than AlexNet\"\n\nI'm not an expert on human vision, but from browsing online and from what I've learned before it seems that \"object persistence\" frequently relates to the concept of occlusion. Occlusion is never mentioned in this paper. I feel like the use of human vision terms might be misleading or overclaiming.\n\n---\n\nOn one hand this paper is fairly standard in that it uses deep metric learning with a Siamese architecture. On the other, the connections to human perception involving persistence is quite interesting. I'm not an expert in human vision, but the comparison in general and the induced hierarchical groupings in particular seem like something that should interest people in this community. The experimental suite is ok but I was disappointed that it is 100% synthetic. The authors could have used a minimally viable real dataset such as ALOI",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper proposes a model that re-trains DCNNs with object persistence constraints to improve perceptual similarity judgment for novel objects and across categories. It aims to demonstrate the transferability of this learning to new, unseen classes and synthetic objects.",
+      "strengths": [
+        "Clear introduction of the problem and its significance",
+        "Well-defined methodology with a specific re-training approach",
+        "Relevance to both computational neuroscience and computer vision"
+      ],
+      "weaknesses": [
+        "The abstract could be more concise and focused on the key contributions",
+        "Some sections, like the discussion, are not fully developed in this draft",
+        "The introduction could benefit from a clearer statement of specific contributions"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The draft presents a method to retrain DCNNs with object persistence constraints for similarity judgment, suggesting transfer learning capabilities. However, the experimental details are not provided.",
+      "strengths": [
+        "Proposes an innovative approach to incorporate object persistence into DCNN training."
+      ],
+      "weaknesses": [
+        "Lacks specific experimental setup details such as dataset choices, train/test splits, hyperparameters, and evaluation metrics.",
+        "No comparison against established baselines for similarity judgment tasks is provided.",
+        "The transfer learning aspect is suggested but lacks detailed analysis of performance on novel objects beyond the trained categories."
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "What are the specific details of the experimental setup, including the choice of datasets, train/test splits, hyperparameters, and evaluation metrics?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper's contribution is novel in demonstrating transfer of view-manifold learning for similarity perception, but the lack of relevant related work makes it difficult to assess its novelty and citation coverage accurately.",
+      "strengths": [
+        "Demonstrates surprising transfer of learned similarity judgment to untrained classes and artificial objects.",
+        "Introduces object persistence constraints during training of DCNNs."
+      ],
+      "weaknesses": [
+        "No related papers were retrieved, making it challenging to evaluate the novelty and citation coverage comprehensively.",
+        "The paper does not provide a detailed survey or comparison with existing literature on view-manifold learning and similarity perception."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper proposes retraining a DCNN with object persistence constraints to improve perceptual similarity judgment. The model is evaluated on both trained and novel objects, suggesting transfer of learning. However, the specific experimental details are not provided.",
+          "strengths": [
+            "Proposes an innovative approach using object persistence constraints.",
+            "Suggests potential for transfer learning across different object categories."
+          ],
+          "weaknesses": [
+            "Lacks detailed information about datasets, train/test splits, and hyperparameters.",
+            "No comparison against established baselines or previous work on similar tasks."
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "What are the specific details of the experimental setup, including the choice of datasets, train/test splits, hyperparameters, and evaluation metrics?",
+          "was_debated": false,
+          "pre_debate_confidence": null
+        },
+        "challenger_critique": "The original review does not mention any gaps in the discussion or analysis of the model's performance on novel objects. The reviewer could have noted that while transfer learning is suggested, more details are needed to understand how well the model generalizes beyond the trained categories and whether this generalization outperforms other methods.",
+        "resolution_summary": "The draft presents a method to retrain DCNNs with object persistence constraints for similarity judgment, suggesting transfer learning capabilities. However, the experimental details are not provided.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper's contribution is novel in demonstrating transfer of view-manifold learning for similarity perception, but the lack of relevant related work makes it difficult to assess its novelty and citation coverage accurately.",
+          "strengths": [
+            "Demonstrates surprising transfer of learned similarity judgment to untrained classes and artificial objects.",
+            "Introduces object persistence constraints during training of DCNNs."
+          ],
+          "weaknesses": [
+            "No related papers were retrieved, making it challenging to evaluate the novelty and citation coverage comprehensively.",
+            "The paper does not provide a detailed survey or comparison with existing literature on view-manifold learning and similarity perception."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.2
+        },
+        "challenger_critique": "The original review overstates the novelty by assuming a lack of relevant related work without providing concrete examples or references to missing literature.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What are the specific details of the experimental setup, including the choice of datasets, train/test splits, hyperparameters, and evaluation metrics?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to retrain DCNNs with object persistence constraints for improving perceptual similarity judgment, particularly for new and synthetic objects. The methodology is innovative but lacks detailed experimental setup descriptions, and the novelty of the work is challenging to assess due to insufficient related literature.\n\n### Key Strengths\n1. **Clear Introduction**: The introduction effectively outlines the problem and its significance.\n2. **Relevance**: The proposed method bridges computational neuroscience with computer vision.\n3. **Innovative Approach**: Introduces object persistence constraints during DCNN training, potentially leading to improved transfer learning capabilities.\n\n### Key Weaknesses (Prioritized)\n1. **Experimental Details Missing**: Lack of specific experimental setup details such as dataset choices, train/test splits, hyperparameters, and evaluation metrics.\n2. **Insufficient Related Work**: No related papers were retrieved, making it difficult to evaluate the novelty and citation coverage comprehensively.\n3. **Underdeveloped Sections**: The discussion section is not fully developed in this draft.\n\n### Missing Sections / Information\n- **Detailed Experimental Setup**: Specific details of datasets used, train/test splits, hyperparameters, and evaluation metrics are missing.\n- **Comparison with Baselines**: No comparison against established baselines for similarity judgment tasks.\n- **Transfer Learning Analysis**: Detailed analysis of performance on novel objects beyond the trained categories is lacking.\n\n### Significance Assessment\nThe contribution appears promising but seems to be a small incremental step. The paper demonstrates surprising transfer capabilities, which could be significant if supported by robust experimental evidence and comparisons with existing literature. However, the lack of detailed methodology and related work makes it challenging to assess its broader impact on the field.\n\n### Recommendation\n\nWhile the proposed method is innovative and relevant, the current submission requires significant revisions before it can be considered for full review. The authors should:\n\n1. **Provide Detailed Experimental Setup**: Include specific details about datasets, train/test splits, hyperparameters, and evaluation metrics.\n2. **Compare with Baselines**: Conduct experiments comparing the proposed approach against established methods to establish its effectiveness.\n3. **Expand Related Work**: Cite and discuss relevant literature to better assess the novelty of the contribution.\n\nGiven these issues, I recommend that this paper be resubmitted after addressing the above points. If the revisions are substantial and address the weaknesses effectively, it could become a promising submission. However, if the improvements do not significantly enhance the clarity or robustness of the work, the recommendation might be to reject for major revision. \n\n**Recommendation: Resubmit with Major Revisions**.",
+    "overall_confidence": 0.53
+  }
+}

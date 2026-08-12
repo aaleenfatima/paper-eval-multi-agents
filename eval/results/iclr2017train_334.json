@@ -1,0 +1,112 @@
+{
+  "paper_id": "iclr2017train_334",
+  "title": "Emergence of foveal image sampling from learning to attend in visual scenes",
+  "processed_at": "2026-08-12T11:49:05.134872+00:00",
+  "elapsed_seconds": 688.9,
+  "human_review_text": "This was a borderline case. All reviewers and the AC appeared to find the paper interesting, while having some reservations. Given the originality of the work, the PCs decided to lean toward acceptance. We do encourage however the authors to revise their paper based on reviewer feedback as much as possible, to increase its potential for impact.\n\n---\n\nThis paper presents a succinct argument that the principle of optimizing receptive field location and size in a simulated eye that can make saccades with respect to a classification error of images of data whose labels depend on variable-size and variable-location subimages, explains the existence of a foveal area in e.g. the primate retina.\n\nThe argument could be improved by using more-realistic image data and drawing more direct correspondence with the number, receptive field sizes and eccentricities of retinal cells in e.g. the macaque, but the authors would then face the challenge of identifying a loss function that is both biologically plausible and supportive of their claim.\n\nThe argument could also be improved by commenting on the timescales involved. Presumably the density of the foveal center depends on the number of of saccades allowed by the inference process, as well as the size of the target sub-images, and also has an impact on the overall classification accuracy.\n\nWhy does the classification error rate of dataset 2 remain stubbornly at 24%? This seems so high that the model may not be working the way we\u2019d like it to. It seems that the overall argument of the paper pre-supposes that the model can be trained to be a good classifier. If there are other training strategies or other models that work better and differently, then it raises the question of why do our eyes and visual cortex not work more like *those ones* if evolutionary pressures are applying the same pressure as our training objective.\n\nWhy does the model with zooming powers out-do the translation-only model on dataset 1 (where all target images are the same size) and tie the translation-only model dataset 2 (where the target images have different sizes, for which the zooming model should be tailor-made?). Between this strange tie and the high classification rate on Dataset 2, I wonder if maybe one or both models isn\u2019t being trained to its potential, which would undermine the overall claim.\n\nComparing this model to other attention models (e.g. spatial transformer networks, DRAW) would be irrelevant to what I take to be the main point of the paper, but it would address the potential concerns above that training just didn\u2019t go very well, or there was some problem with the model parameterization that could be easily fixed.\n\n---\n\nThe paper presented an extension to the current visual attention model that learns a deformable sampling lattice.  Comparing to the fixed sampling lattice from previous works, the proposed method shows different sampling strategy can emerge depending on the visual classification tasks. The authors empirically demonstrated the learnt sampling lattice outperforms the fixed strategies. More interestingly, when the attention mechanism is constrained  to be translation only, the proposed model learns a sampling lattice resembles the retina found in the primate retina.  \n\n\nPros:\n+ The paper is generally well organized and written \n+ The qualitative analysis in the experimental section is very comprehensive.\n\nCons:\n-  The paper could benefit substantially from additional experiments on different datasets.\n-  It is not clear from the tables the proposed learnt sampling  lattice offer any computation benefit when comparing to  a fixed sampling strategy with zooming capability, e.g. the one used in DRAW model.\n\nOverall, I really like the paper. I think the experimental section can be improved by additional experiments and more quantitative analysis with other baselines. Because the current revision of the paper only shows experiments on digit dataset with black background, it is hard to generalize the finding or even to verify the claims in the paper, e.g.  linear relationship\nbetween eccentricity and sampling interval leads to the primate retina, from the results on a single dataset.\n\n---\n\nThis paper proposed a neural attention model which has a learnable and differentiable sampling lattice. The work is well motivated as few previous work focus on learning the sampling lattice but with a fixed lattice. This work is quite similar to Spatial Transformer Networks (Jaderberg 2015), but the sampling lattice is learned by the model. The experiments showed that the model can learn a meaning lattice to the visual search task where the sampling lattice looks similar to human being's. \n\nThe main concern of the paper is that experiments are not sufficient. The paper only reports the results on a modified clustered MNIST dataset. It would be more interesting if the authors could conduct  the model on real datasets, such as Toronto Face dataset, CUB bird dataset and SVHN. For example, for the Face dataset, it would be nice if the model can learn to attend different parts of the face for expression recognition, or attend different part of birds for fine-grained classification. Since the authors replied in the pre-review question that the model can learn meaningful lattice on MSCOCO dataset, I think it would be better to add that results into the paper.\n\nAnother drawback of the model is that the paper only compare with different variants of itselves. I suggest that this paper should compare with  Spatial Transformer Networks, DRAW, etc., on the same dataset to show the advantage of the learned sampling lattice.\n\n---\n\nThis was a borderline case. All reviewers and the AC appeared to find the paper interesting, while having some reservations. Given the originality of the work, the PCs decided to lean toward acceptance. We do encourage however the authors to revise their paper based on reviewer feedback as much as possible, to increase its potential for impact.\n\n---\n\nThis paper presents a succinct argument that the principle of optimizing receptive field location and size in a simulated eye that can make saccades with respect to a classification error of images of data whose labels depend on variable-size and variable-location subimages, explains the existence of a foveal area in e.g. the primate retina.\n\nThe argument could be improved by using more-realistic image data and drawing more direct correspondence with the number, receptive field sizes and eccentricities of retinal cells in e.g. the macaque, but the authors would then face the challenge of identifying a loss function that is both biologically plausible and supportive of their claim.\n\nThe argument could also be improved by commenting on the timescales involved. Presumably the density of the foveal center depends on the number of of saccades allowed by the inference process, as well as the size of the target sub-images, and also has an impact on the overall classification accuracy.\n\nWhy does the classification error rate of dataset 2 remain stubbornly at 24%? This seems so high that the model may not be working the way we\u2019d like it to. It seems that the overall argument of the paper pre-supposes that the model can be trained to be a good classifier. If there are other training strategies or other models that work better and differently, then it raises the question of why do our eyes and visual cortex not work more like *those ones* if evolutionary pressures are applying the same pressure as our training objective.\n\nWhy does the model with zooming powers out-do the translation-only model on dataset 1 (where all target images are the same size) and tie the translation-only model dataset 2 (where the target images have different sizes, for which the zooming model should be tailor-made?). Between this strange tie and the high classification rate on Dataset 2, I wonder if maybe one or both models isn\u2019t being trained to its potential, which would undermine the overall claim.\n\nComparing this model to other attention models (e.g. spatial transformer networks, DRAW) would be irrelevant to what I take to be the main point of the paper, but it would address the potential concerns above that training just didn\u2019t go very well, or there was some problem with the model parameterization that could be easily fixed.\n\n---\n\nThe paper presented an extension to the current visual attention model that learns a deformable sampling lattice.  Comparing to the fixed sampling lattice from previous works, the proposed method shows different sampling strategy can emerge depending on the visual classification tasks. The authors empirically demonstrated the learnt sampling lattice outperforms the fixed strategies. More interestingly, when the attention mechanism is constrained  to be translation only, the proposed model learns a sampling lattice resembles the retina found in the primate retina.  \n\n\nPros:\n+ The paper is generally well organized and written \n+ The qualitative analysis in the experimental section is very comprehensive.\n\nCons:\n-  The paper could benefit substantially from additional experiments on different datasets.\n-  It is not clear from the tables the proposed learnt sampling  lattice offer any computation benefit when comparing to  a fixed sampling strategy with zooming capability, e.g. the one used in DRAW model.\n\nOverall, I really like the paper. I think the experimental section can be improved by additional experiments and more quantitative analysis with other baselines. Because the current revision of the paper only shows experiments on digit dataset with black background, it is hard to generalize the finding or even to verify the claims in the paper, e.g.  linear relationship\nbetween eccentricity and sampling interval leads to the primate retina, from the results on a single dataset.\n\n---\n\nThis paper proposed a neural attention model which has a learnable and differentiable sampling lattice. The work is well motivated as few previous work focus on learning the sampling lattice but with a fixed lattice. This work is quite similar to Spatial Transformer Networks (Jaderberg 2015), but the sampling lattice is learned by the model. The experiments showed that the model can learn a meaning lattice to the visual search task where the sampling lattice looks similar to human being's. \n\nThe main concern of the paper is that experiments are not sufficient. The paper only reports the results on a modified clustered MNIST dataset. It would be more interesting if the authors could conduct  the model on real datasets, such as Toronto Face dataset, CUB bird dataset and SVHN. For example, for the Face dataset, it would be nice if the model can learn to attend different parts of the face for expression recognition, or attend different part of birds for fine-grained classification. Since the authors replied in the pre-review question that the model can learn meaningful lattice on MSCOCO dataset, I think it would be better to add that results into the paper.\n\nAnother drawback of the model is that the paper only compare with different variants of itselves. I suggest that this paper should compare with  Spatial Transformer Networks, DRAW, etc., on the same dataset to show the advantage of the learned sampling lattice.",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper explores how a learnable retinal sampling lattice emerges in a neural attention model trained on visual search tasks, aiming to understand why the primate retina has foveal high-resolution and peripheral low-resolution sampling.",
+      "strengths": [
+        "Clear introduction of the problem and its biological context",
+        "Well-defined research question and objectives"
+      ],
+      "weaknesses": [
+        "Irrelevant content in the abstract and draft, such as ganglion cell density analysis, which does not align with the main topic",
+        "Some sections are redundant or unclear, e.g., the part about neural network models learning internal features"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper explores a neural attention model with a learnable retinal sampling lattice trained on a visual search task. The goal is to understand if the model can emerge properties similar to the primate retina, specifically foveal high resolution and peripheral low resolution.",
+      "strengths": [
+        "Addresses an interesting biological question related to visual attention",
+        "Uses a learnable retinal sampling lattice which adds novelty"
+      ],
+      "weaknesses": [
+        "Lacks details on the exact visual search task used, making it difficult to evaluate the model's performance",
+        "No comparison against established baselines for this task category is mentioned"
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "What is the exact visual search task used, and how is it designed? What baselines will be compared against this model?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper explores the emergence of foveal sampling in a neural attention model trained on visual search tasks. While it addresses an interesting biological question, there is no related work to compare against, making it difficult to assess its novelty and positioning.",
+      "strengths": [
+        "Addresses an important biological question about retinal sampling.",
+        "Proposes a learnable retinal sampling lattice for a neural network."
+      ],
+      "weaknesses": [
+        "No related papers were retrieved, so the novelty cannot be assessed in context.",
+        "Lacks discussion on potential overfitting or generalization issues of the model."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper explores a neural attention model with a learnable retinal sampling lattice trained on a visual search task. The goal is to understand if the model can emerge properties similar to the primate retina, specifically foveal high resolution and peripheral low resolution.",
+          "strengths": [
+            "Addresses an interesting biological question related to visual attention",
+            "Uses a learnable retinal sampling lattice which adds novelty"
+          ],
+          "weaknesses": [
+            "Lacks details on the exact visual search task used, making it difficult to evaluate the model's performance",
+            "No comparison against established baselines for this task category is mentioned"
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "What is the exact visual search task used, and how is it designed? What baselines will be compared against this model?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.6
+        },
+        "challenger_critique": "The original review correctly points out a lack of details on the exact visual search task and comparison to baselines. However, the paper does not claim to provide these specifics, so this is more of an area for future work rather than a gap in the current research.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper is novel in proposing a learnable retinal sampling lattice for neural attention models, but it lacks citation coverage as no related papers were provided to assess its novelty against existing work.",
+          "strengths": [
+            "Proposes a unique approach of learning the retinal sampling lattice.",
+            "Addresses an interesting question about optimal retinal sampling strategies."
+          ],
+          "weaknesses": [
+            "No related papers were provided for comparison, making it difficult to assess true novelty.",
+            "Lacks citation coverage and positioning against existing work in this area."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": false,
+          "pre_debate_confidence": null
+        },
+        "challenger_critique": "The original review does not address potential overfitting or generalization issues of the model, which is a critical aspect for evaluating neural attention models.",
+        "resolution_summary": "The paper explores the emergence of foveal sampling in a neural attention model trained on visual search tasks. While it addresses an interesting biological question, there is no related work to compare against, making it difficult to assess its novelty and positioning.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What is the exact visual search task used, and how is it designed? What baselines will be compared against this model?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper investigates the emergence of foveal sampling in a neural attention model trained on visual search tasks, aiming to understand why primate retinas have high-resolution central regions and low-resolution peripheral regions. The study proposes a learnable retinal sampling lattice within the neural network architecture, contributing an interesting biological perspective but facing several issues related to clarity, methodology, novelty, and significance.\n\n### Key Strengths\n\n1. **Clear Introduction and Research Question**: The paper provides a well-defined problem statement and objectives.\n2. **Interesting Biological Context**: The research addresses an important aspect of visual processing in biology.\n3. **Proposed Novel Architecture**: Introducing a learnable retinal sampling lattice adds novelty to the field.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Irrelevant Content and Clarity Issues**:\n   - Abstract and draft contain irrelevant content such as ganglion cell density analysis, which does not align with the main topic.\n   - Some sections are redundant or unclear, particularly regarding internal feature learning in neural networks.\n\n2. **Methodological Gaps**:\n   - Lack of details on the exact visual search task used, making it difficult to evaluate model performance.\n   - No comparison against established baselines for this task category is mentioned.\n\n3. **Lack of Novelty Assessment**:\n   - No related work was retrieved, so the novelty cannot be assessed in context.\n   - Missing discussion on potential overfitting or generalization issues of the model.\n\n### Missing Sections / Information\n\n- **Exact Visual Search Task**: Details about the visual search task used and its design are missing.\n- **Comparison against Baselines**: No comparison with established models or methods for this specific task is provided.\n- **Related Work**: More related literature to assess the novelty and positioning of the proposed model.\n\n### Significance Assessment\n\nThe contribution, while addressing an important biological question about retinal sampling, appears to be a small incremental step. The paper claims it provides insights into why primate retinas have foveal high-resolution and peripheral low-resolution sampling but lacks sufficient evidence or comparison to establish its significance in the field of visual attention models.\n\n### Recommendation\n\nThe paper is promising but requires significant revisions before submission. First, address the clarity issues by removing irrelevant content and ensuring all sections are well-defined and relevant. Next, provide detailed information on the exact visual search task used and compare your model against established baselines. Additionally, include a thorough discussion of related work to assess the novelty and significance of the contribution.\n\n### Final Recommendation\n\nI recommend **major revision** with significant additions and clarifications before resubmission. Addressing the methodological gaps and ensuring clarity will strengthen the paper's overall quality and impact. If these issues are adequately resolved, the paper could be a valuable addition to the field. However, without addressing the lack of novelty assessment and significance, it is currently not strong enough for immediate acceptance.",
+    "overall_confidence": 0.53
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "paper_id": "iclr2017train_317",
+  "title": "Amortised MAP Inference for Image Super-resolution",
+  "processed_at": "2026-08-12T09:45:03.202678+00:00",
+  "elapsed_seconds": 817.0,
+  "human_review_text": "All the reviewers agreed that the paper is original, of high quality, and worth publishing.\n\n---\n\nI just wanted to comment that I found this to be a really great paper. There's a lot of new ideas, and the writing and experiments are extremely well executed.\n\nThe analysis of section 3-3.1 is novel (to the best of my knowledge) and very valuable, as it's interesting to see in play the DAE ideas in 3.3. Figure 1 (sec 2.1) is extremely clarifying. The criticism of section 5.6 is very interesting, and might lead to a new direction of research if handled with care, the question about the precise mathematical meaning of \"producing plausible samples\" is extremely important and far from solved.\n\nMinor comments / questions:\n- Have you tried comparing with an architecture such as the ones used in segmentation or structured prediction? The use of the mean field CRF approach will lead you to pick a mode and get sharp predictions as has been done for a long time, since you are training a conditional unimodal distribution with the inverse KL. The issue of continuous variables can be ameliorated by discretizing as in pixel CNN for example. As another bonus, these architectures are very stable and can be trained with much much bigger models.\n- Page 3. Item 2. Typo on employs -> employ\n\n---\n\nThe paper presents a new framework to solve the SR problem - amortized MAP inference and adopts a pre-learned affine projection layer to ensure the output is consistent with LR. Also, it proposes three different methods to solve the problem of minimizing cross-entropy. Generally, it is a great paper. However, I still have several comments:\n\n1) The proposed amortized MAP inference is novel and different from the previous SR methods. Combined with GAN, this framework can obtain plausible and good results. Compared with another GAN-based SR methods - Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network, question may arise as to what this new formulation adds to the latest state-of-the-art.\n\n2) Using an affine projection architecture as a constraint, the model do not need any corresponding {HR, LR} image pairs for training. However, when training the affine projection layer, we still need the {HR, LR} image pairs. Does it mean that we merely transfer this training procedure to the training of affine projection?\n\n3) The paper presents many results of the framework, including the results of natural images from ImageNet. Can the author also provide the results of Set5, Set14 or BSD100, which are conventional test dataset for SR, so that we can perform a fair comparison with previous work.\n\n4) I see that the size of the results of nature images presented in this paper are limited to 128*128. Can this framework perform well on images with larger size? Because SR will encounter input with arbitrary size.\n\n5) A normal GAN will have a noise term as a latent space, so that it can be better illustrated as learning a distribution. Do the author try the noise vector?\n\nOverall, this paper provides a new framework for SR with solid theoretical analysis. The idea is novel and the author explore many methods. Though there still exist questions like the necessity and more experiments are needed. I think this work will will provide good inspiration to the community.\n\n---\n\nSincere apologies for the late review.\n\nThis paper argues to approach Super-Resolution as amortised MAP estimation. A projection step to keep consistent HR-LR dependencies is proposed and experimentally verified to obtain better results throughout. Further three different methods to solve the resulting cross-entropy problem in Eq.9 are proposed and tested. \n\nSummary: Very good paper, very well written and presented. Experimental results are sufficient, the paper presents well chosen toy examples and real world applications. From my understanding the contributions for the field of super-resolutions are novel (3.2,3.3,3.4), parts that are specific for the training of GANs may have appeared in different variants elsewhere (see also discussion). I believe that this paper will be relevant to future work on super-resolution, the finding that GAN based model training yields most visually appealing results suggests further work in this domain. \n\nManuscript should be proof-read once more, there were some very few typos that may be worth fixing.\n\n---\n\nThe paper presents an amortised MAP estimation method for SR problems. By learning a neural network which learns to project to an affine subspace of SR solutions which are consistent with the LR method the method enables finding propoer solutions with by using a variety of methods: GANs, noise assisted and density assisted optimisation.\nResults are nicely demonstrated on several datasets.\n\nI like the paper all in all, though I feel the writing can be polished by quite a bit and presentation should be made clearer. It was hard to follow at times and considering the subject matter is quite complicated making it clearer would help. Also, I would love to see some more analysis of the resulting the networks - what kind of features to they learn?\n\n---\n\nImproved GAN (Salimans et al., 2016) also adds gaussian noise to inputs of discriminators in their implementation (\n\n---\n\nAll the reviewers agreed that the paper is original, of high quality, and worth publishing.\n\n---\n\nI just wanted to comment that I found this to be a really great paper. There's a lot of new ideas, and the writing and experiments are extremely well executed.\n\nThe analysis of section 3-3.1 is novel (to the best of my knowledge) and very valuable, as it's interesting to see in play the DAE ideas in 3.3. Figure 1 (sec 2.1) is extremely clarifying. The criticism of section 5.6 is very interesting, and might lead to a new direction of research if handled with care, the question about the precise mathematical meaning of \"producing plausible samples\" is extremely important and far from solved.\n\nMinor comments / questions:\n- Have you tried comparing with an architecture such as the ones used in segmentation or structured prediction? The use of the mean field CRF approach will lead you to pick a mode and get sharp predictions as has been done for a long time, since you are training a conditional unimodal distribution with the inverse KL. The issue of continuous variables can be ameliorated by discretizing as in pixel CNN for example. As another bonus, these architectures are very stable and can be trained with much much bigger models.\n- Page 3. Item 2. Typo on employs -> employ\n\n---\n\nThe paper presents a new framework to solve the SR problem - amortized MAP inference and adopts a pre-learned affine projection layer to ensure the output is consistent with LR. Also, it proposes three different methods to solve the problem of minimizing cross-entropy. Generally, it is a great paper. However, I still have several comments:\n\n1) The proposed amortized MAP inference is novel and different from the previous SR methods. Combined with GAN, this framework can obtain plausible and good results. Compared with another GAN-based SR methods - Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network, question may arise as to what this new formulation adds to the latest state-of-the-art.\n\n2) Using an affine projection architecture as a constraint, the model do not need any corresponding {HR, LR} image pairs for training. However, when training the affine projection layer, we still need the {HR, LR} image pairs. Does it mean that we merely transfer this training procedure to the training of affine projection?\n\n3) The paper presents many results of the framework, including the results of natural images from ImageNet. Can the author also provide the results of Set5, Set14 or BSD100, which are conventional test dataset for SR, so that we can perform a fair comparison with previous work.\n\n4) I see that the size of the results of nature images presented in this paper are limited to 128*128. Can this framework perform well on images with larger size? Because SR will encounter input with arbitrary size.\n\n5) A normal GAN will have a noise term as a latent space, so that it can be better illustrated as learning a distribution. Do the author try the noise vector?\n\nOverall, this paper provides a new framework for SR with solid theoretical analysis. The idea is novel and the author explore many methods. Though there still exist questions like the necessity and more experiments are needed. I think this work will will provide good inspiration to the community.\n\n---\n\nSincere apologies for the late review.\n\nThis paper argues to approach Super-Resolution as amortised MAP estimation. A projection step to keep consistent HR-LR dependencies is proposed and experimentally verified to obtain better results throughout. Further three different methods to solve the resulting cross-entropy problem in Eq.9 are proposed and tested. \n\nSummary: Very good paper, very well written and presented. Experimental results are sufficient, the paper presents well chosen toy examples and real world applications. From my understanding the contributions for the field of super-resolutions are novel (3.2,3.3,3.4), parts that are specific for the training of GANs may have appeared in different variants elsewhere (see also discussion). I believe that this paper will be relevant to future work on super-resolution, the finding that GAN based model training yields most visually appealing results suggests further work in this domain. \n\nManuscript should be proof-read once more, there were some very few typos that may be worth fixing.\n\n---\n\nThe paper presents an amortised MAP estimation method for SR problems. By learning a neural network which learns to project to an affine subspace of SR solutions which are consistent with the LR method the method enables finding propoer solutions with by using a variety of methods: GANs, noise assisted and density assisted optimisation.\nResults are nicely demonstrated on several datasets.\n\nI like the paper all in all, though I feel the writing can be polished by quite a bit and presentation should be made clearer. It was hard to follow at times and considering the subject matter is quite complicated making it clearer would help. Also, I would love to see some more analysis of the resulting the networks - what kind of features to they learn?\n\n---\n\nImproved GAN (Salimans et al., 2016) also adds gaussian noise to inputs of discriminators in their implementation (",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The draft introduces a new approach to image super-resolution using amortised Maximum a Posteriori (MAP) inference, which aims to produce more plausible high-resolution images by maximizing the posterior probability. The authors propose a novel neural network architecture that ensures consistency between low and high resolution outputs and present three methods for training this model: GAN-based, denoiser-guided SR, and maximum-likelihood-trained image prior.",
+      "strengths": [
+        "Clear motivation for using MAP inference in super-resolution to produce more plausible results",
+        "Proposes a novel neural network architecture that enforces consistency between LR and HR outputs"
+      ],
+      "weaknesses": [
+        "The abstract is somewhat vague, lacking specific details on the methods or contributions",
+        "Some sections lack clear headings, making it harder to follow the structure"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper proposes a new CNN architecture for amortised MAP inference in image super-resolution, focusing on ensuring that the model outputs are consistent with the input. It introduces three methods to approximate cross-entropy minimisation and shows that the GAN-based approach performs best.",
+      "strengths": [
+        "Proposes an innovative CNN architecture that ensures output consistency with inputs",
+        "Reduces training to a form similar to generative models, potentially simplifying the process"
+      ],
+      "weaknesses": [
+        "Lacks comparison against established baselines for SR methods using MAP inference",
+        "Specific hyperparameters and train/test split details are missing; needs clarification on these aspects"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": "What specific hyperparameters were used in the experiments? How was the train/test split handled?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.7
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper introduces a novel approach to amortised MAP inference for image super-resolution, which is not directly covered by the existing literature. However, the citation coverage is weak due to the lack of related papers in the provided set.",
+      "strengths": [
+        "Proposes a new neural network architecture for SR that ensures output consistency with inputs.",
+        "Addresses the limitations of MSE-based methods and motivates the use of MAP inference."
+      ],
+      "weaknesses": [
+        "The paper lacks citation coverage as no relevant related work was found in the provided set.",
+        "Does not compare its approach comprehensively against existing SR techniques, making it hard to assess its novelty and applicability."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper proposes a new approach to image super-resolution using amortised Maximum a Posteriori (MAP) inference. It introduces a novel neural network architecture that ensures the output is consistent with the input and reduces training to minimising cross-entropy between distributions.",
+          "strengths": [
+            "Proposes an innovative approach by leveraging MAP inference for SR, which could potentially lead to more plausible outputs.",
+            "Introduces a specific neural network architecture designed to handle the constraints of SR."
+          ],
+          "weaknesses": [
+            "Lacks detailed information on hyperparameters and train/test split, making it difficult to assess reproducibility.",
+            "No comparison against established baselines for SR methods using MAP inference is provided."
+          ],
+          "confidence": 0.7,
+          "needs_clarification": "What specific hyperparameters were used in the experiments? How was the train/test split handled?",
+          "was_debated": false,
+          "pre_debate_confidence": null
+        },
+        "challenger_critique": "The original review does not mention that the paper lacks a comparison against established baselines for SR methods using MAP inference, which is a significant gap. The reviewer should have noted this to provide a more comprehensive evaluation.",
+        "resolution_summary": "The paper proposes a new CNN architecture for amortised MAP inference in image super-resolution, focusing on ensuring that the model outputs are consistent with the input. It introduces three methods to approximate cross-entropy minimisation and shows that the GAN-based approach performs best.",
+        "final_confidence": 0.8,
+        "confidence_changed": true
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper introduces a novel approach to amortised MAP inference for image super-resolution, which is not directly covered by the existing literature. However, the citation coverage is weak due to the lack of related papers in the provided set.",
+          "strengths": [
+            "Proposes a new neural network architecture for SR that ensures output consistency with inputs.",
+            "Addresses the limitations of MSE-based methods and motivates the use of MAP inference."
+          ],
+          "weaknesses": [
+            "The paper lacks citation coverage as no relevant related work was found in the provided set.",
+            "Does not compare its approach comprehensively against existing SR techniques, making it hard to assess its novelty and applicability."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.2
+        },
+        "challenger_critique": "The review accurately points out gaps in citation coverage but misses that the paper does introduce a novel neural network architecture for SR, which is significant even if not directly compared to all existing techniques. The reviewer's confidence of 0.2 seems too low given this specific point.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What specific hyperparameters were used in the experiments? How was the train/test split handled?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to image super-resolution using amortised Maximum a Posteriori (MAP) inference, aiming to produce more plausible high-resolution images by maximizing the posterior probability. The authors introduce a new neural network architecture that enforces consistency between low and high resolution outputs through three training methods: GAN-based, denoiser-guided SR, and maximum-likelihood-trained image prior.\n\n### Key Strengths\n\n1. **Clear Motivation**: The paper clearly explains why amortised MAP inference is beneficial for super-resolution tasks.\n2. **Innovative Architecture**: Proposes a new CNN architecture that ensures consistency between low and high resolution outputs.\n3. **Training Methods**: Introduces three methods to approximate cross-entropy minimization, which could potentially simplify the training process.\n\n### Key Weaknesses (Prioritized)\n\n1. **Abstract and Section Clarity**: The abstract is vague, lacking specific details on the methods or contributions. Some sections lack clear headings, making it harder to follow the structure.\n2. **Methodological Details**: Lacks comparison against established baselines for SR methods using MAP inference. Specific hyperparameters and train/test split details are missing; these need clarification.\n3. **Citation Coverage**: The paper lacks citation coverage as no relevant related work was found in the provided set, making it difficult to assess its novelty comprehensively.\n\n### Missing Sections / Information\n\n- **Abstract Clarification**: A more detailed abstract that includes specific contributions and methods would enhance clarity.\n- **Hyperparameters and Train/Test Split Details**: Specific hyperparameter values and details on how the train/test split was handled should be provided for reproducibility.\n- **Comparison Against Baselines**: Comprehensive comparison against existing SR techniques using MAP inference to establish its novelty.\n\n### Significance Assessment\n\nThe contribution appears significant in terms of proposing a novel approach to ensure consistency between low and high resolution outputs. However, the lack of citation coverage and comprehensive comparison against established methods makes it challenging to assess whether this work will have substantial impact on the field. The paper claims that amortised MAP inference can produce more plausible results, but without robust comparisons, its significance is somewhat limited.\n\n### Recommendation\n\nWhile the proposed approach shows promise, particularly in ensuring output consistency, the manuscript needs significant revisions to address the identified weaknesses. Specifically, the authors should:\n\n1. **Clarify and Expand the Abstract**: Provide a detailed summary of the contributions and methods.\n2. **Add Clear Headings**: Ensure all sections are clearly labeled for better readability.\n3. **Include Hyperparameters and Train/Test Split Details**: Provide specific values used in experiments to ensure reproducibility.\n4. **Comprehensive Baseline Comparison**: Conduct thorough comparisons against existing SR techniques using MAP inference.\n\nGiven these revisions, the paper could be resubmitted with a stronger claim of significance. I recommend a \"Revise and Resubmit\" status for this manuscript after addressing the above points.",
+    "overall_confidence": 0.6
+  }
+}
