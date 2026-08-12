@@ -1,0 +1,113 @@
+{
+  "paper_id": "iclr2017dev_375",
+  "title": "A Simple but Tough-to-Beat Baseline for Sentence Embeddings",
+  "processed_at": "2026-08-11T23:59:41.804784+00:00",
+  "elapsed_seconds": 959.8,
+  "human_review_text": "A new method for sentence embedding that is simple and performs well. Important contribution that will attract attention and help move the field forward.\n\n---\n\nThis is a good paper with an interesting probabilistic motivation for weighted bag of words models.\nThe (hopefully soon) added comparison to Wang and Manning will make it stronger. \nThough it is sad that for sufficiently large datasets, NB-SVM still works better.\n\nIn the second to last paragraph of the introduction you describe a problem of large cooccurrence counts which was already fixed by the Glove embeddings with their weighting function f.\n\nMinor comments:\n\n\"The capturing the similarities\" -- typo in line 2 of intro.\n\"Recently, (Wieting et al.,2016) learned\" -- use citet instead of parenthesized citation\n\n---\n\nThis paper proposes a simple way to reweight the word embedding in the simple composition function for sentence representation. This paper also shows the connection between this new weighting scheme and some previous work.\n\nHere are some comments on technical details:\n\n- The word \"discourse\" is confusing. I am not sure whether the words \"discourse\" in \"discourse vector c_s\" and the one in \"most frequent discourse\" have the same meaning.\n- Is there any justification about $c_0$ related to syntac?\n- Not sure what thie line means: \"In fact the new model was discovered by our detecting the common component c0 in existing embeddings.\" in section \"Computing the sentence embedding\"\n- Is there any explanation about the results on sentiment in Table 2?\n\n---\n\nThis paper presents a new theoretically-principled method of representing sentences as vectors. The experiments show that vectors produced by this method perform well on similarity and entailment benchmarks, surpassing some RNN-based methods too.\n\nOverall, this is an interesting empirical result, especially since the model is not order-sensitive (as far as I can tell). I would like to see some more discussion on why such a simple model does better than LSTMs at capturing similarity and entailment. Could this be an artifact of these benchmarks?\n\n---\n\nWe (J. Mu and P. Viswanath) thoroughly enjoyed the authors' previous work on linear algebraic structure of word senses (cf.\n\n---\n\nDear Authors,\n\nPlease resubmit your paper in the ICLR 2017 format with the correct font for your submission to be considered. Thank you!\n\n---\n\nA new method for sentence embedding that is simple and performs well. Important contribution that will attract attention and help move the field forward.\n\n---\n\nThis is a good paper with an interesting probabilistic motivation for weighted bag of words models.\nThe (hopefully soon) added comparison to Wang and Manning will make it stronger. \nThough it is sad that for sufficiently large datasets, NB-SVM still works better.\n\nIn the second to last paragraph of the introduction you describe a problem of large cooccurrence counts which was already fixed by the Glove embeddings with their weighting function f.\n\nMinor comments:\n\n\"The capturing the similarities\" -- typo in line 2 of intro.\n\"Recently, (Wieting et al.,2016) learned\" -- use citet instead of parenthesized citation\n\n---\n\nThis paper proposes a simple way to reweight the word embedding in the simple composition function for sentence representation. This paper also shows the connection between this new weighting scheme and some previous work.\n\nHere are some comments on technical details:\n\n- The word \"discourse\" is confusing. I am not sure whether the words \"discourse\" in \"discourse vector c_s\" and the one in \"most frequent discourse\" have the same meaning.\n- Is there any justification about $c_0$ related to syntac?\n- Not sure what thie line means: \"In fact the new model was discovered by our detecting the common component c0 in existing embeddings.\" in section \"Computing the sentence embedding\"\n- Is there any explanation about the results on sentiment in Table 2?\n\n---\n\nThis paper presents a new theoretically-principled method of representing sentences as vectors. The experiments show that vectors produced by this method perform well on similarity and entailment benchmarks, surpassing some RNN-based methods too.\n\nOverall, this is an interesting empirical result, especially since the model is not order-sensitive (as far as I can tell). I would like to see some more discussion on why such a simple model does better than LSTMs at capturing similarity and entailment. Could this be an artifact of these benchmarks?\n\n---\n\nWe (J. Mu and P. Viswanath) thoroughly enjoyed the authors' previous work on linear algebraic structure of word senses (cf.\n\n---\n\nDear Authors,\n\nPlease resubmit your paper in the ICLR 2017 format with the correct font for your submission to be considered. Thank you!",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper introduces a simple sentence embedding method that uses weighted averages of word vectors and PCA/SVD for improving performance. It compares this method to more complex models, including RNNs and LSTMs, and provides theoretical justification through a modified generative model.",
+      "strengths": [
+        "Clear introduction of the problem and motivation",
+        "Detailed explanation of the proposed method and its improvements over existing methods",
+        "Theoretical justification for the method"
+      ],
+      "weaknesses": [
+        "Related work section is cut off, potentially missing important context",
+        "No explicit discussion or results on domain adaptation settings"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper proposes a simple method for generating sentence embeddings by weighting word vectors using smooth inverse frequency (SIF) and removing the projection on the first principal component. The method outperforms several sophisticated models, especially in domain adaptation settings. A theoretical justification is provided through a modified generative model.",
+      "strengths": [
+        "The proposed method is simple yet effective, achieving better performance than complex models.",
+        "It provides a theoretical explanation for the effectiveness of SIF weighting."
+      ],
+      "weaknesses": [
+        "No specific datasets or hyperparameters are mentioned in detail, making it hard to assess reproducibility and robustness.",
+        "The comparison with established baselines is not clear; no mention of Wieting et al.'s method as a baseline."
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "What specific datasets were used for training word embeddings and evaluating the sentence embedding methods? What are the exact hyperparameters and their ranges tested?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper is novel in proposing a simple unsupervised method for sentence embeddings that outperforms more complex supervised methods, especially when labeled data is scarce. However, the related work section does not adequately cover existing literature on word and sentence embeddings.",
+      "strengths": [
+        "Proposes a simple yet effective method for sentence embeddings.",
+        "Improves performance in textual similarity tasks compared to state-of-the-art methods."
+      ],
+      "weaknesses": [
+        "The related work section is weak as no relevant papers were retrieved, making it hard to assess the novelty comprehensively.",
+        "Does not adequately position itself against existing literature on word and sentence embeddings."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper proposes a simple method for generating sentence embeddings by weighting word vectors using smooth inverse frequency (SIF) and removing the projection on the first principal component. The method outperforms several sophisticated models, especially in domain adaptation settings. A theoretical justification is provided through a modified generative model.",
+          "strengths": [
+            "The proposed method is simple yet effective, achieving better performance than complex models.",
+            "It provides a theoretical explanation for the effectiveness of SIF weighting."
+          ],
+          "weaknesses": [
+            "No specific datasets or hyperparameters are mentioned in detail, making it hard to assess reproducibility and robustness.",
+            "The comparison with established baselines is not clear; no mention of Wieting et al.'s method as a baseline."
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "What specific datasets were used for training word embeddings and evaluating the sentence embedding methods? What are the exact hyperparameters and their ranges tested?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.6
+        },
+        "challenger_critique": "The original review correctly points out the lack of specific datasets and hyperparameters, which indeed limits reproducibility. However, the review misses noting that the paper does mention Wieting et al.'s method as a baseline in the introduction, stating 'This simple method leads to better performance on textual similarity tasks than a wide variety of methods and serves as a good initialization for textual classification tasks.' This indicates that Wieting et al.'s work is considered a relevant comparison.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper is novel in proposing a simple unsupervised method for sentence embeddings that outperforms more complex supervised methods, especially when labeled data is scarce. However, the related work section does not adequately cover existing literature on word and sentence embeddings.",
+          "strengths": [
+            "Proposes a simple yet effective method for sentence embeddings.",
+            "Improves performance in textual similarity tasks compared to state-of-the-art methods."
+          ],
+          "weaknesses": [
+            "The related work section is weak as no relevant papers were retrieved, making it hard to assess the novelty comprehensively.",
+            "Does not adequately position itself against existing literature on word and sentence embeddings."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.2
+        },
+        "challenger_critique": "The original review overstates the weakness of related work coverage. While it is true that no specific hyperparameters or datasets are mentioned, this is common in many research papers due to space constraints and the focus on presenting a new method rather than a comprehensive literature review. The paper does provide references to relevant works like Wieting et al. (2016) and Arora et al. (2016), which are key for understanding the context of the proposed method.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What specific datasets were used for training word embeddings and evaluating the sentence embedding methods? What are the exact hyperparameters and their ranges tested?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a simple method for generating sentence embeddings using weighted word vectors and PCA/SVD, which outperforms more complex models like RNNs and LSTMs in various textual similarity tasks. The authors provide theoretical justification through a modified generative model but face several issues related to clarity, methodology, novelty, and the significance of their contribution.\n\n### Key Strengths\n\n1. **Clear Introduction and Motivation**: The paper effectively introduces the problem and provides clear motivation.\n2. **Simple Yet Effective Methodology**: The proposed method is straightforward yet achieves better performance than more complex models.\n3. **Theoretical Justification**: A theoretical explanation for the effectiveness of SIF weighting is provided.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Insufficient Detail on Related Work and Datasets**: The related work section is incomplete, and no specific datasets or hyperparameters are mentioned, making it difficult to assess reproducibility and robustness.\n2. **Lack of Domain Adaptation Results**: No explicit discussion or results on domain adaptation settings were provided.\n3. **Weak Novelty Assessment**: The paper does not adequately cover existing literature on word and sentence embeddings, which hampers the assessment of its novelty.\n\n### Missing Sections / Information\n\n- **Specific Datasets and Hyperparameters**: More detail is needed regarding the datasets used for training word embeddings and evaluating the sentence embedding methods.\n- **Comparison with Established Baselines**: The paper should explicitly compare against Wieting et al.'s method as a baseline to provide a clearer picture of its performance.\n\n### Significance Assessment\n\nThe contribution, while promising, seems to be a small incremental step. The proposed method is novel and effective but does not address significant gaps in the literature or tackle complex real-world problems such as domain adaptation. The results are impressive in certain tasks, yet the lack of comprehensive theoretical coverage and detailed experimental setup makes it challenging to gauge its broader impact.\n\n### Recommendation\n\nWhile the paper presents a promising approach, it requires substantial revisions to improve clarity, detail, and robustness before submission. I recommend addressing the missing sections on datasets, hyperparameters, and comparisons with existing methods. Additionally, consider expanding the related work section to better position your contribution within the field. If these issues are addressed, the paper has potential but would benefit from a more comprehensive evaluation of its significance in the broader context of natural language processing research.\n\n**Actionable Feedback for Authors:**\n1. **Expand Related Work Section**: Include relevant papers and provide a clearer context.\n2. **Provide Detailed Experimental Setup**: Specify datasets, hyperparameters, and exact methods used.\n3. **Include Domain Adaptation Results**: Test and report on domain adaptation settings to demonstrate real-world applicability.\n4. **Compare with Established Methods**: Explicitly compare against Wieting et al.'s method and other relevant baselines.\n\nBy addressing these points, the paper can significantly enhance its clarity, robustness, and overall significance in the field of natural language processing.",
+    "overall_confidence": 0.53
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "paper_id": "iclr2017train_304",
+  "title": "Making Neural Programming Architectures Generalize via Recursion",
+  "processed_at": "2026-08-12T00:27:50.247404+00:00",
+  "elapsed_seconds": 817.0,
+  "human_review_text": "Has the source code for this paper been released by the authors?\n\n---\n\nThe reviewers were very favourable, and the paper is on a highly-relevant topic and explores a useful practical trick.\n\n---\n\nThis paper argues that being able to handle recursion is very important for neural programming architectures \u2014 that handling recursion allows for strong generalization to out of domain test cases and learning from smaller amounts of training data.  Most of the paper is a riff on the Reed & de Freitas paper on Neural Programmer Interpreters from ICLR 2016 which learns from program traces \u2014 this paper trains NPI models on traces that have recursive calls.  The authors show how to verify correctness by evaluating the learned program on only a small set of base cases and reduction rules and impressively, show that the NPI architecture is able to perfectly infer Bubblesort and the Tower of Hanoi problems.  \n\nWhat I like is that the idea is super simple and as the authors even mention, the only change is to the execution traces that the training pipeline gets to see.  I\u2019m actually not sure what the right take-away is \u2014 does this mean that we have effectively solved the neural programming problem when the execution traces are available? (and was the problem too easy to begin with?).    For example, a larger input domain (as one of the reviewers also mentions) is MNIST digits and we can imagine a problem where the NPI must infer how to sort MNIST digits from highest to lowest.  In this setting, having execution traces would effectively decouple the problem of recognizing the digits from that of inferring the program logic \u2014 and so the problem would be no harder than learning to recognize MNIST digits and learning to bubble sort from symbols.  What is a problem where we have access to execution traces but cannot infer it using the proposed method?\n\n---\n\nThis is a very interesting and fairly easy to read paper. \nThe authors present a small, yet nifty approach to make Neural Programming Interpreters significantly more powerful. By allowing recursion, NPI generalizes better from fewer execution traces.\nIt's an interesting example of how a small but non-trivial extension can make a machine learning method significantly more practical.\n\nI also appreciate that the same notation was used in this paper and the original Deepmind paper. As a non-expert on this topic, it was easy to read the original paper in tandem. \n\nMy one point of critique is that the generalization proves are a bit vague. For the numerical examples in the paper, you can iterate over all possible execution paths until the next recursive call. However, how would this approach generalize a continuous input space (e.g. the 3D car example in the original paper). It seems that a prove of generalization will still be intractable in the continuous case? \n\nAre you planning on releasing the source code?\n\n---\n\nThis paper improves significantly upon the original NPI work, showing that the model generalizes far better when trained on traces in recursive form. The authors show better sample complexity and generalization results for addition and bubblesort programs, and add two new and more interesting tasks - topological sort and quicksort (added based on reviewer discussion). Furthermore, they actually *prove* that the algorithms learned by the model generalize perfectly, which to my knowledge is the first time this has been done in neural program induction.\n\n---\n\nHas the source code for this paper been released by the authors?\n\n---\n\nThe reviewers were very favourable, and the paper is on a highly-relevant topic and explores a useful practical trick.\n\n---\n\nThis paper argues that being able to handle recursion is very important for neural programming architectures \u2014 that handling recursion allows for strong generalization to out of domain test cases and learning from smaller amounts of training data.  Most of the paper is a riff on the Reed & de Freitas paper on Neural Programmer Interpreters from ICLR 2016 which learns from program traces \u2014 this paper trains NPI models on traces that have recursive calls.  The authors show how to verify correctness by evaluating the learned program on only a small set of base cases and reduction rules and impressively, show that the NPI architecture is able to perfectly infer Bubblesort and the Tower of Hanoi problems.  \n\nWhat I like is that the idea is super simple and as the authors even mention, the only change is to the execution traces that the training pipeline gets to see.  I\u2019m actually not sure what the right take-away is \u2014 does this mean that we have effectively solved the neural programming problem when the execution traces are available? (and was the problem too easy to begin with?).    For example, a larger input domain (as one of the reviewers also mentions) is MNIST digits and we can imagine a problem where the NPI must infer how to sort MNIST digits from highest to lowest.  In this setting, having execution traces would effectively decouple the problem of recognizing the digits from that of inferring the program logic \u2014 and so the problem would be no harder than learning to recognize MNIST digits and learning to bubble sort from symbols.  What is a problem where we have access to execution traces but cannot infer it using the proposed method?\n\n---\n\nThis is a very interesting and fairly easy to read paper. \nThe authors present a small, yet nifty approach to make Neural Programming Interpreters significantly more powerful. By allowing recursion, NPI generalizes better from fewer execution traces.\nIt's an interesting example of how a small but non-trivial extension can make a machine learning method significantly more practical.\n\nI also appreciate that the same notation was used in this paper and the original Deepmind paper. As a non-expert on this topic, it was easy to read the original paper in tandem. \n\nMy one point of critique is that the generalization proves are a bit vague. For the numerical examples in the paper, you can iterate over all possible execution paths until the next recursive call. However, how would this approach generalize a continuous input space (e.g. the 3D car example in the original paper). It seems that a prove of generalization will still be intractable in the continuous case? \n\nAre you planning on releasing the source code?\n\n---\n\nThis paper improves significantly upon the original NPI work, showing that the model generalizes far better when trained on traces in recursive form. The authors show better sample complexity and generalization results for addition and bubblesort programs, and add two new and more interesting tasks - topological sort and quicksort (added based on reviewer discussion). Furthermore, they actually *prove* that the algorithms learned by the model generalize perfectly, which to my knowledge is the first time this has been done in neural program induction.",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper proposes incorporating recursion into neural architectures to improve generalization in learning programs from data. It discusses existing challenges and limitations, particularly with generalizing beyond a certain complexity threshold, and introduces the Neural Programmer-Interpreter framework with recursion applied to several tasks.",
+      "strengths": [
+        "Clear problem statement and motivation for using recursion",
+        "Well-defined evaluation metrics and tasks"
+      ],
+      "weaknesses": [
+        "Some sections are cut off or incomplete (e.g., the end of section 2.1)",
+        "Could benefit from a more detailed discussion on related work"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper proposes incorporating recursion into neural architectures to improve their ability to generalize on programming tasks. It evaluates the approach using four specific tasks and claims perfect generalization with small training data.",
+      "strengths": [
+        "Addresses a significant issue in neural programming: poor generalizability."
+      ],
+      "weaknesses": [
+        "Lacks comparison against established baselines for generalization performance.",
+        "Evaluation metrics are not clearly defined or compared to existing ones.",
+        "No detailed description of the experimental setup, such as dataset size and train/test split."
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "What specific evaluation metrics were used to measure generalization, and how do they differ from those typically employed in previous work?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper proposes incorporating recursion into neural architectures to improve generalization, but without any specific related works to compare against, it is difficult to assess the novelty. The paper does not acknowledge other approaches that might have explored similar ideas.",
+      "strengths": [
+        "Addresses a significant limitation in current neural programming models: poor generalization.",
+        "Proposes an innovative approach by integrating recursion into existing frameworks."
+      ],
+      "weaknesses": [
+        "Lacks comparison with other related works, making it hard to gauge the novelty of the proposed method.",
+        "Does not adequately cite or position itself against relevant literature, which is crucial for a comprehensive review."
+      ],
+      "confidence": 0.1,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.1,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper proposes incorporating recursion into neural architectures to improve their ability to generalize on programming tasks. It evaluates the approach using four specific tasks and claims perfect generalization with small training data.",
+          "strengths": [
+            "Addresses a significant issue in neural programming: poor generalizability."
+          ],
+          "weaknesses": [
+            "Lacks comparison against established baselines for generalization performance.",
+            "Evaluation metrics are not clearly defined or compared to existing ones.",
+            "No detailed description of the experimental setup, such as dataset size and train/test split."
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "What specific evaluation metrics were used to measure generalization, and how do they differ from those typically employed in previous work?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.6
+        },
+        "challenger_critique": "The original review correctly points out gaps in experimental details and evaluation. However, it misses that the paper does provide a clear definition of generalization metrics (accuracy on unseen inputs) and implicitly compares against previous work by demonstrating superior performance with small training data. The reviewer's open question is valid but not directly addressed in the provided text.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper proposes incorporating recursion into neural architectures to improve generalization, but without any specific related works to compare against, it is difficult to assess the novelty. The paper does not acknowledge other approaches that might have explored similar ideas.",
+          "strengths": [
+            "Addresses a significant limitation in current neural programming models: poor generalization.",
+            "Proposes an innovative approach by integrating recursion into existing frameworks."
+          ],
+          "weaknesses": [
+            "Lacks comparison with other related works, making it hard to gauge the novelty of the proposed method.",
+            "Does not adequately cite or position itself against relevant literature, which is crucial for a comprehensive review."
+          ],
+          "confidence": 0.1,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.1
+        },
+        "challenger_critique": "The original review overstates the weaknesses regarding novelty and related works. The paper does cite relevant literature on neural programming models, even if it doesn't explicitly compare against every possible variant of recursion or other methods. It also clearly positions itself as addressing a significant gap in current approaches to generalization.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.1,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What are the specific evaluation metrics used for measuring generalization, and how do they differ from existing ones?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to improve the generalization capabilities of neural architectures in programming tasks by incorporating recursion. While it addresses significant limitations, such as poor generalizability, and introduces an innovative framework (Neural Programmer-Interpreter), several key issues need addressing for the work to be considered robust and impactful.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper effectively outlines the problem of poor generalization in neural programming models.\n2. **Significant Contribution**: Addressing a critical limitation by integrating recursion into existing frameworks is innovative and relevant.\n3. **Well-Defined Evaluation Metrics**: The tasks and metrics used for evaluation are clearly defined.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Lack of Comparison Against Established Baselines**:\n   - The paper lacks a comparison against established baselines for generalization performance, which is crucial to validate the novelty and effectiveness of the proposed approach.\n2. **Incomplete Sections**: Some sections are cut off or incomplete, such as the end of section 2.1, making it difficult to fully understand certain aspects of the work.\n3. **Missing Related Work**:\n   - The paper does not adequately cite or position itself against relevant literature, which is essential for a comprehensive review and assessing the novelty of the proposed method.\n\n### Missing Sections / Information\n\n- Detailed experimental setup including dataset size and train/test split.\n- Specific evaluation metrics used to measure generalization and how they differ from those typically employed in previous work.\n- Comparison with other related works that might have explored similar ideas.\n\n### Significance Assessment\n\nThe contribution is promising but incremental. While the paper addresses a significant limitation in current neural programming models, it does not convincingly demonstrate substantial novelty or impact beyond this. The lack of comparison against established baselines and missing related work makes it challenging to gauge the significance of the proposed approach. Additionally, the incomplete sections and missing details hinder the overall clarity and robustness of the paper.\n\n### Recommendation\n\nThe paper is promising but requires significant revisions before submission. The author should:\n1. Conduct a thorough literature review and compare against established baselines.\n2. Provide detailed experimental setup and evaluation metrics.\n3. Address any incomplete or cut-off sections to ensure completeness.\n4. Position the work more effectively within the existing body of research.\n\nGiven these issues, I recommend **\"major revision before resubmission\"** with a strong emphasis on addressing the weaknesses highlighted in this report. If these improvements are made, the paper has the potential to be a valuable contribution to the field.",
+    "overall_confidence": 0.5
+  }
+}

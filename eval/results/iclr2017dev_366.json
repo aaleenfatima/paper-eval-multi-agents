@@ -1,0 +1,116 @@
+{
+  "paper_id": "iclr2017dev_366",
+  "title": "Autoencoding Variational Inference For Topic Models",
+  "processed_at": "2026-08-11T23:43:42.003212+00:00",
+  "elapsed_seconds": 963.0,
+  "human_review_text": "The reviewers agree that the approach is interesting and the paper presents useful findings. They also raise enough questions and suggestions for improvements that I believe the paper will be much stronger after further revision, though these seem straightforward to address.\n\n---\n\nThe authors propose NVI for LDA variants. The authors compare NVI-LDA to standard inference schemes such as CGS and online SVI. The authors also evaluate NVI on a different model ProdLDA (not sure this model has been proposed before in the topic modeling literature though?)\n\nIn general, I like the direction of this paper and NVI looks promising for LDA. The experimental results however confound model vs inference which makes it hard to understand the significance of the results. Furthermore, the authors don't discuss hyper-parameter selection which is known to significantly impact performance of topic models. This makes it hard to understand when the proposed method can be expected to work. \n\nCan you maybe generate synthetic datasets with different Dirichlet distributions and assess when the proposed method recovers the true parameters?\n\nFigure 1: Is this prior or posterior? The text talks about sparsity whereas the y-axis reads \"log p(topic proportions)\" which is a bit confusing.\n\nSection 3.2: it is not clear what you mean by unimodal in softmax basis. Consider a Dirichlet on K-dimensional simplex with concentration parameter alpha/K where alpha<1 makes it multimodal. Isn't the softmax basis still multimodal?\n\nNone of the numbers include error bars. Are the results statistically significant?\n\n\nMinor comments:\n\nLast term in equation (3) is not \"error\"; reconstruction accuracy or negative reconstruction error perhaps?\n\nThe idea of using an inference network is much older, cf. Helmholtz machine.\n\n---\n\nThis paper proposes the use of neural variational inference method for topic models. The paper shows a nice trick to approximate Dirichlet prior using softmax basis with a Gaussian and then the model is trained to maximize the variational lower bound. Also, the authors study a better way to alleviate the component collapsing issue, which has been problematic for continuous latent variables that follow Gaussian distribution. The results look promising and the experimental protocol sounds fine.\n\nMinor comments:\nPlease add citation to [1] or [2] for neural variational inference, and [2] for VAE. \nA typo in \u201cThis approximation to the Dirichlet prior p(\u03b8|\u03b1) is results in the distribution\u201d, it should be \u201cThis approximation to the Dirichlet prior p(\u03b8|\u03b1) results in the distribution\u201d\n\nIn table 2, it is written that DMFVI was trained more than 24hrs but failed to deliver any result, but why not wait until the end and report the numbers?\n\nIn table 3, why are the perplexities of LDA-Collapsed Gibbs and NVDM are lower while the proposed models (ProdLDA) generates more coherent topics? What is your intuition on this?\n\nHow does the training speed (until the convergence) differs by using different learning-rate and momentum scheduling approaches shown as in figure 1?\n\nIt may be also interesting to add some more analysis on the latent variables z (component collapsing and etc., although your results indirectly show that the learning-rate and momentum scheduling trick removes this issue).\n\nOverall, the paper clearly proposes its main idea, explain why it is good to use NVI, and its experimental results support the original claim. It explains well what are the challenges and demonstrate their solutions. \n\n[1] Minh et al., Neural Variational Inference and Learning in Belief Networks, ICML\u201914\n[2] Rezende et al., Stochastic Backpropagation and Approximate Inference in Deep Generative Models, ICML\u201914\n\n---\n\nThis is an interesting paper on a VAE framework for topic models. The main idea is to train a recognition model for the inference phase which, because of so called \u201camortized inference\u201d can be much faster than normal inference where inference must be run iteratively for every document. Some comments:\nEqn 5: I find the notation p(theta(h)|alpha) awkward. Why not P(h|alpha) ?\nThe generative model seems agnostic to document length, meaning that the latent variables only generate probabilities over word space. However, the recognition model is happy to radically change the probabilities q(z|x) if the document length changes because the input to q changes. This seems undesirable. Maybe they should normalize the input to the recognition network?\nThe ProdLDA model might well be equivalent to exponential family PCA or some variant thereof:\n\n---\n\nThe comparison to NVDM looks unfair since the user introduces a couples tricks (Dirichlet prior, batch normalisation, high momentum training, etc.) which NVDM doesn't use. A more convincing experimental design is to explore the effect of each trick separately in neural variational inference.\n\n---\n\nThe perplexity you're reporting for the 20 Newsgroups dataset using LDA Collapsed Gibbs is better than for any other method I've seen.  Would you mind sharing the parameters you used and/or the preprocessed dataset?\n\n---\n\nThe reviewers agree that the approach is interesting and the paper presents useful findings. They also raise enough questions and suggestions for improvements that I believe the paper will be much stronger after further revision, though these seem straightforward to address.\n\n---\n\nThe authors propose NVI for LDA variants. The authors compare NVI-LDA to standard inference schemes such as CGS and online SVI. The authors also evaluate NVI on a different model ProdLDA (not sure this model has been proposed before in the topic modeling literature though?)\n\nIn general, I like the direction of this paper and NVI looks promising for LDA. The experimental results however confound model vs inference which makes it hard to understand the significance of the results. Furthermore, the authors don't discuss hyper-parameter selection which is known to significantly impact performance of topic models. This makes it hard to understand when the proposed method can be expected to work. \n\nCan you maybe generate synthetic datasets with different Dirichlet distributions and assess when the proposed method recovers the true parameters?\n\nFigure 1: Is this prior or posterior? The text talks about sparsity whereas the y-axis reads \"log p(topic proportions)\" which is a bit confusing.\n\nSection 3.2: it is not clear what you mean by unimodal in softmax basis. Consider a Dirichlet on K-dimensional simplex with concentration parameter alpha/K where alpha<1 makes it multimodal. Isn't the softmax basis still multimodal?\n\nNone of the numbers include error bars. Are the results statistically significant?\n\n\nMinor comments:\n\nLast term in equation (3) is not \"error\"; reconstruction accuracy or negative reconstruction error perhaps?\n\nThe idea of using an inference network is much older, cf. Helmholtz machine.\n\n---\n\nThis paper proposes the use of neural variational inference method for topic models. The paper shows a nice trick to approximate Dirichlet prior using softmax basis with a Gaussian and then the model is trained to maximize the variational lower bound. Also, the authors study a better way to alleviate the component collapsing issue, which has been problematic for continuous latent variables that follow Gaussian distribution. The results look promising and the experimental protocol sounds fine.\n\nMinor comments:\nPlease add citation to [1] or [2] for neural variational inference, and [2] for VAE. \nA typo in \u201cThis approximation to the Dirichlet prior p(\u03b8|\u03b1) is results in the distribution\u201d, it should be \u201cThis approximation to the Dirichlet prior p(\u03b8|\u03b1) results in the distribution\u201d\n\nIn table 2, it is written that DMFVI was trained more than 24hrs but failed to deliver any result, but why not wait until the end and report the numbers?\n\nIn table 3, why are the perplexities of LDA-Collapsed Gibbs and NVDM are lower while the proposed models (ProdLDA) generates more coherent topics? What is your intuition on this?\n\nHow does the training speed (until the convergence) differs by using different learning-rate and momentum scheduling approaches shown as in figure 1?\n\nIt may be also interesting to add some more analysis on the latent variables z (component collapsing and etc., although your results indirectly show that the learning-rate and momentum scheduling trick removes this issue).\n\nOverall, the paper clearly proposes its main idea, explain why it is good to use NVI, and its experimental results support the original claim. It explains well what are the challenges and demonstrate their solutions. \n\n[1] Minh et al., Neural Variational Inference and Learning in Belief Networks, ICML\u201914\n[2] Rezende et al., Stochastic Backpropagation and Approximate Inference in Deep Generative Models, ICML\u201914\n\n---\n\nThis is an interesting paper on a VAE framework for topic models. The main idea is to train a recognition model for the inference phase which, because of so called \u201camortized inference\u201d can be much faster than normal inference where inference must be run iteratively for every document. Some comments:\nEqn 5: I find the notation p(theta(h)|alpha) awkward. Why not P(h|alpha) ?\nThe generative model seems agnostic to document length, meaning that the latent variables only generate probabilities over word space. However, the recognition model is happy to radically change the probabilities q(z|x) if the document length changes because the input to q changes. This seems undesirable. Maybe they should normalize the input to the recognition network?\nThe ProdLDA model might well be equivalent to exponential family PCA or some variant thereof:\n\n---\n\nThe comparison to NVDM looks unfair since the user introduces a couples tricks (Dirichlet prior, batch normalisation, high momentum training, etc.) which NVDM doesn't use. A more convincing experimental design is to explore the effect of each trick separately in neural variational inference.\n\n---\n\nThe perplexity you're reporting for the 20 Newsgroups dataset using LDA Collapsed Gibbs is better than for any other method I've seen.  Would you mind sharing the parameters you used and/or the preprocessed dataset?",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The draft introduces a new method called AVITM for applying autoencoding variational inference to topic models. It addresses the challenges of using black-box methods with Dirichlet priors and component collapsing, demonstrating its effectiveness on LDA and a novel ProdLDA model.",
+      "strengths": [
+        "Clear introduction of the problem and motivation for the research",
+        "Detailed explanation of the background and methodology",
+        "Illustrative example of a new topic model (ProdLDA) to showcase AVITM's flexibility"
+      ],
+      "weaknesses": [
+        "The abstract is somewhat vague, lacking specific details about contributions",
+        "Some sections are not fully structured, e.g., missing subheadings in the introduction and background",
+        "The draft could benefit from more concrete results and comparisons with existing methods"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper introduces Autoencoded Variational Inference for Topic Models (AVITM), an AEVB-based method to improve inference in topic models. It claims AVITM can match traditional methods in accuracy while significantly reducing training time and being easier to apply to new models.",
+      "strengths": [
+        "Addresses a significant challenge in applying variational inference to topic models",
+        "Demonstrates improved performance on standard datasets compared to traditional mean-field methods"
+      ],
+      "weaknesses": [
+        "No specific evaluation metrics are mentioned, making it difficult to assess the exact nature of improvements over other methods",
+        "Hyperparameters tuning details are missing, which could impact reproducibility and generalizability",
+        "Lack of comparison against established baseline for topic model inference"
+      ],
+      "confidence": 0.7,
+      "needs_clarification": "What specific evaluation metrics were used to compare AVITM with other methods? How were the hyperparameters tuned?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.7
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper presents AVITM, an effective AEVB-based inference method for LDA that addresses issues with the Dirichlet prior and component collapsing. While it does not explicitly compare against other methods in the literature, its empirical results show superior performance over standard LDA both quantitatively and qualitatively. However, the lack of explicit comparisons limits the novelty assessment.",
+      "strengths": [
+        "Addresses key challenges for AEVB with topic models",
+        "Demonstrates significant improvements in computational efficiency"
+      ],
+      "weaknesses": [
+        "Lacks explicit comparison against other inference methods from the literature",
+        "No citation coverage or discussion of related work, despite being a novel contribution to the field"
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper introduces Autoencoded Variational Inference for Topic Models (AVITM), an AEVB-based method to improve inference in topic models. It claims AVITM can match traditional methods in accuracy while significantly reducing training time and being easier to apply to new models.",
+          "strengths": [
+            "Addresses a significant challenge in applying variational inference to topic models",
+            "Demonstrates improved performance on standard datasets compared to traditional mean-field methods"
+          ],
+          "weaknesses": [
+            "No specific evaluation metrics are mentioned, making it difficult to assess the exact nature of improvements over other methods",
+            "Hyperparameters tuning details are missing, which could impact reproducibility and generalizability",
+            "Lack of comparison against established baseline for topic model inference"
+          ],
+          "confidence": 0.7,
+          "needs_clarification": "What specific evaluation metrics were used to compare AVITM with other methods? How were the hyperparameters tuned?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.7
+        },
+        "challenger_critique": "The original review does not identify any gaps in the paper's claims or methodology. The strengths and weaknesses are accurately described, and the reviewer's questions are relevant but do not point out flaws in the existing review.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.7,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper presents AVITM, an autoencoding variational inference method for topic models. While the concept of using AEVB for topic models is novel and addresses a significant challenge in the field, the lack of related work to compare against makes it difficult to assess its novelty accurately.",
+          "strengths": [
+            "Addresses a significant challenge by providing a black-box inference method for topic models.",
+            "Consistently produces better topics than standard LDA according to both quantitative and qualitative measures."
+          ],
+          "weaknesses": [
+            "No related papers were retrieved, making it hard to evaluate the novelty of the approach.",
+            "The paper does not adequately position itself against existing methods due to the lack of a comprehensive literature review."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": false,
+          "pre_debate_confidence": null
+        },
+        "challenger_critique": "The original review underestimates the paper by not acknowledging that it does provide comparisons against standard methods, albeit implicitly through empirical results. The reviewer should have noted that while there is no explicit comparison with other inference methods in the literature, the paper still demonstrates superior performance of AVITM over LDA both quantitatively and qualitatively.",
+        "resolution_summary": "The paper presents AVITM, an effective AEVB-based inference method for LDA that addresses issues with the Dirichlet prior and component collapsing. While it does not explicitly compare against other methods in the literature, its empirical results show superior performance over standard LDA both quantitatively and qualitatively. However, the lack of explicit comparisons limits the novelty assessment.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What specific evaluation metrics were used to compare AVITM with other methods? How were the hyperparameters tuned?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces Autoencoded Variational Inference for Topic Models (AVITM), a method designed to improve inference in topic models using AEVB, particularly addressing challenges with the Dirichlet prior and component collapsing. While it provides clear explanations of the problem and methodology, there are significant areas that need improvement.\n\n### Key Strengths\n\n1. **Clear Introduction**: The paper effectively introduces the problem and motivation for its research.\n2. **Detailed Methodology**: It offers a detailed explanation of the background and the proposed method.\n3. **Empirical Evidence**: Demonstrates improved performance on standard datasets compared to traditional methods, highlighting computational efficiency.\n\n### Key Weaknesses (Prioritized)\n\n1. **Abstract and Structure Issues**:\n   - The abstract is vague and lacks specific details about contributions.\n   - Some sections are not fully structured, with missing subheadings in the introduction and background.\n\n2. **Evaluation Metrics and Hyperparameters**:\n   - No specific evaluation metrics are mentioned, making it difficult to assess the exact nature of improvements over other methods.\n   - Lack of hyperparameter tuning details impacts reproducibility and generalizability.\n\n3. **Comparison with Other Methods**:\n   - Lacks explicit comparison against established baseline methods for topic model inference.\n   - No citation coverage or discussion of related work, despite being a novel contribution to the field.\n\n### Missing Sections / Information\n\n- Detailed evaluation metrics used in comparisons.\n- Explicit hyperparameter tuning process and rationale.\n- Comprehensive discussion and comparison with existing methods from the literature.\n- More concrete results and detailed analysis of empirical findings.\n\n### Significance Assessment\n\nWhile the paper introduces a promising method that addresses key challenges in applying variational inference to topic models, its significance is somewhat limited by the lack of explicit comparisons against other established methods. The contribution, while novel, does not fully demonstrate its superiority over existing techniques without more comprehensive evaluation and comparison.\n\n### Recommendation\n\nThe manuscript shows promise but requires significant revision before submission. Prioritize addressing the structural issues in the abstract and main text, providing detailed evaluation metrics and hyperparameters, and conducting thorough comparisons with other methods from the literature. Additionally, ensure a clear discussion of related work to substantiate the novelty and significance of the contribution.\n\nGiven these points, I recommend resubmitting after substantial revisions. If the author addresses these issues adequately, this paper could be a valuable addition to the field. However, as it stands, the current submission is not yet ready for full consideration. \n\n**Recommendation: Resubmit with major revisions.**",
+    "overall_confidence": 0.57
+  }
+}
