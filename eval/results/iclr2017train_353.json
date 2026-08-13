@@ -1,0 +1,115 @@
+{
+  "paper_id": "iclr2017train_353",
+  "title": "PixelVAE: A Latent Variable Model for Natural Images",
+  "processed_at": "2026-08-12T19:51:24.716007+00:00",
+  "elapsed_seconds": 699.4,
+  "human_review_text": "The paper provides a solution that combines best of latent variable models and auto-regressive models. The concept is executed well and will make a positive contribution to the conference.\n\n---\n\nUPDATE: The authors addressed all my concerns in the new version of the paper, so I raised my score and now recommend acceptance.\n--------------\nThis paper combines the recent progress in variational autoencoder and autoregressive density modeling in the proposed PixelVAE model. The paper shows that it can match the NLL performance of a PixelCNN with a PixelVAE that has a much shallower PixelCNN decoder.\nI think the idea of capturing the global structure with a VAE and modeling the local structure with a PixelCNN decoder makes a lot of sense and can prevent the blurry reconstruction/samples of VAE. I specially like the hierarchical image generation experiments.\n\nI have the following suggestions/concerns about the paper:\n\n1) Is there any experiment showing that using the PixelCNN as the decoder of VAE will result in better disentangling of high-level factors of variations in the hidden code? For example, the authors can train a PixelVAE and VAE on MNIST with 2D hidden code and visualize the 2D hidden code for test images and color code each hidden code based on the digit and show that the digits have a better separation in the PixelVAE representation. A semi-supervised classification comparison between VAE and the PixelVAE will also significantly improve the quality of the paper.\n\n2) A similar idea is also presented in a concurrent ICLR submission \"Variational Lossy Autoencoder\". It would be interesting to have a discussion included in the paper and compare these works.\n\n3) The answer to the pre-review questions made the architecture details of the paper much more clear, but I still ask the authors to include the exact architecture details of all the experiments in the paper and/or open source the code. The clarity of the presentation is not satisfying and the experiments are difficult to reproduce.\n\n4) As pointed out in my pre-review question, it would be great to include two sets of MNIST samples maybe in an appendix section. One with PixelCNN and the other with PixelVAE with the same pixelcnn depth to illustrate the hidden code in PixelVAE actually captures the global structure.\n\nI will gladly raise the score if the authors address my concerns.\n\n---\n\nThe paper combines a hierarchical Variational Autoencoder with PixelCNNs to model the distribution of natural images. \nThey report good (although not state of the art) likelihoods on natural images and briefly start to explore what information is encoded by the latent representations in the hierarchical VAE.\n\nI believe that combining the PixelCNN with a VAE, as was already suggested in the PixelCNN paper, is an important and interesting contribution. \nThe encoding of high-, mid- and low-level variations at the different latent stages is interesting but seems not terribly surprising, since the size of the image regions the latent variables model is also at the corresponding scale. Showing that the PixelCNN improves the latent representation of the VAE with regard to some interesting task would be a much stronger result. \nAlso, while the paper claims, that combining the PixelCNN with the VAE reduces the number of computationally expensive autoregressive layers, it remains unclear how much more efficient their whole model is than an PixelCNN with comparable likelihood.\n\nIn general, I find the clarity of the presentation wanting. For example, I agree with reviewer1 that the exact structure of their model remains unclear from the paper and would be difficult to reproduce.\n\n---\n\nAll in all this is a nice paper.\n\nI think the model is quite clever, attempting to get the best of latent variable models and auto-regressive models. The implementation and specific architecture choices (as discussed in the pre-review) also seem reasonable.\nOn the experimental side, I would have liked to see something more than NLL measurements and samples - maybe show this is useful for other tasks such as classification?\n\nThough I don't think this is a huge leap forward this is certainly a nice paper and I recoemmend acceptance.\n\n---\n\nThis is a very interesting paper. It combines the best of both world: PixelCNN and VAE. State-of-the-art LL and visually appealing images.\n\nBelow are some comments and suggestions.\n\n1. In van dern Oord et al. 2016b they use an auto-encoder architecture with conditional PixelCNN as the decoder. It is not a variational one, though. It would be interesting to give a comparison between the model in this paper and their model. Are there any other differences, besides the KLD loss on latent variables and the (optional) hierarchical extension?\n\n2. The introduction of latent varibles z definitely helps modeling global structure, however it also breaks the chain rule so the exact likelihood cannnot be derived.\n\n3. How is the quality of representations learned by the encoder? Will the PixelCNN decoder help the encoder learn better representations, compared to Kingma et. al., \"Semi-supervised learning with deep generative models\"?\n\n3. Also, it would be great if you can show some reconstruction results, in addition to generated samples.\n\nBut overall I like this paper very much.\n\n---\n\nThe paper provides a solution that combines best of latent variable models and auto-regressive models. The concept is executed well and will make a positive contribution to the conference.\n\n---\n\nUPDATE: The authors addressed all my concerns in the new version of the paper, so I raised my score and now recommend acceptance.\n--------------\nThis paper combines the recent progress in variational autoencoder and autoregressive density modeling in the proposed PixelVAE model. The paper shows that it can match the NLL performance of a PixelCNN with a PixelVAE that has a much shallower PixelCNN decoder.\nI think the idea of capturing the global structure with a VAE and modeling the local structure with a PixelCNN decoder makes a lot of sense and can prevent the blurry reconstruction/samples of VAE. I specially like the hierarchical image generation experiments.\n\nI have the following suggestions/concerns about the paper:\n\n1) Is there any experiment showing that using the PixelCNN as the decoder of VAE will result in better disentangling of high-level factors of variations in the hidden code? For example, the authors can train a PixelVAE and VAE on MNIST with 2D hidden code and visualize the 2D hidden code for test images and color code each hidden code based on the digit and show that the digits have a better separation in the PixelVAE representation. A semi-supervised classification comparison between VAE and the PixelVAE will also significantly improve the quality of the paper.\n\n2) A similar idea is also presented in a concurrent ICLR submission \"Variational Lossy Autoencoder\". It would be interesting to have a discussion included in the paper and compare these works.\n\n3) The answer to the pre-review questions made the architecture details of the paper much more clear, but I still ask the authors to include the exact architecture details of all the experiments in the paper and/or open source the code. The clarity of the presentation is not satisfying and the experiments are difficult to reproduce.\n\n4) As pointed out in my pre-review question, it would be great to include two sets of MNIST samples maybe in an appendix section. One with PixelCNN and the other with PixelVAE with the same pixelcnn depth to illustrate the hidden code in PixelVAE actually captures the global structure.\n\nI will gladly raise the score if the authors address my concerns.\n\n---\n\nThe paper combines a hierarchical Variational Autoencoder with PixelCNNs to model the distribution of natural images. \nThey report good (although not state of the art) likelihoods on natural images and briefly start to explore what information is encoded by the latent representations in the hierarchical VAE.\n\nI believe that combining the PixelCNN with a VAE, as was already suggested in the PixelCNN paper, is an important and interesting contribution. \nThe encoding of high-, mid- and low-level variations at the different latent stages is interesting but seems not terribly surprising, since the size of the image regions the latent variables model is also at the corresponding scale. Showing that the PixelCNN improves the latent representation of the VAE with regard to some interesting task would be a much stronger result. \nAlso, while the paper claims, that combining the PixelCNN with the VAE reduces the number of computationally expensive autoregressive layers, it remains unclear how much more efficient their whole model is than an PixelCNN with comparable likelihood.\n\nIn general, I find the clarity of the presentation wanting. For example, I agree with reviewer1 that the exact structure of their model remains unclear from the paper and would be difficult to reproduce.\n\n---\n\nAll in all this is a nice paper.\n\nI think the model is quite clever, attempting to get the best of latent variable models and auto-regressive models. The implementation and specific architecture choices (as discussed in the pre-review) also seem reasonable.\nOn the experimental side, I would have liked to see something more than NLL measurements and samples - maybe show this is useful for other tasks such as classification?\n\nThough I don't think this is a huge leap forward this is certainly a nice paper and I recoemmend acceptance.\n\n---\n\nThis is a very interesting paper. It combines the best of both world: PixelCNN and VAE. State-of-the-art LL and visually appealing images.\n\nBelow are some comments and suggestions.\n\n1. In van dern Oord et al. 2016b they use an auto-encoder architecture with conditional PixelCNN as the decoder. It is not a variational one, though. It would be interesting to give a comparison between the model in this paper and their model. Are there any other differences, besides the KLD loss on latent variables and the (optional) hierarchical extension?\n\n2. The introduction of latent varibles z definitely helps modeling global structure, however it also breaks the chain rule so the exact likelihood cannnot be derived.\n\n3. How is the quality of representations learned by the encoder? Will the PixelCNN decoder help the encoder learn better representations, compared to Kingma et. al., \"Semi-supervised learning with deep generative models\"?\n\n3. Also, it would be great if you can show some reconstruction results, in addition to generated samples.\n\nBut overall I like this paper very much.",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper introduces PixelVAE, a model that combines VAEs with PixelCNN for natural image modeling. It discusses the limitations of both approaches and presents an extension to a hierarchical structure. The contributions include state-of-the-art performance on MNIST and competitive results on ImageNet.",
+      "strengths": [
+        "Clear introduction of the problem and related work",
+        "Detailed explanation of the proposed model's architecture"
+      ],
+      "weaknesses": [
+        "Lack of specific details about the PixelVAE architecture in the provided text",
+        "No discussion section or conclusion, which might be important for a full paper"
+      ],
+      "confidence": 0.9,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper introduces PixelVAE, a model that combines VAEs with PixelCNN's autoregressive capabilities. It claims state-of-the-art performance on MNIST and competitive results on ImageNet and LSUN bedrooms. However, the draft lacks specific details about the model architecture and hyperparameters.",
+      "strengths": [
+        "Addresses a significant challenge in image modeling by combining VAE and PixelCNN strengths",
+        "Claims to outperform existing methods on certain benchmarks"
+      ],
+      "weaknesses": [
+        "Lacks detailed information about the PixelVAE model's architecture, including the number of autoregressive layers used",
+        "No specific details provided for encoder and decoder architectures or hyperparameters tuning process",
+        "Evaluation metrics are not fully specified; more context on performance measures would be helpful"
+      ],
+      "confidence": 0.6,
+      "needs_clarification": "How many autoregressive layers are used in the PixelVAE model, and what is their configuration? What are the specific architectures of the encoder and decoder, and how were hyperparameters tuned?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.6
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper introduces PixelVAE, which combines VAE and PixelCNN models. However, without a relevant set of related works, it's challenging to assess the novelty accurately. The draft does not adequately survey existing literature.",
+      "strengths": [
+        "Proposes an innovative model that integrates VAE and PixelCNN.",
+        "Shows competitive performance on benchmark datasets."
+      ],
+      "weaknesses": [
+        "Lacks citation coverage; does not sufficiently position itself against related works.",
+        "Novelty cannot be fully assessed without relevant related papers."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper introduces PixelVAE, a model that combines VAEs with PixelCNN's autoregressive capabilities. It claims state-of-the-art performance on MNIST and competitive results on ImageNet and LSUN bedrooms. However, the draft lacks specific details about the model architecture and hyperparameters.",
+          "strengths": [
+            "Addresses a significant challenge in image modeling by combining VAE and PixelCNN strengths",
+            "Claims to outperform existing methods on certain benchmarks"
+          ],
+          "weaknesses": [
+            "Lacks detailed information about the PixelVAE model's architecture, including the number of autoregressive layers used",
+            "No specific details provided for encoder and decoder architectures or hyperparameters tuning process",
+            "Evaluation metrics are not fully specified; more context on performance measures would be helpful"
+          ],
+          "confidence": 0.6,
+          "needs_clarification": "How many autoregressive layers are used in the PixelVAE model, and what is their configuration? What are the specific architectures of the encoder and decoder, and how were hyperparameters tuned?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.6
+        },
+        "challenger_critique": "The original review accurately points out that the paper lacks detailed information about the model architecture and hyperparameters. The draft does not provide specific details on the number of autoregressive layers used in PixelVAE, nor does it give a clear description of the encoder and decoder architectures or the tuning process for hyperparameters. These are valid concerns as such details are crucial for reproducibility and further research.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.6,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper introduces PixelVAE, which combines VAE and PixelCNN models. However, without a relevant set of related works, it's challenging to assess the novelty accurately. The draft does not adequately survey existing literature.",
+          "strengths": [
+            "Proposes an innovative model that integrates VAE and PixelCNN.",
+            "Shows competitive performance on benchmark datasets."
+          ],
+          "weaknesses": [
+            "Lacks citation coverage; does not sufficiently position itself against related works.",
+            "Novelty cannot be fully assessed without relevant related papers."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.2
+        },
+        "challenger_critique": "The original review accurately points out a lack of citation coverage, but this criticism is somewhat mitigated by the paper's clear description of its contributions and related works. The reviewer could have acknowledged that the authors did provide a good overview of VAEs and PixelCNNs in the introduction.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "Please provide more details on the specific architecture of the PixelVAE model, including how many autoregressive layers are used and their configuration.",
+      "What are the specific architectures used for the encoder and decoder in PixelVAE? What are the hyperparameters of these networks, and how were they tuned?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces PixelVAE, a model that combines Variational Autoencoders (VAEs) with PixelCNN for natural image modeling. It claims state-of-the-art performance on MNIST and competitive results on ImageNet and LSUN bedrooms. The contributions include an innovative hierarchical structure addressing the limitations of both VAEs and PixelCNN.\n\n### Key Strengths\n\n1. **Clear Introduction**: The paper provides a clear introduction to the problem and related work.\n2. **Innovative Model Proposal**: It proposes an integrated model that leverages the strengths of both VAEs and PixelCNN, potentially addressing their limitations.\n3. **Competitive Performance**: The model shows competitive performance on benchmark datasets.\n\n### Key Weaknesses (Prioritized)\n\n1. **Lack of Detailed Architecture Information**: Both structure/clarity and methodology reviewers highlighted a lack of specific details about the PixelVAE architecture, including the number of autoregressive layers and the configuration.\n2. **Insufficient Citation Coverage**: The novelty review points out that the paper lacks citation coverage, making it difficult to assess its novelty accurately.\n3. **Missing Discussion Section or Conclusion**: Both structure/clarity and methodology reviewers noted a lack of discussion section or conclusion.\n\n### Missing Sections / Information\n\n1. **Detailed Model Architecture**: Specific details about the architecture, including the number and configuration of autoregressive layers, encoder and decoder architectures, and hyperparameters tuning process.\n2. **Evaluation Metrics and Context**: More context on performance measures used in evaluations.\n3. **Related Works and Positioning**: A comprehensive survey of related works to position this contribution accurately within the field.\n\n### Significance Assessment\n\nThe proposed PixelVAE model is innovative and addresses a significant challenge by integrating VAEs with PixelCNN's autoregressive capabilities. However, the lack of detailed architecture information and insufficient citation coverage make it difficult to assess its significance fully. The performance claims on benchmark datasets are promising but need more context and detail to be convincing.\n\n### Recommendation\n\nThe paper is promising but requires major revisions before submission. Prioritize addressing the missing details about the model's architecture, providing a comprehensive survey of related works, and clarifying evaluation metrics and hyperparameters tuning process. Once these issues are resolved, the contribution could significantly impact the field. I recommend resubmitting after substantial revisions to address these weaknesses.\n\n---\n\nThis structured report synthesizes the feedback from the three specialist reviews while adding a judgment on significance. It provides actionable guidance for the author to improve their submission.",
+    "overall_confidence": 0.57
+  }
+}

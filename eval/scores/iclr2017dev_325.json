@@ -1,0 +1,12 @@
+{
+  "paper_id": "iclr2017dev_325",
+  "scored_at": "2026-08-13T11:06:13.776414+00:00",
+  "elapsed_seconds": 380.8,
+  "judge_verdict": {
+    "agreement_score": 0.85,
+    "matched_criticisms": [],
+    "missed_by_paperpilot": [],
+    "paperpilot_flagged_extra": [],
+    "reasoning": "The paper introduces an interesting heuristic approach for training generative models via iterative denoising. While the method is novel and potentially valuable, there are several areas where further clarity and empirical validation would strengthen the work. The authors address many of these concerns in their response, which I find satisfactory."
+  }
+}

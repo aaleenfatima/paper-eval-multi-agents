@@ -1,0 +1,12 @@
+{
+  "paper_id": "iclr2017dev_316",
+  "scored_at": "2026-08-13T10:59:52.980773+00:00",
+  "elapsed_seconds": 412.8,
+  "judge_verdict": {
+    "agreement_score": 0.85,
+    "matched_criticisms": [],
+    "missed_by_paperpilot": [],
+    "paperpilot_flagged_extra": [],
+    "reasoning": "The teacher-student model in this paper involves teachers being trained on sensitive data and students being trained on non-sensitive data. The key point is that the student learns to predict outputs based on noisy votes from multiple teachers, rather than directly using the sensitive data. This setup allows for a form of indirect learning where the student does not have direct access to the sensitive data but can still leverage information inferred from the teachers' predictions."
+  }
+}

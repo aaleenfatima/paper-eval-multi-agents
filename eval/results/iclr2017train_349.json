@@ -1,0 +1,113 @@
+{
+  "paper_id": "iclr2017train_349",
+  "title": "Learning to Query, Reason, and Answer Questions On Ambiguous Texts",
+  "processed_at": "2026-08-12T19:28:31.025413+00:00",
+  "elapsed_seconds": 602.0,
+  "human_review_text": "The program committee appreciates the authors' response to concerns raised in the reviews. While there are some concerns with the paper that the authors are strongly encouraged to address for the final version of the paper, overall, the work has contributions that are worth presenting at ICLR.\n\n---\n\nHappy holidays and thank you all for your careful reading and thoughtful, constructive comments!\n\nA few responses to your last set of comments/questions:\n\nTo Reviewer 3:\n\nWe definitely agree that because of the limited vocabulary and grammar, this is more about reasoning than language.  As you point out, the interaction in these problems  boils down to repeated variable queries until the Agent decides it has enough info.  We decided on the term \"interaction\" to differentiate our problems from the bAbI problems, which are 1 shot question answering, and to emphasize the idea that, although simplified, this has the same structure as a dialogue interaction with the Agent (for example a tech support agent) asking clarifying questions of the User until being able to answer the User's question. We can try to think of a better term -- perhaps \"multi-turn\"?\n\nTo Reviewer 2:\n\n(1) how does the model extend to the case with multiple variables in a single sentence?\n\nCurrently we leverage the fact that there is just one variable per sentence to save on parameters and avoid a linear transformation before the softmax in the query network.  To support more than one variable per sentence would just require adding a linear transformation on the output before softmax, making the query network have the same structure as the answer network.\n\n(2) If the answer is out of vocabulary, how would the model handle it?\n\nOut of vocabulary words are in general a problem for networks which do a softmax over a fixed vocabulary.  One potential way to address this would be to use something like the Pointer Networks of Vinyals, Fortunato, and Jaitly(\n\n---\n\nThis paper proposed an integration of memory network with reinforcement learning. The experimental data is simple, but the model is very interesting and relatively novel. There are some questions about the model:\n\n1. how does the model extend to the case with multiple variables in a single sentence?\n\n2. If the answer is out of vocabulary, how would the model handle it?\n\n3. I hope the authors can provide more analysis about the curriculum learning part, since it is very important for the RL model training.\n\n4. In the training, in each iteration, how the data samples were selected, by random or from simple one depth to multiple depth?\n\n---\n\nThis paper introduces a nice dataset/data generator that creates bAbI like tasks, except where the questioning answering agent is required to clarify the values of some variables in order to succeed.  I think the baselines the authors use to test the tasks are appropriate.   I am a bit worried that the tasks may be too easy (as the bAbI tasks have been), but still, I think locally these will be useful.  If the generation code is well written, and the tasks are extensible, they may be useful for some time.\n\n---\n\nThis paper investigates a set of tasks that augment the basic bAbI problems. In particular, some of the people and objects in the scenarios are replaced with unknown variables. Some of these variables must be known to solve the question, thus the agent must learn to query for the values of these variables. Interestingly, one can now measure both the performance of the agent in correctly answering the question, and its efficiency in asking for the values of the correct unknown variables (and not variables that are unnecessary to answer the question). This inferring of unknown variables goes beyond what is required for the vanilla version of the bAbI tasks, which are now more or less solved.\n\nThe paper is well-written, and the contributions are clear. Due to the very limited vocabulary and structure of the bAbI problems in general, I think these tasks (and variants on them) should be viewed more as basic reasoning tasks than natural language understanding. I\u2019m not convinced by the claim of the paper that this really tests the \u2018interaction\u2019 capabilities of agents \u2013 while the task is phrased as a kind of interaction, I think it\u2019s more aptly described by simply \u2018inferring important unknown variables\u2019, which (while important) is more related to reasoning. I\u2019m not sure whether the connection of this ability to \u2018interaction\u2019 is more a superficial one.\n\nThat being said, it is certainly true that conversational agents will need basic reasoning abilities to converse meaningfully with humans. I sympathise with the general goal of the bAbI tasks, which is to test these reasoning abilities in synthetic environments, that are just complicated enough (but not more) to drive the construction of interesting models. I am convinced by the authors that their extension to these tasks are interesting and worthy of future investigation, and thus I recommend the acceptance of the paper.\n\n---\n\nDear Authors,\n\nPlease resubmit your paper in the ICLR 2017 format with the correct font for your submission to be considered. Thank you!\n\n---\n\nThe program committee appreciates the authors' response to concerns raised in the reviews. While there are some concerns with the paper that the authors are strongly encouraged to address for the final version of the paper, overall, the work has contributions that are worth presenting at ICLR.\n\n---\n\nHappy holidays and thank you all for your careful reading and thoughtful, constructive comments!\n\nA few responses to your last set of comments/questions:\n\nTo Reviewer 3:\n\nWe definitely agree that because of the limited vocabulary and grammar, this is more about reasoning than language.  As you point out, the interaction in these problems  boils down to repeated variable queries until the Agent decides it has enough info.  We decided on the term \"interaction\" to differentiate our problems from the bAbI problems, which are 1 shot question answering, and to emphasize the idea that, although simplified, this has the same structure as a dialogue interaction with the Agent (for example a tech support agent) asking clarifying questions of the User until being able to answer the User's question. We can try to think of a better term -- perhaps \"multi-turn\"?\n\nTo Reviewer 2:\n\n(1) how does the model extend to the case with multiple variables in a single sentence?\n\nCurrently we leverage the fact that there is just one variable per sentence to save on parameters and avoid a linear transformation before the softmax in the query network.  To support more than one variable per sentence would just require adding a linear transformation on the output before softmax, making the query network have the same structure as the answer network.\n\n(2) If the answer is out of vocabulary, how would the model handle it?\n\nOut of vocabulary words are in general a problem for networks which do a softmax over a fixed vocabulary.  One potential way to address this would be to use something like the Pointer Networks of Vinyals, Fortunato, and Jaitly(\n\n---\n\nThis paper proposed an integration of memory network with reinforcement learning. The experimental data is simple, but the model is very interesting and relatively novel. There are some questions about the model:\n\n1. how does the model extend to the case with multiple variables in a single sentence?\n\n2. If the answer is out of vocabulary, how would the model handle it?\n\n3. I hope the authors can provide more analysis about the curriculum learning part, since it is very important for the RL model training.\n\n4. In the training, in each iteration, how the data samples were selected, by random or from simple one depth to multiple depth?\n\n---\n\nThis paper introduces a nice dataset/data generator that creates bAbI like tasks, except where the questioning answering agent is required to clarify the values of some variables in order to succeed.  I think the baselines the authors use to test the tasks are appropriate.   I am a bit worried that the tasks may be too easy (as the bAbI tasks have been), but still, I think locally these will be useful.  If the generation code is well written, and the tasks are extensible, they may be useful for some time.\n\n---\n\nThis paper investigates a set of tasks that augment the basic bAbI problems. In particular, some of the people and objects in the scenarios are replaced with unknown variables. Some of these variables must be known to solve the question, thus the agent must learn to query for the values of these variables. Interestingly, one can now measure both the performance of the agent in correctly answering the question, and its efficiency in asking for the values of the correct unknown variables (and not variables that are unnecessary to answer the question). This inferring of unknown variables goes beyond what is required for the vanilla version of the bAbI tasks, which are now more or less solved.\n\nThe paper is well-written, and the contributions are clear. Due to the very limited vocabulary and structure of the bAbI problems in general, I think these tasks (and variants on them) should be viewed more as basic reasoning tasks than natural language understanding. I\u2019m not convinced by the claim of the paper that this really tests the \u2018interaction\u2019 capabilities of agents \u2013 while the task is phrased as a kind of interaction, I think it\u2019s more aptly described by simply \u2018inferring important unknown variables\u2019, which (while important) is more related to reasoning. I\u2019m not sure whether the connection of this ability to \u2018interaction\u2019 is more a superficial one.\n\nThat being said, it is certainly true that conversational agents will need basic reasoning abilities to converse meaningfully with humans. I sympathise with the general goal of the bAbI tasks, which is to test these reasoning abilities in synthetic environments, that are just complicated enough (but not more) to drive the construction of interesting models. I am convinced by the authors that their extension to these tasks are interesting and worthy of future investigation, and thus I recommend the acceptance of the paper.\n\n---\n\nDear Authors,\n\nPlease resubmit your paper in the ICLR 2017 format with the correct font for your submission to be considered. Thank you!",
+  "report": {
+    "input_type": "full_draft",
+    "structure_clarity": {
+      "agent_name": "structure_clarity",
+      "summary": "The paper introduces QRAQ (Query, Reason, and Answer Questions), a new synthetic domain where an agent must reason about ambiguous texts and interact with a user. It compares reinforcement learning-based memory-network architectures against supervised training in this setting.",
+      "strengths": [
+        "Clear introduction of the problem and its motivation",
+        "Detailed description of the QRAQ domain and its challenges",
+        "Comprehensive related work section"
+      ],
+      "weaknesses": [
+        "Methodology and results sections are not provided, making it difficult to assess the full scope of the paper",
+        "Discussion on limitations or future work is missing"
+      ],
+      "confidence": 0.8,
+      "needs_clarification": null,
+      "was_debated": false,
+      "pre_debate_confidence": null
+    },
+    "methodology": {
+      "agent_name": "methodology_critic",
+      "summary": "The paper introduces a new synthetic domain called QRAQ where agents must reason with incomplete information over multiple turns. It uses reinforcement learning and supervised training methods to solve these problems, comparing the performance of memory-network architectures.",
+      "strengths": [
+        "Introduces a novel problem setting that combines reasoning and interaction in a challenging way.",
+        "Compares RL results against supervised training as an upper bound."
+      ],
+      "weaknesses": [
+        "Lacks specific details on the RL and supervised training methods, making it hard to assess the robustness of the approach.",
+        "The exact composition and characteristics of the QRAQ dataset types are not fully specified."
+      ],
+      "confidence": 0.7,
+      "needs_clarification": "What are the specific details of the reinforcement learning and supervised training methods used? What is the exact composition, characteristics, and sizes of the four QRAQ dataset types?",
+      "was_debated": true,
+      "pre_debate_confidence": 0.7
+    },
+    "novelty": {
+      "agent_name": "novelty",
+      "summary": "The paper introduces QRAQ, a new synthetic domain that requires agents to reason with incomplete information and ask relevant questions. While the concept is novel in its specific combination of reasoning and querying, it lacks citation coverage as no related papers were retrieved for comparison.",
+      "strengths": [
+        "Introduces a unique problem setting combining reasoning and querying.",
+        "Addresses a challenging task in conversational systems."
+      ],
+      "weaknesses": [
+        "No related work was retrieved to assess the novelty against existing research.",
+        "The paper does not adequately cite or position itself within the existing literature."
+      ],
+      "confidence": 0.2,
+      "needs_clarification": null,
+      "was_debated": true,
+      "pre_debate_confidence": 0.2,
+      "related_papers_considered": []
+    },
+    "debate_log": [
+      {
+        "agent_name": "methodology",
+        "original_verdict": {
+          "agent_name": "methodology_critic",
+          "summary": "The paper introduces a new synthetic domain called QRAQ where agents must reason with incomplete information over multiple turns. It uses reinforcement learning and supervised training methods to solve these problems, comparing the performance of memory-network architectures.",
+          "strengths": [
+            "Introduces a novel problem setting that combines reasoning and interaction in a challenging way.",
+            "Compares RL results against supervised training as an upper bound."
+          ],
+          "weaknesses": [
+            "Lacks specific details on the RL and supervised training methods, making it hard to assess the robustness of the approach.",
+            "The exact composition and characteristics of the QRAQ dataset types are not fully specified."
+          ],
+          "confidence": 0.7,
+          "needs_clarification": "What are the specific details of the reinforcement learning and supervised training methods used? What is the exact composition, characteristics, and sizes of the four QRAQ dataset types?",
+          "was_debated": true,
+          "pre_debate_confidence": 0.7
+        },
+        "challenger_critique": "The original review correctly identifies gaps in methodological details and dataset specifications. However, it overlooks that the paper does provide a clear description of the QRAQ domain's setup and objectives, which are sufficient for understanding the problem space even if specific datasets aren't fully detailed.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.7,
+        "confidence_changed": false
+      },
+      {
+        "agent_name": "novelty",
+        "original_verdict": {
+          "agent_name": "novelty",
+          "summary": "The paper introduces QRAQ, a new synthetic domain that requires agents to reason with incomplete information and ask relevant questions. While the concept is novel in its specific combination of reasoning and querying, it lacks citation coverage as no related papers were retrieved for comparison.",
+          "strengths": [
+            "Introduces a unique problem setting combining reasoning and querying.",
+            "Addresses a challenging task in conversational systems."
+          ],
+          "weaknesses": [
+            "No related work was retrieved to assess the novelty against existing research.",
+            "The paper does not adequately cite or position itself within the existing literature."
+          ],
+          "confidence": 0.2,
+          "needs_clarification": null,
+          "was_debated": true,
+          "pre_debate_confidence": 0.2
+        },
+        "challenger_critique": "The review overlooks that while there is a lack of direct citations, the paper does provide a clear description of the QRAQ domain and its unique challenges. The reviewer could have acknowledged this as an original contribution despite the absence of related work citations.",
+        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
+        "final_confidence": 0.2,
+        "confidence_changed": false
+      }
+    ],
+    "clarifying_questions_asked": [
+      "What are the specific details of the RL and supervised training methods used? What is the exact composition of the four QRAQ dataset types, including their characteristics and sizes?"
+    ],
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces QRAQ (Query, Reason, and Answer Questions), a novel synthetic domain where agents must reason about ambiguous texts and interact with users. It compares reinforcement learning-based memory-network architectures against supervised training methods in this setting. While the concept is clear and well-motivated, significant gaps exist in methodology details, results, and citation coverage.\n\n### Key Strengths\n\n- **Clear Introduction**: The problem and its motivation are clearly introduced.\n- **Detailed Description of QRAQ Domain**: The challenges within the domain are comprehensively described.\n- **Comprehensive Related Work Section**: This section provides a good foundation for understanding existing research in the area.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Missing Methodology and Results Sections**: These sections are crucial for assessing the robustness of the approach and the validity of the comparisons between reinforcement learning and supervised training.\n2. **Lack of Specific Methodological Details**: The paper does not provide sufficient detail on the RL and supervised training methods used, making it difficult to evaluate their effectiveness.\n3. **Insufficient Citation Coverage**: No related work was retrieved for comparison, which limits the assessment of the novelty and significance of the contribution.\n\n### Missing Sections / Information\n\n- **Methodology Details**: Specifics about reinforcement learning and supervised training methods should be included.\n- **Results Section**: Detailed results from experiments are missing.\n- **Discussion on Limitations or Future Work**: This section is necessary to provide a balanced view of the study's strengths and weaknesses.\n- **Exact Composition of QRAQ Dataset Types**: The characteristics, sizes, and types of datasets used in the experiments should be specified.\n\n### Significance Assessment\n\nThe contribution introduces a unique problem setting combining reasoning and querying, which addresses a challenging task in conversational systems. However, the lack of methodological detail, results, and citation coverage makes it difficult to assess whether this is a significant step forward in the field. The paper claims to introduce a novel domain but fails to provide context through related work or comparisons with existing literature.\n\n### Recommendation\n\nThe paper shows promise but requires substantial revisions before submission. Specifically, the author should:\n\n1. **Add Methodology and Results Sections**: Provide detailed descriptions of the RL and supervised training methods used, along with comprehensive experimental results.\n2. **Include a Discussion on Limitations and Future Work**: Address potential limitations and outline future research directions.\n3. **Enhance Citation Coverage**: Retrieve and cite relevant literature to assess the novelty and significance of the contribution.\n\nGiven these requirements, I recommend that the authors revise their manuscript significantly before resubmitting for consideration. If they can address these issues effectively, this work has the potential to make a meaningful contribution to the field. Otherwise, it may be better suited as an extended technical report or a preliminary study. \n\n**Recommendation: Resubmit after major revisions addressing the above points.**",
+    "overall_confidence": 0.57
+  }
+}
