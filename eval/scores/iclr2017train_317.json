@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_317",
+  "scored_at": "2026-08-14T10:27:48.575370+00:00",
+  "elapsed_seconds": 128.5,
+  "judge_verdict": {
+    "agreement_score": 0.3,
+    "matched_criticisms": [
+      "Lacks comparison against established baselines for SR methods using MAP inference",
+      "Specific hyperparameters and train/test split details are missing"
+    ],
+    "missed_by_paperpilot": [
+      "The proposed amortized MAP inference is novel and different from the previous SR methods.",
+      "Using an affine projection architecture as a constraint, the model do not need any corresponding {HR, LR} image pairs for training."
+    ],
+    "paperpilot_flagged_extra": [
+      "The abstract is somewhat vague, lacking specific details on the methods or contributions",
+      "Does not clearly distinguish its approach from other methods aiming to improve perceptual quality"
+    ],
+    "reasoning": "The AI system correctly identified some key weaknesses such as the lack of baseline comparisons and missing experimental details. However, it missed several important points raised by the human reviewer about the novelty and differences in the proposed method compared to existing approaches."
+  }
+}

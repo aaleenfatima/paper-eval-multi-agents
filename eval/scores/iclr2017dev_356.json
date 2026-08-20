@@ -1,0 +1,18 @@
+{
+  "paper_id": "iclr2017dev_356",
+  "scored_at": "2026-08-14T09:57:50.080806+00:00",
+  "elapsed_seconds": 118.8,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of comparison against established baselines",
+      "Insufficient methodological details"
+    ],
+    "missed_by_paperpilot": [
+      "Significant performance issues on FlashFill benchmark, suggesting potential model flaws or bugs",
+      "Unclear model explanation and need for more examples to disambiguate program synthesis"
+    ],
+    "paperpilot_flagged_extra": [],
+    "reasoning": "The AI system correctly identified the lack of comparison against established baselines and insufficient methodological details. However, it missed the critical performance issues on FlashFill and the unclear model explanation, which are major concerns for the paper's readiness for publication."
+  }
+}

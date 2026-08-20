@@ -40,20 +40,23 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper proposes Snapshot Ensembling, a method to obtain multiple neural network models at no additional training cost. While the approach is novel and effective in reducing error rates, it does not explicitly compare against other implicit ensemble methods such as those using dropout or stochastic depth. The related work section could be improved by including these comparisons.",
+      "summary": "The paper proposes Snapshot Ensembling, which achieves multiple neural network ensembles with no additional training cost by leveraging local minima during SGD optimization. While the approach is novel in its application to deep learning, it builds on existing work such as cyclic learning rate schedules and implicitly addresses some of the same goals as other implicit ensemble methods like Dropout. The paper does not thoroughly survey related works on ensembling or cyclic learning rates.",
       "strengths": [
-        "The proposed method is simple yet effective, yielding lower error rates than state-of-the-art single models.",
-        "It is compatible with various network architectures and learning tasks."
+        "Proposes a simple yet effective method for achieving multiple neural network ensembles at no additional training cost.",
+        "Consistently yields lower error rates than state-of-the-art single models and compares favorably with traditional network ensembles."
       ],
       "weaknesses": [
-        "The paper does not explicitly compare its approach against other implicit ensemble methods like those using dropout or stochastic depth.",
-        "The related work section could be more comprehensive to provide a clearer context for the unique contributions of Snapshot Ensembling."
+        "Lacks thorough citation of related works on ensembling or cyclic learning rates, which are key components of the proposed method.",
+        "Does not clearly position itself against other implicit ensemble methods like Dropout in terms of performance or applicability."
       ],
-      "confidence": 0.6,
+      "confidence": 0.75,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.4,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Snapshot Ensembles: Train 1, get M for free (2017)",
+        "Stacked LSTM Snapshot Ensembles for Time Series Forecasting (2018)"
+      ]
     },
     "debate_log": [
       {
@@ -78,35 +81,14 @@
         "resolution_summary": "The paper proposes Snapshot Ensembling, a method to obtain multiple neural network models at no additional training cost by leveraging the optimization path of SGD. It saves model snapshots at local minima and compares favorably with single-model baselines and traditional ensembles on various datasets.",
         "final_confidence": 0.6,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper proposes Snapshot Ensembling, a method to obtain multiple neural network models at no additional training cost by leveraging local minima during optimization. While the approach is novel in its specific implementation and application, it does not adequately survey existing related work on implicit ensembles or other methods that might provide context for its novelty.",
-          "strengths": [
-            "The proposed method is simple to implement and yields lower error rates than state-of-the-art single models at no additional training cost.",
-            "It can be easily combined with other techniques like data augmentation, stochastic depth, or batch normalization."
-          ],
-          "weaknesses": [
-            "Lacks a survey of existing related work on implicit ensembles, which could provide context for the novelty and potential limitations of Snapshot Ensembling.",
-            "Does not compare directly to traditional ensemble methods in terms of computational cost or performance, making it difficult to fully assess its advantages."
-          ],
-          "confidence": 0.4,
-          "needs_clarification": null,
-          "was_debated": false,
-          "pre_debate_confidence": null
-        },
-        "challenger_critique": "The original review misses a specific gap in the paper's discussion of related work, particularly regarding implicit ensembles. The reviewer should have noted that while Snapshot Ensembling is novel in its implementation, it does not explicitly compare against other implicit ensemble methods like those using dropout or stochastic depth, which could provide more context for its unique contributions and limitations.",
-        "resolution_summary": "The paper proposes Snapshot Ensembling, a method to obtain multiple neural network models at no additional training cost. While the approach is novel and effective in reducing error rates, it does not explicitly compare against other implicit ensemble methods such as those using dropout or stochastic depth. The related work section could be improved by including these comparisons.",
-        "final_confidence": 0.6,
-        "confidence_changed": true
       }
     ],
     "clarifying_questions_asked": [
       "What specific cyclic learning rate schedule parameters were used (e.g., initial and final learning rates, frequency of cycles)? How many snapshots were saved during training?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper proposes Snapshot Ensembling, a method to create multiple neural network models from a single training run without additional costs. The approach leverages the optimization path of SGD by saving model snapshots at local minima and comparing favorably with single-model baselines and traditional ensembles on various datasets. While the proposed method is novel and effective in reducing error rates, there are several areas that require further elaboration to enhance clarity, methodology robustness, and novelty.\n\n### Key Strengths\n\n1. **Clarity of Introduction**: The paper clearly introduces the problem and proposed solution.\n2. **Methodology Simplicity and Effectiveness**: Snapshot Ensembling is simple yet effective in yielding lower error rates than state-of-the-art single models.\n3. **Compatibility with Various Architectures**: The method works well across different network architectures and learning tasks.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Insufficient Methodological Details**: The paper lacks detailed technical descriptions of the cyclic learning rate schedule parameters used and the number of snapshots saved during training.\n2. **Limited Comparison with Other Methods**: The approach is not explicitly compared against other implicit ensemble methods such as those using dropout or stochastic depth, which could provide a more comprehensive context for its unique contributions.\n3. **Missing Discussion on Limitations**: There is no discussion on potential limitations or issues associated with Snapshot Ensembling.\n\n### Missing Sections / Information\n\n1. **Cyclic Learning Rate Schedule Parameters**: Specific details about the initial and final learning rates, frequency of cycles, etc., should be provided.\n2. **Number of Snapshots Saved**: Clarification on how many snapshots were saved during training is necessary.\n3. **Comparison with Other Implicit Ensemble Methods**: A more thorough comparison with methods like dropout or stochastic depth would enhance the paper's novelty.\n\n### Significance Assessment\n\nThe contribution of Snapshot Ensembling appears significant due to its simplicity and effectiveness in reducing error rates across various architectures. However, the method\u2019s significance could be further enhanced by addressing the limitations identified above and providing a more comprehensive comparison with existing implicit ensemble methods. The approach offers a practical solution for obtaining ensembles without additional training costs, which is valuable but incremental.\n\n### Recommendation\n\nThe paper is promising but requires significant revisions to address the missing details in methodology, enhance its novelty through comparisons, and provide a thorough discussion on potential limitations. After addressing these issues, resubmission would be appropriate. I recommend the authors prioritize clarifying the cyclic learning rate schedule parameters and providing more detailed information about snapshot saving during training. Additionally, including comparisons with other implicit ensemble methods would strengthen the paper\u2019s contribution to the field. Given the current state of the manuscript, a \"revise and resubmit\" recommendation is advisable. \n\n**Actionable Feedback:**\n- Provide specific details on cyclic learning rate schedule parameters.\n- Save and report the number of snapshots used during training.\n- Conduct thorough comparisons with other implicit ensemble methods like dropout or stochastic depth.\n- Address potential limitations and challenges associated with Snapshot Ensembling.",
-    "overall_confidence": 0.67
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces Snapshot Ensembling as a method to create multiple neural network models from a single training run without additional costs. It leverages the local minima found during stochastic gradient descent (SGD) optimization and compares favorably with both single-model baselines and traditional ensembles on various datasets. While the approach is novel in its application, it builds upon existing techniques such as cyclic learning rates.\n\n### Key Strengths\n\n1. **Clear Introduction**: The paper effectively introduces the problem and proposed solution.\n2. **Methodological Simplicity**: Snapshot Ensembling simplifies ensemble learning without increasing training costs.\n3. **Consistent Performance**: The method yields lower error rates than state-of-the-art single models and compares favorably with traditional network ensembles.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Technical Details Missing**: The methodology section lacks specific details about the cyclic learning rate schedule parameters used.\n2. **Limited Discussion on Limitations**: There is no discussion of potential limitations or issues associated with Snapshot Ensembling.\n3. **Insufficient Citation of Related Works**: The paper does not thoroughly survey related works on ensembling or cyclic learning rates, which are key components of the proposed method.\n\n### Missing Sections / Information\n\n1. **Cyclic Learning Rate Parameters**: Specify initial and final learning rates, frequency of cycles.\n2. **Number of Snapshots Saved**: Clarify how many snapshots were saved during training.\n3. **Discussion on Limitations**: Address potential issues or drawbacks associated with Snapshot Ensembling.\n\n### Significance Assessment\n\nThe contribution is significant in that it proposes a novel method for achieving multiple neural network ensembles at no additional training cost, which can be applied to various architectures and datasets. However, the lack of thorough citation of related works and specific technical details may limit its perceived impact. The paper's claims about its effectiveness are supported by consistent performance improvements but do not fully address how this approach compares to other implicit ensemble methods like Dropout in terms of performance or applicability.\n\n### Recommendation\n\nWhile the proposed method is promising, I recommend that the authors address the key weaknesses and missing sections before resubmission. Specifically, they should provide detailed technical information about the cyclic learning rate schedule, discuss potential limitations, and thoroughly survey related works on ensembling and cyclic learning rates. Once these issues are addressed, the paper could be considered for submission.\n\n**Actionable Steps:**\n- Provide specific details about the cyclic learning rate parameters.\n- Add a section discussing potential limitations or drawbacks of Snapshot Ensembling.\n- Thoroughly cite relevant literature on ensembling and cyclic learning rates.\n- Address any other areas where related work is lacking. \n\nBy addressing these points, the paper will be stronger and more compelling for the field. If these issues are adequately addressed, I would recommend a resubmission to the conference. Otherwise, it may need further refinement before submission.",
+    "overall_confidence": 0.72
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T08:46:23.306638+00:00"
 }

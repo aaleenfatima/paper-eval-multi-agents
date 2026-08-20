@@ -44,6 +44,9 @@ reviewer's MOST IMPORTANT points, not on raw count of overlapping items.
 Missing the human reviewer's single biggest concern should hurt the score
 more than missing a minor point they raised in passing.
 
+Keep your lists to the 3-5 most important items each, not exhaustive. Keep
+reasoning to 2-3 sentences.
+
 Respond ONLY with valid JSON matching this schema (no markdown, no commentary):
 {
   "agreement_score": 0.0-1.0,
@@ -54,12 +57,18 @@ Respond ONLY with valid JSON matching this schema (no markdown, no commentary):
 }
 """
 
+MAX_REVIEW_CHARS = 3000  # some PeerRead papers have multiple reviewers' comments
+                          # concatenated (15,000+ chars) -- the judge only needs
+                          # enough to identify the reviewer's main points, not
+                          # every reviewer's full text verbatim
+
 
 def run(paperpilot_report_text: str, human_review_text: str) -> JudgeVerdict:
+    trimmed_review = human_review_text[:MAX_REVIEW_CHARS]
     user_prompt = f"""--- AI SYSTEM'S CRITIQUE (PaperPilot) ---
 {paperpilot_report_text}
 
 --- REAL HUMAN REVIEWER'S COMMENTS ---
-{human_review_text}
+{trimmed_review}
 """
-    return call_llm_structured(SYSTEM_PROMPT, user_prompt, JudgeVerdict, label="judge", max_tokens=700)
+    return call_llm_structured(SYSTEM_PROMPT, user_prompt, JudgeVerdict, label="judge", max_tokens=500)

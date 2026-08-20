@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_309",
+  "scored_at": "2026-08-14T10:17:09.035543+00:00",
+  "elapsed_seconds": 116.3,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Missing related work context",
+      "No comparison against established baselines"
+    ],
+    "missed_by_paperpilot": [
+      "Computational resources needed to train the UNREAL agent",
+      "Clarify that different policies are learned for each task in the abstract/intro"
+    ],
+    "paperpilot_flagged_extra": [
+      "The idea of using auxiliary tasks is not novel; similar approaches exist in other domains like sparse reward environments and end-to-end autonomous driving."
+    ],
+    "reasoning": "PaperPilot missed some important practical concerns raised by the human reviewer, such as computational resources and clarity on policy learning. However, it did address key weaknesses regarding related work and baseline comparisons."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017dev_350",
+  "scored_at": "2026-08-14T09:53:55.687458+00:00",
+  "elapsed_seconds": 123.3,
+  "judge_verdict": {
+    "agreement_score": 0.7,
+    "matched_criticisms": [
+      "Lack of detailed dataset information",
+      "No comparison against established baselines"
+    ],
+    "missed_by_paperpilot": [
+      "The link to predictive coding should be better explained in the paper if it is to be used as a motivation for the prednet model."
+    ],
+    "paperpilot_flagged_extra": [
+      "Missing discussion and future work sections",
+      "Underperforming compared to Finn et al. (2016) on H3.6m Walking videos"
+    ],
+    "reasoning": "The AI system correctly identified the lack of dataset details and comparisons against established models, which are indeed crucial issues. However, it missed a few key points raised by the human reviewer, such as the need for better explanation of predictive coding links and specific performance issues."
+  }
+}

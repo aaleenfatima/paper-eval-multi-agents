@@ -40,20 +40,26 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper introduces nonparametric neural networks as a novel approach for automatically determining the optimal network size during training. However, without any related works to compare against, it is difficult to assess its novelty and how well it positions itself in the existing literature.",
+      "summary": "The paper introduces a novel framework called nonparametric neural networks that dynamically adjusts network size during training, which is not directly addressed in the retrieved papers but shares some conceptual overlap with nonparametric regression and over-parameterized shallow ReLU networks. However, the specific approach of continuously adding and removing units via an $\text{AdaRad}$ algorithm is unique to this paper.",
       "strengths": [
-        "Proposes an innovative framework for dynamically adjusting network size during training.",
-        "Introduces AdaRad, a novel optimization algorithm."
+        "Introduces a novel framework for dynamically adjusting network size during training.",
+        "Theoretical soundness provided through proofs in the appendix."
       ],
       "weaknesses": [
-        "Lacks comparison with existing methods for model selection and pruning.",
-        "Does not adequately position itself within the broader context of neural network optimization techniques."
+        "Lacks direct comparison with existing nonparametric regression methods and over-parameterized shallow ReLU networks.",
+        "Does not adequately survey related work, particularly missing key papers on pruning and adaptive optimization techniques."
       ],
-      "confidence": 0.2,
+      "confidence": 0.7,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Nonparametric Neural Networks (2017)",
+        "Nonparametric regression using deep neural networks with ReLU activation function (2017)",
+        "Nonparametric Estimation of Non-Crossing Quantile Regression Process with Deep ReQU Neural Networks (2024)",
+        "Bayesian Nonparametric Federated Learning of Neural Networks (2019)",
+        "Nonparametric regression using over-parameterized shallow ReLU neural networks (2023)"
+      ]
     },
     "debate_log": [
       {
@@ -78,35 +84,14 @@
         "resolution_summary": "The paper introduces nonparametric neural networks, which dynamically adjust network size during training to find an optimal model without the need for multiple runs. The framework includes a novel optimization algorithm called AdaRad and theoretically proves its soundness under certain conditions.",
         "final_confidence": 0.7,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper introduces nonparametric neural networks as a novel approach for automatically determining the optimal network size during training. However, without any related works to compare against, it is difficult to assess its novelty and how well it positions itself in the existing literature.",
-          "strengths": [
-            "Proposes an innovative framework for dynamically adjusting network size during training.",
-            "Introduces AdaRad, a novel optimization algorithm."
-          ],
-          "weaknesses": [
-            "Lacks comparison with existing methods for model selection and pruning.",
-            "Does not adequately position itself within the broader context of neural network optimization techniques."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The review accurately points out that the paper lacks comparisons with existing methods, which indeed weakens its position in the broader context of neural network optimization techniques. However, the reviewer might have missed noting that the paper does provide a theoretical proof for the soundness of nonparametric networks under certain conditions (section 7.1). This could be considered a strength not mentioned in the original review.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What specific datasets were used in the experiments? What are the baseline models compared against (e.g., fixed-size networks trained from scratch)? How was the performance of AdaRad evaluated relative to other methods?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper proposes nonparametric neural networks as a method for dynamically adjusting network size during training, introducing AdaRad as an optimization algorithm to achieve this. While the approach is novel and theoretically sound, there are significant gaps in experimental validation and comparison with existing methods.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The problem of dynamic model selection is well-articulated.\n2. **Novel Framework**: Introduces a nonparametric framework that could potentially reduce computational costs.\n3. **Theoretical Soundness**: Provides theoretical backing for the proposed approach.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Experimental Validation and Comparison**: The paper lacks detailed experimental setups, comparisons with established methods like Adam or RMSprop, and performance metrics to evaluate AdaRad's effectiveness.\n2. **Comprehensive Literature Review**: The novelty of the work is under-evaluated due to a lack of comparison with existing methods for model selection and pruning.\n3. **Incomplete Algorithm Description**: Some sections, particularly the AdaRad algorithm in section 3, are not fully developed.\n\n### Missing Sections / Information\n\n- **Experimental Setup Details**: Specific datasets used, baseline models compared against (e.g., fixed-size networks trained from scratch), and performance metrics employed.\n- **Comparison with Existing Methods**: Detailed comparisons with established optimization algorithms like Adam or RMSprop to evaluate AdaRad's effectiveness and efficiency.\n- **Literature Review**: A more comprehensive review of existing methods for model selection and pruning.\n\n### Significance Assessment\n\nWhile the proposed nonparametric neural networks and AdaRad algorithm are novel, their significance is somewhat limited. The paper claims potential computational cost savings but lacks empirical evidence to substantiate this claim. Additionally, without a thorough comparison with established methods, it is difficult to gauge the practical impact of these contributions.\n\n### Recommendation\n\nThe paper shows promise but requires significant revision before submission. The authors should focus on addressing the key weaknesses by providing detailed experimental setups and comparisons with existing methods. A more comprehensive literature review would also help position this work within the broader context of neural network optimization techniques. If these issues are adequately addressed, the contribution could be substantial enough to matter in the field.\n\n### Actionable Feedback\n\n1. **Enhance Experimental Section**: Include a thorough description of experimental setups, datasets used, and performance metrics.\n2. **Compare with Baselines**: Conduct detailed comparisons against established methods such as Adam or RMSprop.\n3. **Comprehensive Literature Review**: Provide a more extensive review of existing literature on model selection and pruning techniques.\n4. **Refine Algorithm Description**: Ensure all parts of the AdaRad algorithm are clearly described and validated.\n\nBy addressing these issues, the paper can better demonstrate its significance and potential impact in the field of neural network optimization.",
-    "overall_confidence": 0.57
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel framework called nonparametric neural networks that dynamically adjusts network size during training, addressing the limitations of current model selection methods. The authors provide theoretical backing and introduce an optimization algorithm named AdaRad. While the approach is innovative and theoretically sound, there are significant gaps in experimental validation and related work coverage.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper effectively addresses a relevant issue with existing model selection methods.\n2. **Novel Framework**: Introduces nonparametric neural networks that dynamically adjust network size during training.\n3. **Theoretical Soundness**: Provides theoretical proofs in the appendix, which lends credibility to the proposed method.\n\n### Key Weaknesses (Prioritized)\n\n1. **Insufficient Experimental Validation**:\n   - No comparison against established baseline optimization algorithms such as Adam or RMSprop for AdaRad.\n   - Lack of detailed experimental setup, including dataset choices, baseline models, and performance metrics used.\n2. **Inadequate Related Work Coverage**: \n   - Missing direct comparisons with existing nonparametric regression methods and over-parameterized shallow ReLU networks.\n   - Incomplete survey of related work, particularly key papers on pruning and adaptive optimization techniques.\n\n### Missing Sections / Information\n\n- Detailed experimental setup: Specify the datasets used, baseline models compared against (e.g., fixed-size networks trained from scratch), and performance metrics employed.\n- Comparison with established methods: Evaluate AdaRad's effectiveness and efficiency relative to Adam or RMSprop in terms of computational costs and model accuracy.\n- Comprehensive related work section: Include key papers on pruning and adaptive optimization techniques that may provide context for the proposed method.\n\n### Significance Assessment\n\nThe contribution is promising but incremental. While the introduction of nonparametric neural networks as a dynamic approach is novel, it does not significantly advance the state-of-the-art in terms of computational efficiency or performance improvements over existing methods without experimental validation. The theoretical proofs are valuable but insufficient on their own to establish substantial significance.\n\n### Recommendation\n\nThe paper is promising and addresses an important problem with current model selection methods. However, it requires significant revision before submission. Prioritize addressing the key weaknesses by incorporating detailed experimental validation and a comprehensive related work section. Addressing these issues will strengthen the paper's contribution and make it more impactful for the field. Consider submitting to a conference or journal that focuses on theoretical foundations and empirical evaluations of neural network architectures.\n\n**Actionable Feedback:**\n1. **Experimental Setup**: Develop a robust experimental setup, including multiple datasets, baseline models, and performance metrics.\n2. **Comparison with Baselines**: Conduct thorough comparisons with established optimization algorithms (e.g., Adam, RMSprop) to demonstrate AdaRad's effectiveness.\n3. **Related Work Section**: Thoroughly review the literature on nonparametric regression methods, pruning techniques, and adaptive optimization strategies to situate this work within the broader context of neural network research.\n\nBy addressing these points, you can significantly enhance the paper\u2019s impact and relevance in the field. I recommend resubmitting after incorporating these changes. If possible, consider conducting preliminary experiments to validate your approach before full-scale submission. Good luck!",
+    "overall_confidence": 0.73
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T02:23:03.846698+00:00"
 }

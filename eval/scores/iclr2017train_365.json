@@ -1,0 +1,22 @@
+{
+  "paper_id": "iclr2017train_365",
+  "scored_at": "2026-08-14T11:25:47.101622+00:00",
+  "elapsed_seconds": 124.2,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of specific details about datasets and evaluation metrics",
+      "No comparison against established baselines",
+      "Redundant abstract and repetitive sections"
+    ],
+    "missed_by_paperpilot": [
+      "The method's performance on convolutional layers was not addressed.",
+      "Comparison to state-of-the-art results, particularly for speech recognition tasks like TIMIT."
+    ],
+    "paperpilot_flagged_extra": [
+      "Minor English mistakes in the text",
+      "Confusing result tables and inconsistent reporting of sparsity"
+    ],
+    "reasoning": "The AI system correctly identified key weaknesses such as lack of baseline comparisons and methodology details. However, it missed important points about the method's performance on convolutional layers and its comparison to state-of-the-art results, which are crucial for evaluating the paper's significance."
+  }
+}

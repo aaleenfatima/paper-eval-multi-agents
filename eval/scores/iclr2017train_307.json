@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_307",
+  "scored_at": "2026-08-14T10:13:12.536790+00:00",
+  "elapsed_seconds": 115.2,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Insufficient Methodological Detail",
+      "Lack of In-Depth Discussion on Results"
+    ],
+    "missed_by_paperpilot": [
+      "The paper represents a serious reality check and can be published in both Dialog/Natural Language and Machine Learning venues.",
+      "While the metrics chosen are innovative, they may still be somewhat arbitrary."
+    ],
+    "paperpilot_flagged_extra": [
+      "The per-dialog accuracy definition is not clear",
+      "Discussion section missing"
+    ],
+    "reasoning": "Both critiques highlight methodological details and discussion of results as key issues. However, the human reviewer emphasizes the paper's significance and novel contributions more than the AI system did."
+  }
+}

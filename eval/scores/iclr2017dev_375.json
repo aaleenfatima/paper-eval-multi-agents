@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017dev_375",
+  "scored_at": "2026-08-14T10:02:15.397522+00:00",
+  "elapsed_seconds": 134.6,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "The paper does not explicitly compare itself to (Arora et al., 2016), which could weaken the novelty claim.",
+      "There is no explicit discussion or results on domain adaptation settings."
+    ],
+    "missed_by_paperpilot": [
+      "The introduction contains a confusing term 'discourse' that needs clarification.",
+      "Justification for $c_0$ related to syntax and its meaning are missing."
+    ],
+    "paperpilot_flagged_extra": [
+      "More discussion on why the simple model performs better than LSTMs at capturing similarity and entailment is needed.",
+      "The paper could benefit from a thorough comparison with existing methods like TF-IDF or Word2Vec."
+    ],
+    "reasoning": "While both critiques highlight the lack of comparison to (Arora et al., 2016) and domain adaptation, the human reviewer points out specific technical issues that were not addressed by PaperPilot. Additionally, PaperPilot misses some important areas for improvement suggested by the human reviewer."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_320",
+  "scored_at": "2026-08-14T10:33:33.522578+00:00",
+  "elapsed_seconds": 108.4,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Missing Methodology and Results Sections",
+      "Lack of Comparison Against Established Baselines"
+    ],
+    "missed_by_paperpilot": [
+      "Demonstration would be more convincing on a more difficult task",
+      "Need stronger experimental results, particularly with benchmarks"
+    ],
+    "paperpilot_flagged_extra": [
+      "Insufficient Experimental Setup Details (specifically training samples used in baseline methods)"
+    ],
+    "reasoning": "The AI system and human reviewer both highlighted the lack of methodology and comparison against established baselines. However, the human reviewer emphasized the need for more experimental results on a difficult task and stronger benchmarks, which were not mentioned by PaperPilot."
+  }
+}

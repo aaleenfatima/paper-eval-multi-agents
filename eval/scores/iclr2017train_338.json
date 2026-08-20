@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_338",
+  "scored_at": "2026-08-14T10:53:02.612163+00:00",
+  "elapsed_seconds": 110.7,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of detailed explanation for 'unrolled iterative estimation'",
+      "Insufficient experimental details"
+    ],
+    "missed_by_paperpilot": [
+      "Added visualizations and references to support the proposed view",
+      "Performed additional experiments on stage 4 behavior"
+    ],
+    "paperpilot_flagged_extra": [
+      "Weak citation coverage of specific related work"
+    ],
+    "reasoning": "The AI system correctly identified key issues like lack of detail in explanation and experimental validation, which are also mentioned by the human reviewer. However, it missed important points such as added visualizations and new experiments that address some of these concerns."
+  }
+}

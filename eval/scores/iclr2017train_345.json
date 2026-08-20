@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_345",
+  "scored_at": "2026-08-14T11:05:17.505084+00:00",
+  "elapsed_seconds": 118.5,
+  "judge_verdict": {
+    "agreement_score": 0.5,
+    "matched_criticisms": [
+      "Experimental Validation",
+      "Structured Presentation"
+    ],
+    "missed_by_paperpilot": [
+      "Clarity of Methods and Experiments Section",
+      "Theoretical Justification for Accuracy and Compression Rate"
+    ],
+    "paperpilot_flagged_extra": [
+      "Specific Datasets and Baseline Methods",
+      "Citation Coverage Against Key Works"
+    ],
+    "reasoning": "Both critiques highlight the need for experimental validation, but PaperPilot emphasizes more on structured presentation. The human reviewer focuses on clarity improvements and theoretical justification, which are not as strongly addressed in the AI critique."
+  }
+}

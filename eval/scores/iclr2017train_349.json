@@ -1,0 +1,19 @@
+{
+  "paper_id": "iclr2017train_349",
+  "scored_at": "2026-08-14T11:09:06.384308+00:00",
+  "elapsed_seconds": 114.5,
+  "judge_verdict": {
+    "agreement_score": 0.5,
+    "matched_criticisms": [
+      "Missing Methodology and Results Sections",
+      "Lack of Specific Details on Methods"
+    ],
+    "missed_by_paperpilot": [
+      "Questions about the model's extension to multiple variables in a single sentence",
+      "Handling out-of-vocabulary words in the model",
+      "More analysis on curriculum learning part for RL model training"
+    ],
+    "paperpilot_flagged_extra": [],
+    "reasoning": "The AI system correctly identified key weaknesses like missing methodology and results sections, but it did not address several important questions raised by the human reviewer about the model's scalability and robustness."
+  }
+}

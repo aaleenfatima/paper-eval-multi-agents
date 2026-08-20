@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_357",
+  "scored_at": "2026-08-14T11:17:45.113022+00:00",
+  "elapsed_seconds": 129.4,
+  "judge_verdict": {
+    "agreement_score": 0.7,
+    "matched_criticisms": [
+      "Abstract needs improvement",
+      "Lack of specific details about experimental setup and hyperparameters"
+    ],
+    "missed_by_paperpilot": [
+      "Novelty in light of previous multi-stream networks",
+      "Clarity could be improved, not written with general audience in mind"
+    ],
+    "paperpilot_flagged_extra": [
+      "Separation of motion and content already prevalent in other applications",
+      "UCF-101 results are not so convincing"
+    ],
+    "reasoning": "The AI system correctly identified the need for a clearer abstract and more detailed experimental setup. However, it missed some key points about the novelty being incremental and the clarity issues mentioned by the human reviewer."
+  }
+}

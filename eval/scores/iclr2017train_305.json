@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_305",
+  "scored_at": "2026-08-14T10:09:12.879453+00:00",
+  "elapsed_seconds": 150.2,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Novelty weaknesses flagged: Lacks adequate citation of the 2016 End-to-end Optimized Image Compression paper, which shares core methodology.",
+      "Methodology weaknesses flagged: No specific dataset used for training and testing is mentioned; Exact sample sizes and split between train/test sets are missing; Hyperparameters used in the optimization process are not detailed, and their selection method is unclear."
+    ],
+    "missed_by_paperpilot": [
+      "Specifics about the JPEG and JPEG2000 implementations used, and how they were configured.",
+      "A better comparison would be with WebP performance. Or, even better, both."
+    ],
+    "paperpilot_flagged_extra": [
+      "Novelty of this submission is arguably not very high (correct me if I missed a new trick).",
+      "The results are a visible improvement over JPEG 2000, and I don\u2019t know of any other learned encoding which has b"
+    ],
+    "reasoning": "The AI system correctly identified the lack of methodology details and citation issues, but it did not address the specific implementation details or the comparison with WebP. The human reviewer highlighted these as important points that were missed."
+  }
+}

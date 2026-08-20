@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_332",
+  "scored_at": "2026-08-14T10:45:18.791851+00:00",
+  "elapsed_seconds": 110.7,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of Baseline Comparison",
+      "Insufficient Discussion"
+    ],
+    "missed_by_paperpilot": [
+      "Experimental Evaluations on Synthetic Data",
+      "Missing References to Prior Work"
+    ],
+    "paperpilot_flagged_extra": [
+      "Incremental Contribution",
+      "Specific Experimental Details Missing"
+    ],
+    "reasoning": "The AI system and the human reviewer both highlighted key weaknesses such as missing baseline comparisons and insufficient discussion. However, the human reviewer emphasized experimental limitations on synthetic data and the need for more references to prior work, which were not mentioned by PaperPilot."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_361",
+  "scored_at": "2026-08-14T11:21:44.271087+00:00",
+  "elapsed_seconds": 115.6,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of dataset details",
+      "Insufficient comparison against established baselines"
+    ],
+    "missed_by_paperpilot": [
+      "Experimental analysis was underwhelming to the human reviewer",
+      "Need for additional evaluation measures (e.g., identifying the best run)"
+    ],
+    "paperpilot_flagged_extra": [
+      "Lack of citation and discussion on related work from 2016"
+    ],
+    "reasoning": "The AI system correctly identified key weaknesses such as dataset details and comparison against established methods, which were also mentioned by the human reviewer. However, it missed the more critical point about the underwhelming experimental analysis and suggested additional evaluation measures that the human reviewer highlighted."
+  }
+}

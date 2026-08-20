@@ -1,0 +1,22 @@
+{
+  "paper_id": "iclr2017train_360",
+  "scored_at": "2026-08-14T11:19:48.629316+00:00",
+  "elapsed_seconds": 123.5,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Clear Problem Statement",
+      "Insufficient Related Work Review"
+    ],
+    "missed_by_paperpilot": [
+      "Narrow View of Semi-Supervised RL",
+      "Comparison to Simpler Approaches on Hard Tasks"
+    ],
+    "paperpilot_flagged_extra": [
+      "Detailed Hyperparameters and Dataset Generation",
+      "Comprehensive Related Work Review",
+      "Comparison Against Established Methods"
+    ],
+    "reasoning": "The AI system correctly identified the clear problem statement and insufficient related work as key strengths and weaknesses, aligning with the human reviewer's feedback. However, it missed the broader criticism about the narrow view of semi-supervised RL and the lack of comparison to simpler approaches on hard tasks."
+  }
+}

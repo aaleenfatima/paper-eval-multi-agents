@@ -42,20 +42,27 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper proposes Neuro-Symbolic Program Synthesis as a novel approach to program synthesis, but without any relevant related works to compare against, it is difficult to assess the novelty. The citation coverage is also limited due to the lack of references.",
+      "summary": "The paper proposes a novel approach called Neuro-Symbolic Program Synthesis, which addresses limitations of existing neural architectures for program induction. However, the related work set is limited and does not provide strong evidence of novelty or citation coverage.",
       "strengths": [
-        "Addresses limitations of existing neural architectures for program induction.",
-        "Proposes two new neural modules: cross correlation I/O network and R3NN."
+        "Addresses computational expense and interpretability issues in neural programs",
+        "Proposes two novel neural modules: cross correlation I/O network and R3NN"
       ],
       "weaknesses": [
-        "No related works provided to compare against, making it hard to assess novelty.",
-        "Limited citation coverage due to the absence of relevant references."
+        "Limited related work set, making it difficult to assess true novelty",
+        "Does not adequately cite or position itself against existing neuro-symbolic program synthesis methods",
+        "Lacks a clear comparison with other approaches in the domain of regular expression-based string transformations"
       ],
-      "confidence": 0.2,
-      "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "confidence": 0.3,
+      "needs_clarification": "How does this work differ from the Neuro-Symbolic Program Synthesis (2016) paper, which is one of the few related works provided?",
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Neuro-Symbolic Program Synthesis (2016)",
+        "From Road to Code: Neuro-Symbolic Program Synthesis for Autonomous Driving Scene Translation and Analysis (2025)",
+        "Neuro-Symbolic Program Synthesis for Multi-Hop Natural Language Navigation (2024)",
+        "Neuro-Symbolic Program Synthesis for Data-Efficient Learning (2024)",
+        "Formally Specifying the Intended Behavior of the Program: LLM-Driven Neuro-Symbolic Program Specification Synthesis (2026)"
+      ]
     },
     "debate_log": [
       {
@@ -81,36 +88,15 @@
         "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
         "final_confidence": 0.6,
         "confidence_changed": false
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper proposes Neuro-Symbolic Program Synthesis as a novel approach to program synthesis, but without any relevant related works to compare against, it is difficult to assess the novelty. The citation coverage is also limited due to the lack of references.",
-          "strengths": [
-            "Addresses limitations of existing neural architectures for program induction.",
-            "Proposes two new neural modules: cross correlation I/O network and R3NN."
-          ],
-          "weaknesses": [
-            "No related works provided to compare against, making it hard to assess novelty.",
-            "Limited citation coverage due to the absence of relevant references."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The original review accurately points out gaps in related work and citations, but it misses that the paper does provide a clear problem definition and experimental setup. The reviewer could have noted that the paper includes details on the DSL used and how tasks were selected for evaluation.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What specific tasks and benchmarks were used in the evaluation, and how were they selected?",
       "What is the specific DSL used in the experiments? How was the data split between train, validation, and test sets?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper introduces Neuro-Symbolic Program Synthesis (NSPS), a novel method for generating programs from input-output examples, addressing the limitations of existing neural approaches through two key components: cross correlation I/O network and R3NN. The evaluation is conducted on complex regular expression-based string transformations, showing promise but lacking in several areas such as specific tasks, benchmarks, data splits, hyperparameters, and comparisons against established methods.\n\n### Key Strengths\n\n1. **Clear Problem Definition and Motivation**: The paper clearly defines the problem and provides a strong motivation for developing NSPS.\n2. **Detailed Description of Proposed Approach**: The method is well-described with two key components: cross correlation I/O network and R3NN.\n3. **Evaluation on Complex Domain**: The evaluation uses regular expression-based string transformations, which are complex enough to test the approach's capabilities.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Insufficient Details in Abstract and Introduction**: Specific tasks and benchmarks used in the evaluation are not clearly stated.\n2. **No Comparison Against Established Baselines or Methods**: The paper lacks a comparison against existing methods, making it difficult to assess the novelty and significance of the proposed approach.\n3. **Lack of Information on Data Splits and Hyperparameters**: Details about data splits between train, validation, and test sets are missing, along with information on hyperparameters used in the experiments.\n\n### Missing Sections / Information\n\n- Specific tasks and benchmarks used in the evaluation\n- How these specific tasks were selected\n- The exact DSL (Domain-Specific Language) used in the experiments\n- Data split details between train, validation, and test sets\n- Hyperparameters used for training the models\n- Comparison against established baselines or methods in the field\n\n### Significance Assessment\n\nThe contribution of this paper is promising but appears to be a small incremental step. While it introduces novel neural modules (cross correlation I/O network and R3NN) that address some limitations of existing approaches, the lack of specific tasks, benchmarks, data splits, hyperparameters, and comparisons against established methods makes it difficult to assess its significance. The paper claims to address limitations in program synthesis but does not provide enough evidence to substantiate this claim.\n\n### Recommendation\n\nThe authors are encouraged to significantly revise the paper by addressing the key weaknesses identified above, particularly providing specific tasks, benchmarks, data splits, hyperparameters, and comparisons against established methods. Once these issues are resolved, the contribution may be deemed significant enough for submission. Until then, I recommend a major revision before resubmission.\n\n---\n\nThis structured feedback should help the authors understand where they need to focus their efforts to strengthen the paper's clarity, methodology, novelty, and significance. Addressing these points will enhance the overall quality of the manuscript.",
-    "overall_confidence": 0.53
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces a novel approach called Neuro-Symbolic Program Synthesis (NSPS) for generating programs from input-output examples. It proposes two key neural modules and evaluates them on regular expression-based string transformations. While the work addresses important limitations of existing methods, it lacks clarity in certain sections and does not provide strong evidence of novelty or thorough comparison against established baselines.\n\n### Key Strengths\n\n1. **Clear Problem Definition**: The problem is well-defined, and the motivation for addressing computational expense and interpretability issues is clear.\n2. **Detailed Description of Approach**: The paper provides a detailed description of the proposed approach with two key components: cross correlation I/O network and R3NN.\n3. **Evaluation on Complex Domain**: The evaluation on regular expression-based string transformations demonstrates the applicability to complex tasks.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Lack of Comparison Against Established Baselines**: The paper does not compare its approach against established methods or baselines in the field.\n2. **Insufficient Methodological Details**: There are significant gaps in the methodology section regarding specific tasks, benchmarks, data splits, and hyperparameters.\n3. **Limited Related Work Set**: The related work set is limited, making it difficult to assess the true novelty of the proposed approach.\n\n### Missing Sections / Information\n\n1. **Specific Tasks and Benchmarks**: What specific tasks and benchmarks were used in the evaluation? How were they selected?\n2. **Exact DSL Used**: What is the exact domain-specific language (DSL) used in the experiments, and how was it defined for the purpose of this study?\n3. **Data Split Details**: How was the data split between train, validation, and test sets?\n\n### Significance Assessment\n\nThe contribution seems to be a promising step towards addressing important limitations in neural program synthesis methods. However, the significance is somewhat diminished due to the lack of comparison against established baselines and the limited related work set. The proposed approach shows potential but requires more rigorous evaluation and a broader context within the existing literature.\n\n### Recommendation\n\nWhile the paper presents an interesting approach with clear benefits, it needs significant revisions before submission. The authors should:\n\n1. **Conduct Comparative Experiments**: Compare the proposed method against established baselines to demonstrate its advantages.\n2. **Provide Detailed Methodological Information**: Include specific tasks, benchmarks, data splits, and hyperparameters used in the evaluation.\n3. **Expand Related Work Section**: Provide a more comprehensive review of existing neuro-symbolic program synthesis methods to better position this work.\n\nGiven these requirements, I recommend that the authors address these issues before resubmitting the paper for further consideration. The revised version should strengthen both the methodological rigor and the significance of the contribution. If these changes are made, the paper has the potential to be a valuable addition to the field. \n\n**Recommendation: Major Revision Required Before Resubmission**.",
+    "overall_confidence": 0.57
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T00:02:06.553921+00:00"
 }

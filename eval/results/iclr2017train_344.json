@@ -40,20 +40,24 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper proposes a novel approach to micromanagement in StarCraft using deep deterministic policies and a heuristic reinforcement learning algorithm. However, the novelty of this work is not well supported by the provided related papers since none were retrieved.",
+      "summary": "The paper proposes micromanagement tasks in StarCraft for RL algorithms and introduces an episodic exploration algorithm. While the task setting is novel, the related work suggests that the approach to solving these tasks with deep deterministic policies has some overlap with previous research on similar scenarios.",
       "strengths": [
-        "Proposes challenging micromanagement scenarios for StarCraft",
-        "Describes a unique exploration strategy combining parameter randomization and gradient descent"
+        "Proposes new micromanagement tasks in a challenging environment",
+        "Introduces an episodic exploration algorithm for RL"
       ],
       "weaknesses": [
-        "Lack of relevant related works to benchmark against",
-        "Insufficient citation coverage, especially in the context of multi-agent reinforcement learning and StarCraft micromanagement"
+        "The proposed tasks and solution are somewhat similar to those described in the retrieved related work",
+        "Lacks detailed discussion of how it compares or builds upon existing methods"
       ],
-      "confidence": 0.2,
+      "confidence": 0.7,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Episodic Exploration for Deep Deterministic Policies for StarCraft Micromanagement (2016)",
+        "Episodic Exploration for Deep Deterministic Policies for StarCraft Micromanagement (2017)",
+        "Episodic Exploration for Deep Deterministic Policies: An Application to StarCraft Micromanagement Tasks (2016)"
+      ]
     },
     "debate_log": [
       {
@@ -79,36 +83,15 @@
         "resolution_summary": "The paper proposes several micromanagement tasks from StarCraft and introduces a heuristic reinforcement learning algorithm called ZO for these tasks. It contrasts the approach with traditional RL methods like Q-learning and REINFORCE, which struggle in this domain.",
         "final_confidence": 0.8,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper proposes a novel approach to micromanagement in StarCraft using deep deterministic policies and a heuristic reinforcement learning algorithm. However, the novelty of this work is not well supported by the provided related papers since none were retrieved.",
-          "strengths": [
-            "Proposes challenging micromanagement scenarios for StarCraft",
-            "Describes a unique exploration strategy combining parameter randomization and gradient descent"
-          ],
-          "weaknesses": [
-            "Lack of relevant related works to benchmark against",
-            "Insufficient citation coverage, especially in the context of multi-agent reinforcement learning and StarCraft micromanagement"
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The original review overstates the weakness regarding related works. The paper does cite relevant work on multi-agent reinforcement learning, such as Busoniu et al., (2008), and mentions specific challenges in applying these methods to StarCraft micromanagement. While more could be done, the current citations are not entirely lacking.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What is the specific nature of the state features used in the deep neural network controllers? How were these features engineered?",
       "Please provide a list of relevant papers on multi-agent reinforcement learning and micromanagement in StarCraft for better context."
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to micromanagement tasks in StarCraft using reinforcement learning and deep neural networks, introducing a heuristic exploration algorithm called ZO. While the proposed method shows promise, it lacks rigorous comparison against established baselines and relevant literature, which hampers its perceived novelty and significance.\n\n### Key Strengths\n\n- **Clear Problem Statement**: The paper clearly defines challenging micromanagement scenarios for StarCraft.\n- **Unique Exploration Method**: Proposes a novel exploration strategy combining parameter randomization with gradient descent.\n- **Relevance to Game Domain**: The proposed tasks are relevant and challenging, making the work applicable to real-time strategy games.\n\n### Key Weaknesses (Prioritized)\n\n1. **Insufficient Comparison Against Established Baselines**:\n   - The paper does not compare its approach against traditional RL methods such as Q-learning or REINFORCE for StarCraft micromanagement tasks.\n2. **Lack of Comparative Analysis with State-of-the-Art Methods**:\n   - No comparison is made with state-of-the-art multi-agent reinforcement learning techniques like VDN or QMIX, which are highly relevant to the task domain.\n3. **Abstract and Section Structure Issues**:\n   - The abstract lacks specific details about methods or results.\n   - Some sections lack clear headings, making it harder to follow the structure.\n\n### Missing Sections / Information\n\n- **Comparison Against Relevant Baselines**: A detailed comparison with standard RL algorithms (e.g., Q-learning, REINFORCE) and state-of-the-art multi-agent reinforcement learning methods is necessary.\n- **Relevant Literature Review**: The paper should include a comprehensive review of relevant literature, particularly in the context of StarCraft micromanagement tasks and multi-agent reinforcement learning.\n\n### Significance Assessment\n\nThe contribution appears to be significant from an exploratory standpoint but may not have substantial impact due to its limited comparison against established methods. The proposed exploration strategy is novel, but without rigorous benchmarking, it remains unclear how well this approach performs in practice compared to existing techniques.\n\n### Recommendation\n\nWhile the paper shows promise and addresses a relevant problem, it needs significant revisions before submission. Prioritize addressing the key weaknesses by adding comparisons against established baselines and state-of-the-art methods. Additionally, ensure that the abstract is clear and detailed, and improve section headings for better readability. If these issues are adequately addressed, the work could be considered promising.\n\n**Recommendation: Promising but needs major revision before submission.**",
-    "overall_confidence": 0.6
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to addressing micromanagement tasks in the StarCraft game environment using reinforcement learning and deep neural networks. It introduces several challenging scenarios, outlines a new exploration algorithm called ZO, and evaluates its performance against standard RL algorithms like Q-learning and REINFORCE.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper clearly defines the micromanagement tasks and their challenges.\n2. **Novel Contributions**: Proposes new micromanagement tasks in StarCraft and introduces a novel exploration algorithm (ZO).\n3. **Relevance to Real-World Applications**: The proposed scenarios are relevant to real-time strategy games.\n\n### Key Weaknesses\n\n1. **Abstract Vagueness**: The abstract lacks specific details about the methods or results, making it difficult for readers to grasp the core contributions.\n2. **Missing Methodological Comparisons**: No comparison against established RL baselines such as Q-learning and REINFORCE is provided for the StarCraft micromanagement tasks.\n3. **Lack of State-of-the-Art Comparison**: The paper does not compare its approach with state-of-the-art multi-agent reinforcement learning methods like VDN or QMIX, which are relevant to the task domain.\n\n### Missing Sections / Information\n\n1. **Detailed Methodology Section**: The sections lack clear headings and could benefit from more structured organization.\n2. **Comparative Analysis**: A thorough comparison of ZO with established RL methods (Q-learning, REINFORCE) and state-of-the-art multi-agent methods is missing.\n3. **Related Work Depth**: While the paper mentions related work, it does not provide a detailed discussion on how its approach builds upon or differs from previous research.\n\n### Significance Assessment\n\nThe contribution of this paper seems incremental rather than groundbreaking. The introduction of new micromanagement tasks and an episodic exploration algorithm is valuable but lacks substantial comparison with existing methods in the field. While the proposed scenarios are relevant to real-time strategy games, the significance of these contributions may be limited without a more comprehensive evaluation.\n\n### Recommendation\n\nThe paper shows promise but requires significant revisions before it can be considered for submission. The author should:\n1. **Clarify and Enhance the Abstract**: Provide more detailed information about the methods and results.\n2. **Add Comparative Analysis**: Include thorough comparisons with Q-learning, REINFORCE, and state-of-the-art multi-agent reinforcement learning methods like VDN or QMIX.\n3. **Organize Methodology Sections**: Ensure that all sections have clear headings and a logical flow.\n\nGiven these revisions, the paper could be resubmitted for further consideration. However, it is currently not strong enough to stand out as a significant contribution in the field of reinforcement learning for real-time strategy games without addressing the noted weaknesses. \n\n**Recommendation: Resubmit after substantial revisions.**",
+    "overall_confidence": 0.77
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T07:53:31.550631+00:00"
 }

@@ -1,0 +1,17 @@
+{
+  "paper_id": "iclr2017train_315",
+  "scored_at": "2026-08-14T10:25:40.055111+00:00",
+  "elapsed_seconds": 113.3,
+  "judge_verdict": {
+    "agreement_score": 0.5,
+    "matched_criticisms": [
+      "Lack of Experimental Detail",
+      "Insufficient Literature Review"
+    ],
+    "missed_by_paperpilot": [],
+    "paperpilot_flagged_extra": [
+      "Potential for Additional Experiments and Analyses"
+    ],
+    "reasoning": "The human reviewer's comments were overwhelmingly positive, focusing on the paper's value and potential impact. The AI system correctly identified key weaknesses such as experimental detail and literature review but missed the overall positive reception and suggested additional experiments that could strengthen the work."
+  }
+}

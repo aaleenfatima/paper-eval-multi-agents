@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_321",
+  "scored_at": "2026-08-14T10:35:33.609252+00:00",
+  "elapsed_seconds": 120.1,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Abstract contribution statement is vague",
+      "Lack of comparison against established baselines"
+    ],
+    "missed_by_paperpilot": [
+      "Overall clarity could be improved, especially in the algorithmic section",
+      "The term 'intrinsic' motivation may not be appropriate given its current meaning in RL"
+    ],
+    "paperpilot_flagged_extra": [
+      "Missing detailed analysis of switching behavior and policy failure modes",
+      "Factorization between S_agent and S_rest should be clearly specified for replicability"
+    ],
+    "reasoning": "The AI system correctly identified the abstract's vagueness and lack of baseline comparisons, which are indeed critical. However, it missed several important points raised by the human reviewer regarding clarity, terminology usage, and additional analysis needed."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_351",
+  "scored_at": "2026-08-14T11:11:11.968332+00:00",
+  "elapsed_seconds": 125.5,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Clarity and completeness",
+      "Methodological details missing"
+    ],
+    "missed_by_paperpilot": [
+      "Quality of experimental evaluation is weak, covering only one dataset and limited cross-validation folds.",
+      "Lack of mathematical rigour in explaining the different architectures."
+    ],
+    "paperpilot_flagged_extra": [
+      "The abstract could be more concise and focused on Diet Networks.",
+      "More comprehensive empirical validation would strengthen the paper."
+    ],
+    "reasoning": "Both critiques highlight issues with clarity and methodological details, but the human reviewer emphasizes experimental quality and mathematical rigor, which were not explicitly mentioned in PaperPilot's critique. The agreement score reflects these overlapping points while acknowledging the additional important concerns raised by the human reviewer."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_306",
+  "scored_at": "2026-08-14T10:11:17.289399+00:00",
+  "elapsed_seconds": 124.4,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Insufficient Methodological Detail",
+      "Lack of Clarity in Contribution Statement"
+    ],
+    "missed_by_paperpilot": [
+      "Redundancy of Input Features to Meta-Learner",
+      "Potential for Learning Architectural Components (e.g., Number of Neurons)"
+    ],
+    "paperpilot_flagged_extra": [
+      "Shallow Related Work Section"
+    ],
+    "reasoning": "The AI system correctly identified key methodological and clarity issues, but missed more specific concerns raised by the human reviewer about input redundancy, architectural learning, and related work depth. These points are important for a comprehensive evaluation of the paper."
+  }
+}

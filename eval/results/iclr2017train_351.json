@@ -40,19 +40,23 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper introduces Diet Networks, which significantly reduces the number of parameters in neural networks for high-dimensional genomic data. However, it lacks a clear comparison with existing methods and does not provide sufficient detail on its experimental setup to fully assess its novelty. The provided experimental results comparing Diet Networks to PCA and standard deep networks are limited.",
+      "summary": "The paper proposes Diet Networks, a novel approach to reduce the number of parameters in neural networks when dealing with high-dimensional genomic data. While it addresses an important issue, the related work on dimensionality reduction and parameter efficiency for genomics is not well-covered, making it difficult to assess its novelty compared to existing methods like PCA-based techniques.",
       "strengths": [
-        "Proposes an innovative approach to reduce the number of parameters in neural networks for high-dimensional genomic data."
+        "Addresses a significant challenge in genomics by reducing the number of parameters.",
+        "Proposes a multi-task learning approach that could be applicable beyond genomics."
       ],
       "weaknesses": [
-        "Lacks a clear comparison with existing methods such as those mentioned in the retrieved related work.",
-        "Insufficient experimental detail, making it difficult to fully assess its novelty and effectiveness."
+        "Lacks clear comparison with existing dimensionality reduction techniques such as PCA.",
+        "Does not adequately position itself against relevant literature on parameter efficiency and deep learning for genomics."
       ],
-      "confidence": 0.5,
+      "confidence": 0.6,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Diet Networks: Thin Parameters for Fat Genomic (2016)",
+        "Bayesian networks for omics data analysis (2009)"
+      ]
     },
     "debate_log": [
       {
@@ -78,35 +82,14 @@
         "resolution_summary": "The paper proposes Diet Networks, a novel approach to reduce the number of parameters in deep learning models for genomic data by using a parameter prediction network. The method aims to address overfitting issues common with high-dimensional genomics datasets and is evaluated on population stratification tasks.",
         "final_confidence": 0.7,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper proposes Diet Networks, a novel approach to reduce the number of parameters in neural networks when dealing with high-dimensional genomic data. However, without any related work to compare against, it is difficult to assess its novelty and whether it adequately positions itself within the existing literature.",
-          "strengths": [
-            "Proposes a unique solution for handling high-dimensional genomic data.",
-            "Addresses an important problem in precision medicine."
-          ],
-          "weaknesses": [
-            "Lacks comparison with existing methods due to no related papers retrieved.",
-            "Does not provide a comprehensive survey of relevant work, making it hard to gauge the novelty and impact of the proposed approach."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": false,
-          "pre_debate_confidence": null
-        },
-        "challenger_critique": "The review accurately points out a key limitation in the paper, which is the lack of comparison with existing methods. However, it misses noting that the paper does provide some experimental results comparing Diet Networks to PCA and standard deep networks on a population stratification task, which could be considered as an implicit comparison within the context of dimensionality reduction techniques.",
-        "resolution_summary": "The paper introduces Diet Networks, which significantly reduces the number of parameters in neural networks for high-dimensional genomic data. However, it lacks a clear comparison with existing methods and does not provide sufficient detail on its experimental setup to fully assess its novelty. The provided experimental results comparing Diet Networks to PCA and standard deep networks are limited.",
-        "final_confidence": 0.5,
-        "confidence_changed": true
       }
     ],
     "clarifying_questions_asked": [
       "What is the exact nature of the input features (e.g., one-hot encoded, binary, categorical)? How are these features embedded and what is the dimensionality of the embeddings? What specific population stratification task was used for evaluation?"
     ],
-    "final_recommendation": "### Overall Summary\nThe paper introduces Diet Networks, a novel approach to reparametrize neural networks for tasks involving high-dimensional genomic data. While the concept is innovative and addresses an important problem in genomics, several aspects require clarification and improvement. The methodology lacks detailed implementation details, and the experimental setup does not provide sufficient evidence of novelty or effectiveness.\n\n### Key Strengths\n1. **Clear Problem Statement**: The paper clearly identifies a significant challenge (reducing model complexity while maintaining predictive performance) in high-dimensional genomic data.\n2. **Innovative Solution**: Diet Networks propose an interesting approach to address the problem by using a parameter prediction network, which could potentially generalize well.\n\n### Key Weaknesses\n1. **Lack of Methodological Detail**: The paper does not provide sufficient detail on how input features are represented and embedded, nor does it describe the architecture or training process of the parameter prediction network.\n2. **Insufficient Experimental Setup**: The experimental results comparing Diet Networks to PCA and standard deep networks are limited. There is a lack of comparison with existing methods such as those mentioned in related work.\n\n### Missing Sections / Information\n1. **Feature Representation and Embedding**: Details on how input features (e.g., one-hot encoded, binary, categorical) are represented and embedded.\n2. **Parameter Prediction Network Architecture and Training Process**: Clear description of the architecture and training process of the parameter prediction network.\n3. **Comparison with Existing Methods**: Comprehensive comparison with existing methods such as PCA, autoencoders, and other dimensionality reduction techniques.\n\n### Significance Assessment\nThe contribution is promising but incremental in nature. The paper addresses an important problem in genomics (reducing model complexity) and proposes a novel approach that could potentially generalize well to new features. However, the lack of detailed methodology and experimental setup makes it difficult to fully assess its significance. The results provided are limited, and there is no clear evidence of substantial improvement over existing methods.\n\n### Recommendation\nThe paper shows potential but requires significant revisions before submission. The author should address the missing sections and provide more detailed methodology and experimental setup. If these issues can be resolved, the contribution could be considered for further review. However, as it stands, the current version is not sufficiently rigorous or comprehensive to warrant acceptance.\n\n**Actionable Feedback:**\n1. **Clarify Feature Representation**: Provide clear details on how input features are represented and embedded.\n2. **Describe Parameter Prediction Network**: Include a detailed description of the architecture and training process of the parameter prediction network.\n3. **Enhance Experimental Setup**: Conduct more extensive experiments, including comparisons with existing methods such as PCA and autoencoders.\n4. **Abstract Refinement**: Revise the abstract to make it more concise and focused.\n\nBy addressing these issues, the paper can significantly improve its clarity, completeness, and overall significance in the field of genomics and precision medicine.",
-    "overall_confidence": 0.67
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces Diet Networks, a novel approach to reduce the number of parameters in neural networks when dealing with high-dimensional genomic data. It aims to address overfitting issues common in genomics datasets and evaluates its performance on population stratification tasks. While the proposed method is innovative and addresses an important problem, there are significant gaps in clarity and detail that need addressing.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper effectively identifies a critical challenge in genomics (overfitting with high-dimensional data) and proposes a solution.\n2. **Innovative Solution**: Diet Networks offer a potentially effective way to reduce model complexity while maintaining or improving predictive performance on population stratification tasks.\n\n### Key Weaknesses\n\n1. **Clarity and Completeness**: The abstract is overly broad, and some sections of the paper are not fully developed (e.g., the end of the draft text). This can affect overall clarity.\n2. **Methodological Details Missing**: Important details about input feature representation, embedding process, and parameter prediction network architecture are lacking, making it difficult to assess the method's effectiveness.\n\n### Missing Sections / Information\n\n- **Input Feature Representation**: A clear description of how input features (e.g., one-hot encoded, binary, categorical) are processed and embedded.\n- **Parameter Prediction Network Details**: The exact nature of the parameter prediction network, including its training process and architecture.\n- **Comparison with Existing Methods**: Clear comparison with existing dimensionality reduction techniques such as PCA to establish novelty.\n\n### Significance Assessment\n\nThe contribution is promising but appears to be a small incremental step rather than a groundbreaking advance. While it addresses an important issue in genomics, the lack of clear comparisons with established methods and detailed methodology limits its significance. The paper claims to reduce model complexity while maintaining performance, which could have broader implications if these claims are substantiated.\n\n### Recommendation\n\nThe authors should address the significant gaps in clarity and detail before resubmission. Specifically, they need to provide more details on input feature representation, embedding process, parameter prediction network architecture, and a clear comparison with existing methods. Given these improvements, the paper has potential but requires substantial revision for submission. I recommend a \"Major Revision\" status.\n\n**Actionable Feedback:**\n1. **Abstract**: Revise the abstract to focus specifically on Diet Networks and their application.\n2. **Methodology Section**: Elaborate on input feature representation, embedding process, and parameter prediction network details.\n3. **Related Work**: Include detailed comparisons with existing dimensionality reduction techniques such as PCA.\n4. **Clarity**: Ensure that all sections are fully developed to maintain clarity throughout the paper.\n\nBy addressing these points, the authors can strengthen their contribution and make a more significant impact in the field of genomics and deep learning.",
+    "overall_confidence": 0.7
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T08:28:27.082597+00:00"
 }

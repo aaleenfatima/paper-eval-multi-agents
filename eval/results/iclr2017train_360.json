@@ -41,20 +41,26 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper proposes semi-supervised reinforcement learning (SSRL) as a method to generalize RL policies in scenarios where only limited reward supervision is available. While the problem setting is novel, the lack of related work makes it difficult to assess its novelty and how well the paper positions itself against existing research.",
+      "summary": "The paper proposes semi-supervised skill generalization (S3G) to address the challenge of lifelong reinforcement learning with limited reward supervision in real-world scenarios. While related works discuss similar challenges, such as semi-supervised RL and lifelong learning, this paper specifically formulates and addresses the problem of using unlabeled experience to improve policy generalization. The proposed method is novel but could benefit from a more detailed survey of existing methods that tackle similar problems.",
       "strengths": [
-        "Addresses an important problem of generalizing RL policies with limited supervision.",
-        "Proposes a practical algorithm (S3G) that combines RL and inverse RL techniques."
+        "Addresses a specific challenge in real-world reinforcement learning with limited supervision.",
+        "Proposes an original algorithm, S3G, which leverages unlabeled experiences for better generalization."
       ],
       "weaknesses": [
-        "The lack of related work makes it challenging to evaluate the novelty of the approach.",
-        "Does not adequately survey existing literature on semi-supervised learning or reinforcement learning under partial reward supervision."
+        "Does not extensively review related work on semi-supervised RL and lifelong learning methods that could provide context for the novelty of the proposed approach.",
+        "Lacks a detailed comparison with existing methods in the literature, such as those from the retrieved papers."
       ],
-      "confidence": 0.2,
+      "confidence": 0.7,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Generalizing Skills with Semi-Supervised Reinforcement Learning (2016)",
+        "Semi-Supervised Off-Policy Reinforcement Learning and Value Estimation for Dynamic Treatment Regimes (2023)",
+        "Semi-Supervised Anomaly Detection in Brain MRI Using a Domain-Agnostic Deep Reinforcement Learning Approach (2025)",
+        "Cognitive Manipulation: Semi-supervised Visual Representation and Classroom-to-real Reinforcement Learning for Assembly in Semi-structured Environments (2024)",
+        "Reinforcement Learning-based Semi-supervised Knowledge Distillation with LLM-as-a-Judge (2026)"
+      ]
     },
     "debate_log": [
       {
@@ -80,35 +86,14 @@
         "resolution_summary": "The paper proposes a semi-supervised reinforcement learning (SSRL) approach called semi-supervised skill generalization (S3G), which aims to leverage unlabeled experience alongside labeled experiences with reward functions. The authors compare their method against standard RL and a reward regression baseline, demonstrating improved performance on continuous control tasks.",
         "final_confidence": 0.8,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper proposes semi-supervised reinforcement learning (SSRL) as a method to generalize RL policies in scenarios where only limited reward supervision is available. While the problem setting is novel, the lack of related work makes it difficult to assess its novelty and how well the paper positions itself against existing research.",
-          "strengths": [
-            "Addresses an important problem of generalizing RL policies with limited supervision.",
-            "Proposes a practical algorithm (S3G) that combines RL and inverse RL techniques."
-          ],
-          "weaknesses": [
-            "The lack of related work makes it challenging to evaluate the novelty of the approach.",
-            "Does not adequately survey existing literature on semi-supervised learning or reinforcement learning under partial reward supervision."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The review accurately points out a gap in related work, but it somewhat overstates this as a weakness without acknowledging that the paper does provide a clear problem statement and novel approach. The S3G algorithm is well-positioned to address the specific challenge of semi-supervised RL.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What are the specific hyperparameters used for training both the RL policy and the inverse RL algorithm? How were the labeled and unlabeled datasets generated, and what is their size?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper proposes a semi-supervised reinforcement learning (SSRL) method called S3G, which aims to improve policy generalization in scenarios with limited reward supervision. It presents a clear problem statement and well-defined contributions but lacks thorough related work and detailed methodology sections.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper clearly defines the challenge of semi-supervised RL and provides a novel approach (S3G).\n2. **Logical Structure**: The structure is sound, with a logical flow from introduction to method and evaluation.\n3. **Specific Evaluation**: Experiments are conducted on challenging tasks, demonstrating improved performance.\n\n### Key Weaknesses\n\n1. **Limited Related Work**: The related work section is incomplete, making it difficult to assess the novelty of S3G.\n2. **Hyperparameter Details Missing**: Specific hyperparameters used in training are not detailed, hindering reproducibility and comparison with other methods.\n3. **No Comparison Against Established Methods**: No comparison against established semi-supervised RL methods is provided.\n\n### Missing Sections / Information\n\n1. **Detailed Hyperparameters**: Provide specific details on the hyperparameters used for both RL policy training and inverse RL algorithm.\n2. **Dataset Generation Details**: Explain how labeled and unlabeled datasets were generated, including their sizes.\n3. **Comprehensive Related Work**: Include a thorough survey of existing literature on semi-supervised learning and reinforcement learning under partial reward supervision.\n\n### Significance Assessment\n\nThe contribution is promising but incremental in nature. While the problem setting (generalizing RL policies with limited supervision) is important, the lack of detailed related work and comparison against established methods makes it challenging to assess its significance. The proposed S3G method addresses a relevant issue but does not present groundbreaking advancements that would significantly impact the field.\n\n### Recommendation\n\nThe paper shows potential but requires significant revisions to address key weaknesses. Specifically, the authors should:\n\n1. **Expand Related Work Section**: Include a comprehensive survey of existing literature on semi-supervised learning and RL under partial reward supervision.\n2. **Provide Detailed Methodology**: Offer more detailed information about hyperparameters used in training, dataset generation processes, and comparisons with established methods.\n\nGiven these revisions, I recommend the paper be resubmitted after addressing the outlined issues for further consideration by reviewers. If the authors can adequately address these points, this work could contribute meaningfully to the field of reinforcement learning. Otherwise, it may need substantial reworking or additional research to achieve a more significant impact. \n\n**Recommendation:** Resubmit with major revisions.",
-    "overall_confidence": 0.63
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a semi-supervised reinforcement learning (SSRL) method, S3G, to address the challenge of generalizing policies in scenarios where only limited reward supervision is available. The authors provide a clear problem statement and propose an original algorithm that combines RL with inverse RL using unlabeled experiences. Experiments are conducted on challenging tasks, demonstrating improved performance over standard reinforcement learning methods.\n\n### Key Strengths\n\n1. **Clear Problem Statement**: The paper clearly defines the challenge of semi-supervised reinforcement learning in real-world scenarios.\n2. **Logical Structure and Flow**: The structure is well-defined, with a logical flow from introduction to related work and method.\n3. **Original Methodology**: The proposed S3G algorithm leverages unlabeled experiences for better generalization.\n\n### Key Weaknesses (Prioritized)\n\n1. **Insufficient Related Work Review**: While the paper addresses a specific challenge, it could benefit from a more extensive review of existing methods that tackle similar problems.\n2. **Missing Hyperparameters and Dataset Details**: The paper lacks detailed information on hyperparameters used in training and specifics about how labeled and unlabeled datasets were generated and their sizes.\n3. **No Comparison Against Established Semi-Supervised RL Methods**: There is no comparison against established semi-supervised reinforcement learning methods, which could provide important context for the novelty of S3G.\n\n### Missing Sections / Information\n\n1. **Detailed Hyperparameters and Dataset Generation**: Provide specific details on hyperparameters used in training both the RL policy and the inverse RL algorithm.\n2. **Dataset Details**: Include information about how labeled and unlabeled datasets were generated, their sizes, and any preprocessing steps taken.\n3. **Comprehensive Related Work Review**: Conduct a more thorough review of existing methods that address similar challenges to provide context for the novelty of S3G.\n\n### Significance Assessment\n\nThe contribution is promising but incremental in nature. The paper addresses an important challenge in reinforcement learning with limited supervision, and the proposed method (S3G) offers a novel approach by leveraging unlabeled experiences. However, the significance may be somewhat diminished due to the lack of comparison against established methods and detailed experimental setup. This makes it less clear how S3G compares to existing solutions in terms of performance and practical applicability.\n\n### Recommendation\n\nThe paper is promising but needs significant revisions before submission. The authors should address the missing sections and provide a more comprehensive related work review. Additionally, including comparisons with established semi-supervised RL methods would strengthen the argument for the novelty and significance of S3G. Addressing these issues will make the contribution more impactful and valuable to the field.\n\n**Recommendation: Resubmit after addressing the above concerns.**",
+    "overall_confidence": 0.8
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T09:00:10.637993+00:00"
 }

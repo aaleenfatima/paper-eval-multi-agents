@@ -40,20 +40,26 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper introduces a novel approach to amortised MAP inference for image super-resolution, which is not directly covered by the existing literature. However, the citation coverage is weak due to the lack of related papers in the provided set.",
+      "summary": "The paper proposes a novel approach using amortised MAP inference for image super-resolution, which is not directly covered in the provided related work. However, it does not adequately position itself against existing methods that also aim to improve perceptual quality through non-traditional loss functions or generative models.",
       "strengths": [
-        "Proposes a new neural network architecture for SR that ensures output consistency with inputs.",
-        "Addresses the limitations of MSE-based methods and motivates the use of MAP inference."
+        "Introduces a new neural network architecture specifically designed for SR",
+        "Addresses limitations of traditional MSE-based approaches"
       ],
       "weaknesses": [
-        "The paper lacks citation coverage as no relevant related work was found in the provided set.",
-        "Does not compare its approach comprehensively against existing SR techniques, making it hard to assess its novelty and applicability."
+        "Does not clearly distinguish its approach from other methods aiming to improve perceptual quality",
+        "Lacks detailed comparison with existing non-traditional loss functions or generative models in the related work set"
       ],
-      "confidence": 0.2,
+      "confidence": 0.7,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "Amortised MAP Inference for Image Super-resolution (2016)",
+        "Fast, faithful and photorealistic diffusion-based image super-resolution with enhanced Flow Map models (2026)",
+        "ALAN: Self-Attention Is Not All You Need for Image Super-Resolution (2024)",
+        "FRAMER: Frequency-Aligned Self-Distillation with Adaptive Modulation Leveraging Diffusion Priors for Real-World Image Super-Resolution (2025)",
+        "Distillation-Supervised Convolutional Low-Rank Adaptation for Efficient Image Super-Resolution (2025)"
+      ]
     },
     "debate_log": [
       {
@@ -78,35 +84,14 @@
         "resolution_summary": "The paper proposes a new CNN architecture for amortised MAP inference in image super-resolution, focusing on ensuring that the model outputs are consistent with the input. It introduces three methods to approximate cross-entropy minimisation and shows that the GAN-based approach performs best.",
         "final_confidence": 0.8,
         "confidence_changed": true
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper introduces a novel approach to amortised MAP inference for image super-resolution, which is not directly covered by the existing literature. However, the citation coverage is weak due to the lack of related papers in the provided set.",
-          "strengths": [
-            "Proposes a new neural network architecture for SR that ensures output consistency with inputs.",
-            "Addresses the limitations of MSE-based methods and motivates the use of MAP inference."
-          ],
-          "weaknesses": [
-            "The paper lacks citation coverage as no relevant related work was found in the provided set.",
-            "Does not compare its approach comprehensively against existing SR techniques, making it hard to assess its novelty and applicability."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The review accurately points out gaps in citation coverage but misses that the paper does introduce a novel neural network architecture for SR, which is significant even if not directly compared to all existing techniques. The reviewer's confidence of 0.2 seems too low given this specific point.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What specific hyperparameters were used in the experiments? How was the train/test split handled?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to image super-resolution using amortised Maximum a Posteriori (MAP) inference, aiming to produce more plausible high-resolution images by maximizing the posterior probability. The authors introduce a new neural network architecture that enforces consistency between low and high resolution outputs through three training methods: GAN-based, denoiser-guided SR, and maximum-likelihood-trained image prior.\n\n### Key Strengths\n\n1. **Clear Motivation**: The paper clearly explains why amortised MAP inference is beneficial for super-resolution tasks.\n2. **Innovative Architecture**: Proposes a new CNN architecture that ensures consistency between low and high resolution outputs.\n3. **Training Methods**: Introduces three methods to approximate cross-entropy minimization, which could potentially simplify the training process.\n\n### Key Weaknesses (Prioritized)\n\n1. **Abstract and Section Clarity**: The abstract is vague, lacking specific details on the methods or contributions. Some sections lack clear headings, making it harder to follow the structure.\n2. **Methodological Details**: Lacks comparison against established baselines for SR methods using MAP inference. Specific hyperparameters and train/test split details are missing; these need clarification.\n3. **Citation Coverage**: The paper lacks citation coverage as no relevant related work was found in the provided set, making it difficult to assess its novelty comprehensively.\n\n### Missing Sections / Information\n\n- **Abstract Clarification**: A more detailed abstract that includes specific contributions and methods would enhance clarity.\n- **Hyperparameters and Train/Test Split Details**: Specific hyperparameter values and details on how the train/test split was handled should be provided for reproducibility.\n- **Comparison Against Baselines**: Comprehensive comparison against existing SR techniques using MAP inference to establish its novelty.\n\n### Significance Assessment\n\nThe contribution appears significant in terms of proposing a novel approach to ensure consistency between low and high resolution outputs. However, the lack of citation coverage and comprehensive comparison against established methods makes it challenging to assess whether this work will have substantial impact on the field. The paper claims that amortised MAP inference can produce more plausible results, but without robust comparisons, its significance is somewhat limited.\n\n### Recommendation\n\nWhile the proposed approach shows promise, particularly in ensuring output consistency, the manuscript needs significant revisions to address the identified weaknesses. Specifically, the authors should:\n\n1. **Clarify and Expand the Abstract**: Provide a detailed summary of the contributions and methods.\n2. **Add Clear Headings**: Ensure all sections are clearly labeled for better readability.\n3. **Include Hyperparameters and Train/Test Split Details**: Provide specific values used in experiments to ensure reproducibility.\n4. **Comprehensive Baseline Comparison**: Conduct thorough comparisons against existing SR techniques using MAP inference.\n\nGiven these revisions, the paper could be resubmitted with a stronger claim of significance. I recommend a \"Revise and Resubmit\" status for this manuscript after addressing the above points.",
-    "overall_confidence": 0.6
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper proposes a novel approach to image super-resolution using amortised Maximum a Posteriori (MAP) inference, which aims to produce more plausible high-resolution images by maximizing the posterior probability. The authors introduce a new neural network architecture that ensures consistency between low and high resolution outputs and present three methods for training this model: GAN-based, denoiser-guided SR, and maximum-likelihood-trained image prior.\n\n### Key Strengths\n\n1. **Clear Motivation**: The paper provides a clear motivation for using MAP inference in super-resolution to produce more plausible results.\n2. **Innovative Architecture**: Proposes an innovative CNN architecture that enforces consistency between low and high resolution outputs.\n3. **Novel Training Methods**: Introduces three novel methods for training the model, which could simplify the process compared to traditional approaches.\n\n### Key Weaknesses (Prioritized)\n\n1. **Abstract Vagueness**: The abstract is somewhat vague and lacks specific details on the methods or contributions. This should be addressed in the revised version.\n2. **Lack of Comparison Against Established Baselines**: The paper does not compare its approach against established baselines for super-resolution using MAP inference, which limits its novelty and significance.\n3. **Missing Hyperparameters and Train/Test Split Details**: Specific hyperparameters and train/test split details are missing, making it difficult to replicate the experiments.\n\n### Missing Sections / Information\n\n- **Comparison with Existing Methods**: The paper should provide a more detailed comparison with existing non-traditional loss functions or generative models in the related work set.\n- **Detailed Experiment Setup**: Clarification on specific hyperparameters and the train/test split is necessary for reproducibility.\n\n### Significance Assessment\n\nWhile the proposed approach introduces an innovative CNN architecture that enforces output consistency, its significance appears to be limited. The paper claims to address limitations of traditional MSE-based approaches but does not clearly distinguish itself from other methods aiming to improve perceptual quality through non-traditional loss functions or generative models. Given the lack of comparison against established baselines and missing experimental details, it is unclear whether this contribution will have a substantial impact on the field.\n\n### Recommendation\n\nThe paper shows promise with its novel approach but requires significant revisions before submission. The authors should address the weaknesses by providing more detailed comparisons with existing methods, specifying hyperparameters and train/test splits, and addressing any gaps in the related work section. If these issues are adequately addressed, the contribution could be considered for further consideration.\n\n**Actionable Steps:**\n1. **Refine Abstract**: Ensure the abstract clearly outlines the key contributions.\n2. **Include Baseline Comparisons**: Conduct and report experiments comparing your approach with established methods.\n3. **Specify Hyperparameters and Train/Test Details**: Provide detailed information on hyperparameters and train/test splits to ensure reproducibility.\n\nFinal Recommendation: **Promising but needs major revision before submission**. Address the identified weaknesses for a stronger contribution.",
+    "overall_confidence": 0.77
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T01:50:16.397160+00:00"
 }

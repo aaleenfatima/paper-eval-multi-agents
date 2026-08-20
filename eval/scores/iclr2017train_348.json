@@ -1,0 +1,21 @@
+{
+  "paper_id": "iclr2017train_348",
+  "scored_at": "2026-08-14T11:07:11.879502+00:00",
+  "elapsed_seconds": 114.4,
+  "judge_verdict": {
+    "agreement_score": 0.5,
+    "matched_criticisms": [
+      "Clarity of Results",
+      "Experimental Setup Details Missing"
+    ],
+    "missed_by_paperpilot": [
+      "Overreliance on Formalism",
+      "Lack of Context for Previous Work"
+    ],
+    "paperpilot_flagged_extra": [
+      "Relevance of Continuous Transformations",
+      "Detailed Experimental Replication Issues"
+    ],
+    "reasoning": "The AI system and the human reviewer both highlighted issues with experimental details, but the human reviewer also pointed out overreliance on formalism and a lack of context for previous work, which were not addressed by the AI."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "iclr2017train_343",
+  "scored_at": "2026-08-14T11:01:13.548256+00:00",
+  "elapsed_seconds": 115.9,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of detailed methodology",
+      "Insufficient evaluation details",
+      "Limited discussion on limitations"
+    ],
+    "missed_by_paperpilot": [
+      "Strong originality in the approach",
+      "Empirical results on PL language modeling"
+    ],
+    "paperpilot_flagged_extra": [
+      "Clarification needed for MCMC approach and interpretability",
+      "Detailed explanation of DSL syntax and expressiveness"
+    ],
+    "reasoning": "The AI system correctly identified key weaknesses such as lack of methodology details, evaluation metrics, and limitations. However, it missed the human reviewer's emphasis on originality and empirical results, which are crucial points for this paper."
+  }
+}

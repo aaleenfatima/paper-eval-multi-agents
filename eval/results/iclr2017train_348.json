@@ -40,20 +40,26 @@
     },
     "novelty": {
       "agent_name": "novelty",
-      "summary": "The paper introduces Steerable Convolutional Neural Networks, which are claimed to achieve state-of-the-art results on the CIFAR benchmark. However, without any related work to compare against, it is difficult to assess the novelty of this contribution.",
+      "summary": "The paper presents Steerable Convolutional Neural Networks (Steerable CNNs), which are shown to achieve state-of-the-art results on CIFAR image classification. While it builds upon previous work in equivariant networks, particularly focusing on the theory and parameter cost of steerable representations, its contribution is novel as it decouples computational costs from symmetry group size. However, the paper could better position itself against existing literature by more explicitly discussing related works like General E(2)-Equivariant Steerable CNNs (2019) and 3D Steerable CNNs (2018).",
       "strengths": [
-        "Clear theoretical framework for steerable representations.",
-        "Potential for improved parameter efficiency and scalability."
+        "Achieves state-of-the-art results on CIFAR image classification.",
+        "Decouples computational costs from symmetry group size."
       ],
       "weaknesses": [
-        "Lack of comparison with existing equivariant CNN approaches limits assessment of novelty.",
-        "Insufficient citation coverage given the absence of related work."
+        "Does not explicitly discuss related works like General E(2)-Equivariant Steerable CNNs and 3D Steerable CNNs, which are relevant to the theory of steerable representations.",
+        "Could provide more context on how its approach differs or improves upon previous work in equivariance."
       ],
-      "confidence": 0.2,
+      "confidence": 0.8,
       "needs_clarification": null,
-      "was_debated": true,
-      "pre_debate_confidence": 0.2,
-      "related_papers_considered": []
+      "was_debated": false,
+      "pre_debate_confidence": null,
+      "related_papers_considered": [
+        "General E(2)-Equivariant Steerable CNNs (2019)",
+        "3D Steerable CNNs: Learning Rotationally Equivariant Features in Volumetric Data (2018)",
+        "Steerable CNNs (2016)",
+        "A Program to Build E(N)-Equivariant Steerable CNNs (2022)",
+        "Conditional Clifford-Steerable CNNs for PDE Modeling (2025)"
+      ]
     },
     "debate_log": [
       {
@@ -78,35 +84,14 @@
         "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
         "final_confidence": 0.6,
         "confidence_changed": false
-      },
-      {
-        "agent_name": "novelty",
-        "original_verdict": {
-          "agent_name": "novelty",
-          "summary": "The paper introduces Steerable Convolutional Neural Networks, which are claimed to achieve state-of-the-art results on the CIFAR benchmark. However, without any related work to compare against, it is difficult to assess the novelty of this contribution.",
-          "strengths": [
-            "Clear theoretical framework for steerable representations.",
-            "Potential for improved parameter efficiency and scalability."
-          ],
-          "weaknesses": [
-            "Lack of comparison with existing equivariant CNN approaches limits assessment of novelty.",
-            "Insufficient citation coverage given the absence of related work."
-          ],
-          "confidence": 0.2,
-          "needs_clarification": null,
-          "was_debated": true,
-          "pre_debate_confidence": 0.2
-        },
-        "challenger_critique": "The original review's weakness regarding lack of comparison with existing equivariant CNN approaches is not entirely accurate. The paper does cite previous work on equivariant CNNs, such as Cohen & Welling (2016) and Dieleman et al. (2016), which provides context for the novelty claim.",
-        "resolution_summary": "Challenge did not surface a substantive gap; original verdict retained.",
-        "final_confidence": 0.2,
-        "confidence_changed": false
       }
     ],
     "clarifying_questions_asked": [
       "What specific baseline models were used for comparison in the CIFAR-10 experiments? How was the model trained (e.g., learning rate, batch size)? What are the exact evaluation metrics reported?"
     ],
-    "final_recommendation": "### Overall Summary\n\nThe paper introduces Steerable Convolutional Neural Networks (SCNNs) and claims to achieve state-of-the-art performance on the CIFAR-10 dataset while offering potential improvements in parameter efficiency. The theoretical background is clear, but there are significant gaps in the experimental details and related work section.\n\n### Key Strengths\n\n1. **Clear Introduction**: The paper provides a well-defined problem statement and motivation for steerable CNNs.\n2. **Theoretical Framework**: A solid theoretical foundation is laid out with relevant references.\n3. **Potential Benefits**: SCNNs are claimed to offer improved parameter efficiency and scalability, which could be significant contributions if validated.\n\n### Key Weaknesses (Prioritized)\n\n1. **Lack of Experimental Details**:\n   - The paper does not provide specific details about the experimental setup, such as baseline models used for comparison.\n   - Missing training parameters and evaluation metrics make it difficult to evaluate the claims.\n2. **Missing Related Work Section**: Without a comprehensive related work section, it is challenging to assess the novelty of SCNNs in the context of existing research.\n3. **Insufficient Citation Coverage**: The lack of related work limits the citation coverage, making it hard to place the contribution within the broader literature.\n\n### Missing Sections / Information\n\n- **Baseline Models and Training Details**: Specific details about baseline models used for comparison and training parameters (e.g., learning rate, batch size) are missing.\n- **Evaluation Metrics**: Clear definitions of evaluation metrics reported in the experiments are not provided.\n- **Related Work Section**: A comprehensive section comparing SCNNs with existing equivariant CNN approaches is necessary.\n\n### Significance Assessment\n\nThe contribution appears to be promising but incremental. The theoretical framework and potential benefits, such as improved parameter efficiency and scalability, could be significant if validated through rigorous experimental evaluation. However, the current state of the paper lacks sufficient detail to substantiate these claims convincingly within the field.\n\n### Recommendation\n\nThis manuscript is promising but requires substantial revision before submission. The author should focus on addressing the key weaknesses by providing detailed experimental setup information, including baseline models and training parameters, as well as clear evaluation metrics. Additionally, a comprehensive related work section is essential for assessing the novelty of SCNNs. Addressing these issues will significantly enhance the paper's quality and impact.\n\n**Actionable Feedback:**\n- **Add Baseline Models**: Include specific details about the baseline models used in comparison.\n- **Training Parameters**: Provide clear training parameters (e.g., learning rate, batch size).\n- **Evaluation Metrics**: Define and report all evaluation metrics used.\n- **Related Work Section**: Integrate a comprehensive related work section to assess the novelty of SCNNs.\n\nGiven these revisions, I would recommend resubmitting after addressing the above points. If well-executed, this paper has the potential to make a meaningful contribution to the field. However, as it stands, significant improvements are necessary. \n\n**Final Recommendation: Resubmit with Major Revisions**.",
-    "overall_confidence": 0.53
-  }
+    "final_recommendation": "### Overall Summary\n\nThe paper introduces Steerable Convolutional Neural Networks, which are designed to achieve state-of-the-art results on image classification tasks while being more efficient in terms of parameter usage. The theoretical foundation and the claim of achieving state-of-the-art performance on CIFAR-10 make this work promising. However, significant improvements are needed regarding clarity, experimental setup details, related works discussion, and overall significance.\n\n### Key Strengths\n\n1. **Clear Introduction**: The paper provides a clear introduction to the problem and motivation for steerable CNNs.\n2. **Theoretical Foundation**: It offers detailed theoretical background with relevant references.\n3. **State-of-the-Art Performance**: Claims state-of-the-art results on CIFAR-10, which is a significant achievement.\n\n### Key Weaknesses (Prioritized, Most Important First)\n\n1. **Experimental Setup Details Missing**: The paper lacks specific details about the experimental setup, including baseline models used for comparison, training parameters, and evaluation metrics.\n2. **Related Work Section Absent**: No related work section provides context for previous approaches in equivariant networks.\n3. **Clarity of Results**: Results are not described in detail, making it hard to evaluate the claims.\n\n### Missing Sections / Information\n\n1. **Related Work Section**: The paper should include a detailed discussion of relevant works like General E(2)-Equivariant Steerable CNNs (2019) and 3D Steerable CNNs (2018).\n2. **Experimental Setup Details**: Provide specific details about the baseline models, training parameters, and evaluation metrics used in the experiments.\n3. **Evaluation Metrics**: Clearly state the exact evaluation metrics reported.\n\n### Significance Assessment\n\nThe contribution of this paper is significant as it achieves state-of-the-art results on CIFAR-10 while decoupling computational costs from symmetry group size. However, the significance could be further enhanced by better positioning itself against existing literature and providing more detailed experimental evidence. The theoretical foundation is strong, but without a comprehensive related work section and clear experimental details, the overall impact of this research may be limited.\n\n### Recommendation\n\nThe paper shows promise but requires significant revisions before submission. The author should address the missing sections and provide more clarity on the experimental setup and results. Additionally, including a thorough discussion of relevant works will strengthen the argument for the significance of this contribution. I recommend resubmitting after addressing these issues to ensure that the work is both novel and rigorous enough to make a substantial impact in the field.\n\n**Action Items:**\n- Add a related work section.\n- Provide detailed experimental setup, including baseline models, training parameters, and evaluation metrics.\n- Clarify results and provide more context for the significance of the findings.",
+    "overall_confidence": 0.73
+  },
+  "novelty_backfilled": true,
+  "backfilled_at": "2026-08-14T08:09:43.053693+00:00"
 }

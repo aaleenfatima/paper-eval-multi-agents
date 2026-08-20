@@ -1,0 +1,18 @@
+{
+  "paper_id": "iclr2017train_322",
+  "scored_at": "2026-08-14T10:37:35.359284+00:00",
+  "elapsed_seconds": 121.7,
+  "judge_verdict": {
+    "agreement_score": 0.5,
+    "matched_criticisms": [
+      "Insufficient Experimental Validation",
+      "Inadequate Related Work Coverage"
+    ],
+    "missed_by_paperpilot": [],
+    "paperpilot_flagged_extra": [
+      "Computational Cost of AdaRad",
+      "Reducing the Number of Hyperparameters"
+    ],
+    "reasoning": "The human reviewer did not raise concerns about experimental validation or related work, which are key weaknesses according to PaperPilot. However, both reviews agreed on the importance of these issues. Additionally, the human reviewer highlighted new content in the paper addressing computational cost and hyperparameter reduction, which were not mentioned by PaperPilot."
+  }
+}

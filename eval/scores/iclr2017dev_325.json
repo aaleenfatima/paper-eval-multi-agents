@@ -1,12 +1,22 @@
 {
   "paper_id": "iclr2017dev_325",
-  "scored_at": "2026-08-13T11:06:13.776414+00:00",
-  "elapsed_seconds": 380.8,
+  "scored_at": "2026-08-14T09:47:40.113269+00:00",
+  "elapsed_seconds": 128.0,
   "judge_verdict": {
-    "agreement_score": 0.85,
-    "matched_criticisms": [],
-    "missed_by_paperpilot": [],
-    "paperpilot_flagged_extra": [],
-    "reasoning": "The paper introduces an interesting heuristic approach for training generative models via iterative denoising. While the method is novel and potentially valuable, there are several areas where further clarity and empirical validation would strengthen the work. The authors address many of these concerns in their response, which I find satisfactory."
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Insufficient Methodological Detail",
+      "Lack of Proper Citation"
+    ],
+    "missed_by_paperpilot": [
+      "Added references to related works",
+      "Improved log-likelihood estimates and comparisons with other models"
+    ],
+    "paperpilot_flagged_extra": [
+      "Computational Efficiency",
+      "Inpainting Results",
+      "Sensitivity Analysis on Infusion Rate"
+    ],
+    "reasoning": "The AI system correctly identified the lack of methodological detail and proper citation, which are significant issues. However, it missed important updates in the paper such as added references, improved log-likelihood estimates, and experimental details that enhance the robustness of the work."
   }
 }

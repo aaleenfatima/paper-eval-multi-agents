@@ -1,0 +1,20 @@
+{
+  "paper_id": "iclr2017train_362",
+  "scored_at": "2026-08-14T11:23:42.831062+00:00",
+  "elapsed_seconds": 118.5,
+  "judge_verdict": {
+    "agreement_score": 0.6,
+    "matched_criticisms": [
+      "Lack of specific details on experiments, such as objective functions and datasets used",
+      "The generalization capabilities of the learned optimizer are not fully evaluated or demonstrated"
+    ],
+    "missed_by_paperpilot": [
+      "Experiments are not particularly compelling",
+      "The argument of using RL vs gradients at the meta-level is not clear or convincing, and should be compared experimentally"
+    ],
+    "paperpilot_flagged_extra": [
+      "Lack of comparison with existing methods makes assessing novelty difficult"
+    ],
+    "reasoning": "Both critiques agree on the lack of experimental detail and generalization evaluation. However, PaperPilot also highlights specific weaknesses in comparisons to established methods, which were not emphasized by the human reviewer."
+  }
+}
